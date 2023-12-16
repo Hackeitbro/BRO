@@ -1,0 +1,358 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  background-color: #c82e2e;
+  border: 2px solid gainsboro;
+}
+
+h1 {
+  color: rgb(200, 0, 0);
+  background-color: azure;
+  border: 2px solid gainsboro;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.container {
+  margin: 60px;
+  width: 768px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  padding-inline: 323px;
+  height: 3353px;
+}
+
+.section {
+  margin: 52px -63px;
+}
+
+.input-label {
+  display: inline-block;
+  width: 130px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 72px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.result {
+  width: 60px;
+  display: inline-block;
+  font-weight: bold;
+  color: crimson;
+}
+
+.resultfinal {
+  width: 60px;
+  display: inline-block;
+  font-weight: bold;
+  color: green;
+}
+
+button {
+  border: 2px solid black;
+  color: #ccc;
+  background-color: rgb(0, 153, 255);
+  border-radius: 9px;
+  width: 134px;
+  padding: 8px;
+  margin-top: 20px;
+  margin-inline: 12px;
+  cursor: pointer;
+}
+
+.report-container {
+  width: 1450px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: left;
+  margin: 503px;
+  margin-left: -365px;
+  height: 998px;
+} 
+
+
+
+/* kadappa calculator css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container2 {
+  text-align: center;
+  margin: 20px;
+}
+
+.input-label2 {
+  font-size: 18px;
+}
+
+.input-label3 {
+  font-size: 18px;
+  margin-left: 66px;
+}
+
+.input-field2 {
+  width: 102px;
+  font-size: 18px;
+  text-align: center;
+  height: 26px;
+  margin-top: 12px;
+}
+
+.input-field3 {
+  width: 102px;
+  font-size: 18px;
+  text-align: center;
+  height: 26px;
+  margin-top: 12px;
+}
+
+.result2 {
+  font-size: 18px;
+}
+
+#finalReportTable {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px;
+}
+
+#finalReportTable th, #finalReportTable td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+#finalReportTable th {
+background-color: #f2f2f2;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 28px;
+  text-align: left;
+}
+
+ #currentDate{
+   text-align: center;
+   margin-top: -18px;
+}
+
+#currentDate2{
+   text-align: center;
+   margin-top: -18px;
+}
+
+#userInput{
+  text-align: center;
+  width: 52px;
+border-block: none;
+}
+
+#userInput2{
+  text-align: center;
+  width: 52px;
+border-block: none;
+}
+
+/* Additional styles for kaddapa container */
+.container2 {
+text-align: center;
+margin: 20px;
+}
+
+.input-label2 {
+display: inline-block;
+width: 76px;
+text-align: right;
+font-weight: bold;
+}
+
+.input-label3 {
+display: inline-block;
+width: 76px;
+text-align: right;
+font-weight: bold;
+margin-left: 22px;
+}
+
+.input-field2,
+.input-field3 {
+width: 102px;
+padding: 5px;
+border: 1px solid #ccc;
+border-radius: 3px;
+margin-top: 12px;
+}
+
+.result2 {
+width: 60px;
+display: inline-block;
+font-weight: bold;
+color: crimson;
+}
+
+/* Button style for Kaddapa */
+button {
+border: 2px solid black;
+color: #ccc;
+background-color: rgb(190, 53, 53); /* Orange color, you can change this to your preference */
+border-radius: 9px;
+width: 134px;
+padding: 8px;
+margin-top: 20px;
+margin-inline: 12px;
+cursor: pointer;
+}
+
+/* Result paragraph style for Kaddapa */
+#kaddapaResult {
+font-weight: bold;
+color: rgb(220, 20, 20);
+margin-top: 10px;
+}
+
+/* simple calculator */
+#calculator {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-block-start: -516px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  width:  189px;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#numberInput {
+  font-size: 16px;
+  padding: 8px;
+  width: 100px;
+}
+
+#result {
+margin-top: -20px;
+font-size: 18px;
+color: black;
+border: 1px solid #ddd;
+margin-right: 0px;
+text-align: end;
+padding-inline: 39px;
+padding-bottom: 12px;
+}
+
+@media print {
+  #enterNumberSection {
+    display: none;
+  }
+}
+
+
+/* CSS Styles for Address Section */
+.address-section {
+margin-bottom: 20px;
+}
+
+.address-section p {
+margin: 8px 18px;
+text-align: left;
+}
+
+/* CSS Styles for Customer Information Section */
+.customer-info-section {
+margin-top: 20px;
+}
+
+.customer-info-section p {
+margin: 12px 0;
+}
+
+.customer-info-section span {
+border-bottom: 1px dotted #000; /* Add a dotted line underline to the editable spans */
+padding: 0 5px;
+display: inline-block;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#addRowBtn,
+#printBtn {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+@media print {
+  #addRowBtn,
+  #printBtn {
+    display: none;
+  }
+}
+
+@media print{
+
+}
+
+.dynamic-input {
+    border: none;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }

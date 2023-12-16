@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style2.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+  }
+
+  #invoiceButton {
+    display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: #fff;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 52px;
+  }
+
+  #invoiceButton:hover {
+      background-color: #45a049;
+  }
+
+  #invoiceButton2 {
+    display: inline-block;
+    padding: 7px 39px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #fff;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 194px;
+    margin-left: -244px;
+  }
+
+  #invoiceButton2:hover {
+      background-color: #45a049;
+  }
+
+  body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #dateDisplay {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.calculator-container {
+  max-width: 676px;
+    margin: 36px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 493px;
+}
+
+.calculation-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* #resultAllSections {
+  margin-top: -921px;
+    margin-left: 79px;
+    width: 1693px;
+    font-weight: bold;
+} */
+
+#resultAllSections {
+    margin-top: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#resultAllSections p {
+    flex: 0 0 25%; /* Adjust the width as needed */
+    margin: 0;
+}
+
+#resultAllSections p:nth-child(even) {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#resultAllSections p:last-child {
+    flex-basis: 100%;
+    margin-top: 10px;
+}
+/* Add these styles to your existing CSS or create a new CSS file */
+/* .payment-section {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-section h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+select,
+input,
+button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#paymentNotification {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #4CAF50;
+} */
+
+
+  </style>
+</head>
+
+<body>
+  
+ 
+    
+  <div class="container">
+    <h2>Length and Breadth to Square Feet Calculator (Granite Only)</h2>
+    <!-- Section 1 -->
+    <div class="section">
+      <label for="inputLength1" class="input-label">Length 1 (inches):</label>
+      <input type="number" id="inputLength1" class="input-field" step="0.01" min="0">
+      <label for="inputBreadth1" class="input-label">Breadth 1 (inches):</label>
+      <input type="number" id="inputBreadth1" class="input-field" step="0.01" min="0">
+      <label for="quantity1" class="input-label">Quantity:</label>
+      <input type="number" id="quantity1" class="input-field" min="0" value="1">
+      <label for="squareFeet1" class="input-label">Square Feet:</label>
+      <span id="squareFeet1" class="result"></span>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <label for="inputLength2" class="input-label">Length 2 (inches):</label>
+      <input type="number" id="inputLength2" class="input-field" step="0.01" min="0">
+      <label for="inputBreadth2" class="input-label">Breadth 2 (inches):</label>
+      <input type="number" id="inputBreadth2" class="input-field" step="0.01" min="0">
+      <label for="quantity2" class="input-label">Quantity:</label>
+      <input type="number" id="quantity2" class="input-field" min="0" value="1">
+      <label for="squareFeet2" class="input-label">Square Feet:</label>
+      <span id="squareFeet2" class="result"></span>
+    </div>
+
+    <!-- Add more sections (3-6) for Length and Breadth -->
+    <!-- Section 3 -->
+    <div class="section">
+      <label for="inputLength3" class="input-label">Length 3 (inches):</label>
+      <input type="number" id="inputLength3" class="input-field" step="0.01" min="0">
+      <label for="inputBreadth3" class="input-label">Breadth 3 (inches):</label>
+      <input type="number" id="inputBreadth3" class="input-field" step="0.01" min="0">
+      <label for="quantity3" class="input-label">Quantity:</label>
+      <input type="number" id="quantity3" class="input-field" min="0" value="1">
+      <label for="squareFeet3" class="input-label">Square Feet:</label>
+      <span id="squareFeet3" class="result"></span>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <label for="inputLength4" class="input-label">Length 4 (inches):</label>
+      <input type="number" id="inputLength4" class="input-field" step="0.01" min="0">
+      <label for="inputBreadth4" class="input-label">Breadth 4 (inches):</label>
+      <input type="number" id="inputBreadth4" class="input-field" step="0.01" min="0">
+      <label for="quantity4" class="input-label">Quantity:</label>
+      <input type="number" id="quantity4" class="input-field" min="0" value="1">
+      <label for="squareFeet4" class="input-label">Square Feet:</label>
+      <span id="squareFeet4" class="result"></span>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <label for="inputLength5" class="input-label">Length 5 (inches):</label>
+      <input type="number" id="inputLength5" class="input-field" step="0.01" min="0">
+      <label for="inputBreadth5" class="input-label">Breadth 5 (inches):</label>
+      <input type="number" id="inputBreadth5" class="input-field" step="0.01" min="0">
+      <label for="quantity5" class="input-label">Quantity:</label>
+      <input type="number" id="quantity5" class="input-field" min="0" value="1">
+      <label for="squareFeet5" class="input-label">Square Feet:</label>
+      <span id="squareFeet5" class="result"></span>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+      <label for="inputLength6" class="input-label">Length 6 (inches):</label>
+      <input type="number" id="inputLength6" class="input-field" step="0.01" min="0">
+      <label for="inputBreadth6" class="input-label">Breadth 6 (inches):</label>
+      <input type="number" id="inputBreadth6" class="input-field" step="0.01" min="0">
+      <label for="quantity6" class="input-label">Quantity:</label>
+      <input type="number" id="quantity6" class="input-field" min="0" value="1">
+      <label for="squareFeet6" class="input-label">Square Feet:</label>
+      <span id="squareFeet6" class="result"></span>
+    </div>
+
+    <button onclick="calculateSections()">Calculate Sections</button>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <button onclick="calculateExactSum()">Exact Sum</button>
+    <p id="sectionResult"></p>
+    <p id="totalResult"></p>
+
+    <!-- Payment Section -->
+    <div class="section">
+      <label for="rate" class="input-label">Rate (per square foot):</label>
+      <input type="number" id="rate" class="input-field" step="0.01" min="0">
+      <label for="totalPayment" id="totalPayment1" class="input-label">Total Payment:</label>
+      <span id="totalPayment" class="resultfinal"></span>
+    </div>
+    
+
+
+<!-- Molding Calculator Sections 7 to 12 -->
+<div id="moldingSectionsContainer">
+  <!-- Section 7 for Molding -->
+  <div class="section">
+    <h2>Molding Calculator</h2>
+    <label for="moldingLength7" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength7" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate7" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate7" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity7" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity7" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet7" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet7" class="result2"></span>
+    <label for="moldingTotalPayment7" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment7" class="result2"></span>
+  </div>
+
+  <!-- Section 8 for Molding -->
+  <div class="section">
+    <label for="moldingLength8" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength8" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate8" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate8" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity8" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity8" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet8" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet8" class="result2"></span>
+    <label for="moldingTotalPayment8" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment8" class="result2"></span>
+  </div>
+
+  <!-- Section 9 for Molding -->
+  <div class="section">
+    <label for="moldingLength9" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength9" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate9" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate9" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity9" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity9" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet9" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet9" class="result2"></span>
+    <label for="moldingTotalPayment9" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment9" class="result2"></span>
+  </div>
+
+  <!-- Section 10 for Molding -->
+  <div class="section">
+    <label for="moldingLength10" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength10" class="input-field2" step="0.01" min="0">
+    <label for "moldingRate10" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate10" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity10" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity10" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet10" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet10" class="result2"></span>
+    <label for="moldingTotalPayment10" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment10" class="result2"></span>
+  </div>
+
+  <!-- Section 11 for Molding -->
+  <div class="section">
+    <label for="moldingLength11" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength11" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate11" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate11" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity11" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity11" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet11" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet11" class="result2"></span>
+    <label for="moldingTotalPayment11" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment11" class="result2"></span>
+  </div>
+
+  <!-- Section 12 for Molding -->
+  <div class="section">
+    <label for="moldingLength12" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength12" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate12" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate12" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity12" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity12" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet12" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet12" class="result2"></span>
+    <label for="moldingTotalPayment12" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment12" class="result2"></span>
+  </div>
+
+  <!-- Common button for calculating results -->
+  <button onclick="calculateMoldingResults()">Calculate Molding Results</button>
+
+   <!-- Button to calculate total payment for sections 7 to 12 -->
+   <button onclick="calculateTotalPaymentForMolding()">Calculate Total Payment for Sections 7-12</button>
+
+   <!-- Result for total payment of sections 7 to 12 -->
+   <div>
+     <h3>Total Payment for Sections 7-12:</h3>
+     <span id="totalPaymentMolding7to12" class="result2"></span>
+   </div>
+</div>
+
+
+ <!-- DP Calculator Section -->
+<div class="section">
+  <h2>DP Calculator</h2>
+  <label for="dpLength" class="input-label">Length (inches):</label>
+  <input type="number" id="dpLength" class="input-field" step="0.01" min="0">
+  <label for="dpBreadth" class="input-label">Breadth (inches):</label>
+  <input type="number" id="dpBreadth" class="input-field" step="0.01" min="0">
+  <label for="dpQuantity" class="input-label">Quantity:</label>
+  <input type="number" id="dpQuantity" class="input-field" min="0" value="1">
+  <label for="dpRate" class="input-label">Rate (per square foot):</label>
+  <input type="number" id="dpRate" class="input-field" step="0.01" min="0">
+  <label for="dpSquareFeet" class="input-label">Square Feet:</label>
+  <span id="dpSquareFeet" class="result"></span>
+  <label for="dpFinalPayment" class="input-label">Final Payment:</label>
+  <span id="dpFinalPayment" class="result"></span>
+</div>
+
+<!-- Common button for calculating results -->
+<button onclick="calculateDpResults()">Calculate DP Results</button>
+<button onclick="removeDpResults()">Remove DP Results</button>
+
+
+
+    
+      
+      <!-- <div class="calculator-container">
+        <h2>Kaddapa Calculator</h2> -->
+      <!-- Input Elements -->
+<!-- <input type="text" id="lengthInput" placeholder="Length">
+<input type="text" id="breadthInput" placeholder="Breadth">
+<input type="text" id="quantityInput" placeholder="Quantity">
+<input type="text" id="rateInput" placeholder="Rate"> -->
+
+
+        <!-- Button to Trigger Calculation -->
+<!-- <button onclick="calculateSquareFeet()">Calculate</button> -->
+
+<!-- Result Display -->
+<!-- <div id="resultSquareFeet"></div> -->
+
+        <!-- Repeat the above section 9 more times -->
+       <h2>Kaddapa Calculator</h2>
+        <div class="calculator-container">
+          <!-- Add 10 Calculation Sections -->
+          <div class="calculation-section">
+              <input type="text" class="length" placeholder="Length">
+              <input type="text" class="breadth" placeholder="Breadth">
+              <input type="text" class="quantity" placeholder="Quantity">
+              <input type="text" class="rate" placeholder="Rate">
+          </div>
+          <!-- Repeat the above section 9 more times -->
+          <div class="calculation-section">
+              <input type="text" class="length" placeholder="Length">
+              <input type="text" class="breadth" placeholder="Breadth">
+              <input type="text" class="quantity" placeholder="Quantity">
+              <input type="text" class="rate" placeholder="Rate">
+          </div>
+          <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+        <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+        <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+        <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+        <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+        <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+        <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+        <div class="calculation-section">
+            <input type="text" class="length" placeholder="Length">
+            <input type="text" class="breadth" placeholder="Breadth">
+            <input type="text" class="quantity" placeholder="Quantity">
+            <input type="text" class="rate" placeholder="Rate">
+        </div>
+          <!-- Button to Trigger Calculation -->
+        <button onclick="calculateAllSections()">Calculate All Sections</button>
+
+        <!-- Result Display -->
+        <div id="resultAllSections"></div>
+    </div>
+
+
+ <!-- Final Report Container -->
+ <div class="report-container" id="divone">
+  <h1 class="report-header"><b>MARVEL</b> Granite & Marbles</h1>
+  <!-- Address Section -->
+  <div class="address-section">
+    <p>Address: opp. 'D' Prabhag, Rahatani,
+                     Kalewadi Phata, Pune - 411017.
+        <br> Email: marvelgroup@yahoo.com <br> Mobile No: 8888961999             
+    </p>
+  
+  </div>
+
+  <hr /> <!-- Horizontal Line -->
+  <table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>No.<hr> Date:<p id=""></p></th>
+      <th>No.<hr> Date:<p id=""></p></th>
+    </tr>
+  </thead>
+  </table>
+  <!-- Customer Information Section -->
+  <div class="customer-info-section">
+    <p>Customer Name: <span id="customerName" contenteditable="true"></span></p>
+    <p>Mobile No: <span id="customerMobile" contenteditable="true"></span></p>
+  </div>
+
+  <table id="finalReportTable">
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>squareFeet</th>
+        <th>Rate</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will be dynamically inserted here -->
+    </tbody>
+  
+  </table>
+    
+
+<div id="result"></div>
+
+</div> 
+
+<!-- Real-Time Payment Section -->
+<!-- <div class="payment-section">
+  <h2>Real-Time Payment Method</h2>
+  <form id="paymentForm">
+    <label for="paymentMethod">Payment Method:</label>
+    <select id="paymentMethod" name="paymentMethod">
+      <option value="creditCard">Credit Card</option>
+      <option value="debitCard">Debit Card</option>
+      <option value="cash">Cash</option>
+      <option value="phonePay">PhonePay</option>
+      <option value="scanner">Scanner</option>
+    </select>
+    <label for="paymentAmount">Payment Amount:</label>
+    <input type="number" id="paymentAmount" name="paymentAmount" step="0.01" min="0">
+    <button type="button" onclick="makePayment()">Make Payment</button>
+  </form>
+  <div id="paymentNotification"></div>
+</div>
+
+ -->
+
+
+
+
+<button onclick="myfun('divone')">Print</button>
+ 
+<div id="calculator">
+  <input type="text" id="num1" placeholder="Enter number">
+  <input type="text" id="num2" placeholder="Enter number">
+  <button onclick="add()">Add</button>
+  <div id="result"></div>
+</div>
+
+
+<br>
+<br>
+<br>
+<!-- Button with link -->
+<a id="invoiceButton" href="invoice.html">Invoice Bill</a>
+<!-- <a id="invoiceButton2" href="retailbill.html">Retail Bill</a> -->
+
+
+
+<script src="script.js">
+  function sendDataToServer(data) {
+    fetch('http://localhost:3000/store-data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  // Example data to send to the server
+  const exampleData = {
+    itemName: 'Example Item',
+    description: 'Example Description',
+    quantity: 2,
+    squareFeet: 50,
+    rate: 10,
+    total: 100,
+  };
+
+  // Call the function with your actual data
+  sendDataToServer(exampleData);
+
+// realtime PAYMENT
+//   function makePayment() {
+//   const paymentMethod = document.getElementById("paymentMethod").value;
+//   const paymentAmount = parseFloat(document.getElementById("paymentAmount").value);
+
+//   if (isNaN(paymentAmount) || paymentAmount <= 0) {
+//     alert("Please enter a valid payment amount.");
+//     return;
+//   }
+
+//   // Here you can send payment details to your server if needed.
+//   // Example: sendDataToServer({ paymentMethod, paymentAmount });
+
+//   // Show payment notification
+//   const notification = document.getElementById("paymentNotification");
+//   notification.innerHTML = `Payment of ${paymentAmount} using ${paymentMethod} completed successfully.`;
+// }
+
+// // You can clear the payment notification if needed.
+// function clearPaymentNotification() {
+//   const notification = document.getElementById("paymentNotification");
+//   notification.innerHTML = "";
+// }
+
+</script>
+    
+</body>
+</html>
