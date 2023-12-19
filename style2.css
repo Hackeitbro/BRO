@@ -361,3 +361,55 @@ input {
     margin: 0;
     background-color: transparent;
   }
+
+ #divtwo{
+    margin: -333px;
+    width: 1444px;
+  }
+
+  @media print {
+    body {
+      margin: 0; /* Reset default margin */
+    }
+
+    #divtwo {
+      width: 100%;
+      margin: 0;
+      padding: 10px; /* Add padding for better visual appearance */
+      box-sizing: border-box;
+    }
+
+    .report-header {
+      text-align: center;
+    }
+
+    .address-section {
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    #addRowBtn, #printBtn {
+      display: none; /* Hide buttons when printing */
+    }
+
+    span[contenteditable="true"] {
+      /* border: 1px solid black; */
+      padding: 5px;
+      display: inline-block;
+      min-width: 50px; /* Set a minimum width for better readability */
+    }
+  }
