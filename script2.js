@@ -1,11 +1,9 @@
-
-
-    
 function calculateAllSections() {
     var sections = document.querySelectorAll('.calculation-section');
     var resultDiv = document.getElementById('resultAllSections');
     var tableBody = document.querySelector('#finalReportTable tbody');
     var totalResult = 0; // Initialize total result
+    var totalSquareFeet = 0; // Initialize total square feet
 
     // Reset the result display and final report table
     resultDiv.innerHTML = '';
@@ -31,8 +29,9 @@ function calculateAllSections() {
                 `<p>Square Feet: ${squareFeet.toFixed(2)}</p>` +
                 `<p>Final Result: ${result.toFixed(2)}</p>`;
 
-            // Update total result
+            // Update total result and total square feet
             totalResult += result;
+            totalSquareFeet += squareFeet;
 
             // Create a new row in the final report table for each section
             var newRow = tableBody.insertRow();
@@ -46,7 +45,7 @@ function calculateAllSections() {
     });
 
     // Display total square feet and total result in resultDiv
-    resultDiv.innerHTML += `<p>Total Sq/ft: ${totalResult.toFixed(2)}</p>` +
+    resultDiv.innerHTML += `<p>Total Sq/ft: ${totalSquareFeet.toFixed(2)}</p>` +
         `<p>Total Amount: ${totalResult.toFixed(2)}</p>`;
 
     // Create a row for the total values in the final report table
@@ -54,13 +53,11 @@ function calculateAllSections() {
     totalRow.insertCell(0).textContent = 'Kaddapa Total';
     totalRow.insertCell(1).textContent = '';
     totalRow.insertCell(2).textContent = '';
-    totalRow.insertCell(3).textContent = '';
+    totalRow.insertCell(3).textContent = totalSquareFeet.toFixed(2);
     totalRow.insertCell(4).textContent = '';
     totalRow.insertCell(5).textContent = totalResult.toFixed(2);
 }
 
-// Rest of your code remains unchanged
-  
 
 
 // Custom rounding function remains the same
