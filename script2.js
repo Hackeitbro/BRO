@@ -5,9 +5,9 @@ function calculateAllSections() {
     var totalResult = 0; // Initialize total result
     var totalSquareFeet = 0; // Initialize total square feet
 
-    // Reset the result display and final report table
-    resultDiv.innerHTML = '';
-    tableBody.innerHTML = '';
+    
+     resultDiv.innerHTML = '';
+    
 
     sections.forEach(function (section, index) {
         var lengthInput = parseFloat(section.querySelector('.length').value) || 0;
@@ -24,10 +24,13 @@ function calculateAllSections() {
             var squareFeet = ((roundedLength * roundedBreadth) / 144) * quantityInput;
             var result = squareFeet * rateInput;
 
-            // Display results for the current section in the resultDiv
-            resultDiv.innerHTML += `<p>Section ${index + 1}:</p>` +
-                `<p>Square Feet: ${squareFeet.toFixed(2)}</p>` +
-                `<p>Final Result: ${result.toFixed(2)}</p>`;
+            // Check if result for the current section has not been displayed
+            if (index === 0 || resultDiv.innerHTML.indexOf(`Section ${index + 1}`) === -1) {
+                // Display results for the current section in the resultDiv
+                resultDiv.innerHTML += `<p>Section ${index + 1}:</p>` +
+                    `<p>Square Feet: ${squareFeet.toFixed(2)}</p>` +
+                    `<p>Final Result: ${result.toFixed(2)}</p>`;
+            }
 
             // Update total result and total square feet
             totalResult += result;
@@ -41,23 +44,24 @@ function calculateAllSections() {
             newRow.insertCell(3).textContent = squareFeet.toFixed(2);
             newRow.insertCell(4).textContent = rateInput.toFixed(2);
             newRow.insertCell(5).textContent = result.toFixed(2);
-        }
-    });
 
-    // Display total square feet and total result in resultDiv
-    resultDiv.innerHTML += `<p>Total Sq/ft: ${totalSquareFeet.toFixed(2)}</p>` +
-        `<p>Total Amount: ${totalResult.toFixed(2)}</p>`;
-
-    // Create a row for the total values in the final report table
+    //          // Create a row for the total values in the final report table
     var totalRow = tableBody.insertRow();
-    totalRow.insertCell(0).textContent = 'Kaddapa Total';
+    totalRow.insertCell(0).textContent = 'Total';
     totalRow.insertCell(1).textContent = '';
     totalRow.insertCell(2).textContent = '';
     totalRow.insertCell(3).textContent = totalSquareFeet.toFixed(2);
     totalRow.insertCell(4).textContent = '';
     totalRow.insertCell(5).textContent = totalResult.toFixed(2);
-}
 
+    
+       }
+    });
+
+    // Display total square feet and total result in resultDiv
+    resultDiv.innerHTML += `<p>Total Sq/ft: ${totalSquareFeet.toFixed(2)}</p>` +
+        `<p>Total Amount: ${totalResult.toFixed(2)}</p>`;
+}
 
 
 // Custom rounding function remains the same
