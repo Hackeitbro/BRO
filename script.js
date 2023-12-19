@@ -146,6 +146,30 @@ function calculateSections() {
   calculateSection(4);
   calculateSection(5);
   calculateSection(6);
+  calculateSection(7);
+  calculateSection(8);
+  calculateSection(9);
+  calculateSection(10);
+  calculateSection(11);
+  calculateSection(12);
+  calculateSection(13);
+  calculateSection(14);
+  calculateSection(15);
+  calculateSection(16);
+  calculateSection(17);
+  calculateSection(18);
+  calculateSection(19);
+  calculateSection(20);
+  calculateSection(21);
+  calculateSection(22);
+  calculateSection(23);
+  calculateSection(24);
+  calculateSection(25);
+  calculateSection(26);
+  calculateSection(27);
+  calculateSection(28);
+  calculateSection(29);
+  calculateSection(30);
   calculateTotalPayment();
 }
 
@@ -177,7 +201,7 @@ function calculateExactSum() {
 
 function getSquareFeetTotal() {
   let totalSquareFeet = 0;
-  for (let sectionNumber = 1; sectionNumber <= 6; sectionNumber++) {
+  for (let sectionNumber = 1; sectionNumber <= 30; sectionNumber++) {
     const squareFeet = parseFloat(document.getElementById(`squareFeet${sectionNumber}`).textContent) || 0;
     totalSquareFeet += squareFeet;
   }
@@ -193,7 +217,7 @@ tableBody.innerHTML = ''; // Clear existing rows
 let totalSquareFeet = 0;
 
 // Add rows for each section with a value
-for (let sectionNumber = 1; sectionNumber <= 6; sectionNumber++) {
+for (let sectionNumber = 1; sectionNumber <= 30; sectionNumber++) {
 const length = parseFloat(document.getElementById(`inputLength${sectionNumber}`).value) || 0;
 const breadth = parseFloat(document.getElementById(`inputBreadth${sectionNumber}`).value) || 0;
 const quantity = parseInt(document.getElementById(`quantity${sectionNumber}`).value) || 0;
@@ -212,6 +236,31 @@ if (length > 0 && breadth > 0 && quantity > 0) {
   const cell4 = row.insertCell(3);
   const cell5 = row.insertCell(4);
   const cell6 = row.insertCell(5);
+  // const cell7 = row.insertCell(6);
+  // const cell8 = row.insertCell(7);
+  // const cell9 = row.insertCell(8);
+  // const cell10 = row.insertCell(9);
+  // const cell11 = row.insertCell(10);
+  // const cell12 = row.insertCell(11);
+  // const cell13 = row.insertCell(12);
+  // const cell14 = row.insertCell(13);
+  // const cell15 = row.insertCell(14);
+  // const cell16 = row.insertCell(15);
+  // const cell17 = row.insertCell(16);
+  // const cell18 = row.insertCell(17);
+  // const cell19 = row.insertCell(18);
+  // const cell20 = row.insertCell(19);
+  // const cell21 = row.insertCell(20);
+  // const cell22 = row.insertCell(21);
+  // const cell23 = row.insertCell(22);
+  // const cell24 = row.insertCell(23);
+  // const cell25 = row.insertCell(24);
+  // const cell26 = row.insertCell(25);
+  // const cell27 = row.insertCell(26);
+  // const cell28 = row.insertCell(27);
+  // const cell29 = row.insertCell(28);
+  // const cell30 = row.insertCell(29);
+  
 
 
   cell1.textContent = `Granite:${sectionNumber}`;
@@ -234,6 +283,31 @@ const cell3 = totalRow.insertCell(2);
 const cell4 = totalRow.insertCell(3);
 const cell5 = totalRow.insertCell(4);
 const cell6 = totalRow.insertCell(5);
+// const cell7 = totalrow.insertCell(6);
+// const cell8 = totalrow.insertCell(7);
+// const cell9 = totalrow.insertCell(8);
+// const cell10 = totalrow.insertCell(9);
+// const cell11 = totalrow.insertCell(10);
+// const cell12 = totalrow.insertCell(11);
+// const cell13 = totalrow.insertCell(12);
+// const cell14 = totalrow.insertCell(13);
+// const cell15 = totalrow.insertCell(14);
+// const cell16 = totalrow.insertCell(15);
+// const cell17 = totalrow.insertCell(16);
+// const cell18 = totalrow.insertCell(17);
+// const cell19 = totalrow.insertCell(18);
+// const cell20 = totalrow.insertCell(19);
+// const cell21 = totalrow.insertCell(20);
+// const cell22 = totalrow.insertCell(21);
+// const cell23 = totalrow.insertCell(22);
+// const cell24 = totalrow.insertCell(23);
+// const cell25 = totalrow.insertCell(24);
+// const cell26 = totalrow.insertCell(25);
+// const cell27 = totalrow.insertCell(26);
+// const cell28 = totalrow.insertCell(27);
+// const cell29 = totalrow.insertCell(28);
+// const cell30 = totalrow.insertCell(29);
+
 
 cell1.textContent = 'Total';
 cell2.textContent = '';
