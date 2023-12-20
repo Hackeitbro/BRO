@@ -136,7 +136,7 @@ margin-top: 10px;
 }
 
 #finalReportTable th, #finalReportTable td {
-border: 1px solid #ddd;
+border: 1px solid #000000;
 padding: 8px;
 text-align: left;
 font-size: small;
@@ -275,10 +275,10 @@ button {
 }
 
 #result {
-margin-top: -20px;
+margin-top: -10px;
 font-size: 18px;
 color: black;
-border: 1px solid #ddd;
+border: 1px solid #000000;
 margin-right: 0px;
 text-align: end;
 padding-inline: 39px;
@@ -312,7 +312,7 @@ margin: 12px 0;
 }
 
 .customer-info-section span {
-border-bottom: 1px dotted #000; /* Add a dotted line underline to the editable spans */
+/*border-bottom: 1px dotted #000;  Add a dotted line underline to the editable spans */
 padding: 0 5px;
 display: inline-block;
 }
