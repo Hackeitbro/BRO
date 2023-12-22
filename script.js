@@ -236,30 +236,7 @@ if (length > 0 && breadth > 0 && quantity > 0) {
   const cell4 = row.insertCell(3);
   const cell5 = row.insertCell(4);
   const cell6 = row.insertCell(5);
-  // const cell7 = row.insertCell(6);
-  // const cell8 = row.insertCell(7);
-  // const cell9 = row.insertCell(8);
-  // const cell10 = row.insertCell(9);
-  // const cell11 = row.insertCell(10);
-  // const cell12 = row.insertCell(11);
-  // const cell13 = row.insertCell(12);
-  // const cell14 = row.insertCell(13);
-  // const cell15 = row.insertCell(14);
-  // const cell16 = row.insertCell(15);
-  // const cell17 = row.insertCell(16);
-  // const cell18 = row.insertCell(17);
-  // const cell19 = row.insertCell(18);
-  // const cell20 = row.insertCell(19);
-  // const cell21 = row.insertCell(20);
-  // const cell22 = row.insertCell(21);
-  // const cell23 = row.insertCell(22);
-  // const cell24 = row.insertCell(23);
-  // const cell25 = row.insertCell(24);
-  // const cell26 = row.insertCell(25);
-  // const cell27 = row.insertCell(26);
-  // const cell28 = row.insertCell(27);
-  // const cell29 = row.insertCell(28);
-  // const cell30 = row.insertCell(29);
+ 
   
 
 
@@ -283,30 +260,6 @@ const cell3 = totalRow.insertCell(2);
 const cell4 = totalRow.insertCell(3);
 const cell5 = totalRow.insertCell(4);
 const cell6 = totalRow.insertCell(5);
-// const cell7 = totalrow.insertCell(6);
-// const cell8 = totalrow.insertCell(7);
-// const cell9 = totalrow.insertCell(8);
-// const cell10 = totalrow.insertCell(9);
-// const cell11 = totalrow.insertCell(10);
-// const cell12 = totalrow.insertCell(11);
-// const cell13 = totalrow.insertCell(12);
-// const cell14 = totalrow.insertCell(13);
-// const cell15 = totalrow.insertCell(14);
-// const cell16 = totalrow.insertCell(15);
-// const cell17 = totalrow.insertCell(16);
-// const cell18 = totalrow.insertCell(17);
-// const cell19 = totalrow.insertCell(18);
-// const cell20 = totalrow.insertCell(19);
-// const cell21 = totalrow.insertCell(20);
-// const cell22 = totalrow.insertCell(21);
-// const cell23 = totalrow.insertCell(22);
-// const cell24 = totalrow.insertCell(23);
-// const cell25 = totalrow.insertCell(24);
-// const cell26 = totalrow.insertCell(25);
-// const cell27 = totalrow.insertCell(26);
-// const cell28 = totalrow.insertCell(27);
-// const cell29 = totalrow.insertCell(28);
-// const cell30 = totalrow.insertCell(29);
 
 
 cell1.textContent = 'Total';
@@ -316,6 +269,25 @@ cell4.textContent = totalSquareFeet;
 cell5.textContent = '';
 cell6.textContent = (totalSquareFeet * rate).toFixed(2);
 }
+}
+
+
+
+// new function to hide 
+function toggleSections() {
+  var sectionCount = document.getElementById('sectionCount').value;
+  for (var i = 1; i <= 30; i++) {
+    var section = document.getElementById('section' + i);
+    if (i <= sectionCount) {
+      section.style.display = 'block';
+    } else {
+      section.style.display = 'none';
+    }
+  }
+}
+
+function updateSectionCount() {
+  toggleSections();
 }
 
 
@@ -340,4 +312,46 @@ function calculateTotalRunningFeet() {
 }
 
 
+
+// //KADAPPA SECTION
+// function calculateAllSections() {
+//   var sections = document.querySelectorAll('.calculation-section');
+//   var totalResult = 0;
+//   var totalSquareFeet = 0;
+
+//   // Reset the result display
+//   var resultDiv = document.getElementById('resultAllSections');
+//   resultDiv.innerHTML = '';
+
+//    //Get the final report table body
+//  var tableBody = document.querySelector('#finalReportTable tbody');
+
+//    sections.forEach(function(section, index) {
+//     var lengthInput = parseFloat(section.querySelector('.length').value) || 0;
+//     var breadthInput = parseFloat(section.querySelector('.breadth').value) || 0;
+//     var quantityInput = parseFloat(section.querySelector('.quantity').value) || 0;
+//     var rateInput = parseFloat(section.querySelector('.rate').value) || 0;
+
+//     //Check if any input is empty
+//     if (lengthInput === 0 || breadthInput === 0 || quantityInput === 0 || rateInput === 0) {
+//       return; // Skip this section if any input is empty
+//     }
+
+//     var roundedLength = Math.ceil(lengthInput / 6) * 6;
+//     var roundedBreadth = Math.ceil(breadthInput / 6) * 6;
+
+//     var squareFeet = (roundedLength * roundedBreadth) / 144;
+//     var result = squareFeet * quantityInput;
+//     var finalRate = result * rateInput;
+
+//      totalSquareFeet += squareFeet;
+//     totalResult += finalRate;
+
+//     // Display results for each section
+//     resultDiv.innerHTML += `<p> ${index + 1}:</p>` +
+//                            `<p>Sq/ft: ${squareFeet.toFixed(2)}</p>` +
+//                            `<p>Total: ${finalRate.toFixed(2)}</p>`;
+
+//    }
+//    )};
 
