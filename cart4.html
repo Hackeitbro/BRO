@@ -72,7 +72,7 @@
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 493px;
+    height: 647px;
 }
 
 .calculation-section {
@@ -90,7 +90,7 @@ input {
 
 button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     border: none;
     cursor: pointer;
@@ -124,426 +124,413 @@ button {
     flex-basis: 100%;
     margin-top: 10px;
 }
-/* Add these styles to your existing CSS or create a new CSS file */
-/* .payment-section {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.payment-section h2 {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-select,
-input,
-button {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-#paymentNotification {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #4CAF50;
-} */
 
 
   </style>
 </head>
 
 <body>
-  
- 
-    
-  <div class="container">
-    <h2>Length and Breadth to Square Feet Calculator (Granite Only)</h2>
-    <!-- Section 1 -->
-    <div class="section">
-      <label for="inputLength1" class="input-label">Length 1 (inches):</label>
-      <input type="number" id="inputLength1" class="input-field" step="0.01" min="0">
-      <label for="inputBreadth1" class="input-label">Breadth 1 (inches):</label>
-      <input type="number" id="inputBreadth1" class="input-field" step="0.01" min="0">
-      <label for="quantity1" class="input-label">Quantity:</label>
-      <input type="number" id="quantity1" class="input-field" min="0" value="1">
-      <label for="squareFeet1" class="input-label">Square Feet:</label>
-      <span id="squareFeet1" class="result"></span>
-    </div>
+<div class="container">
+  <h2>Length and Breadth to Square Feet Calculator (Granite Only)</h2>
+  <!-- Section 1 -->
+  <div class="section" id="section1" >
+    <label for="inputLength1" class="input-label">Length 1 (inches):</label>
+    <input type="number" id="inputLength1" class="input-field" step="0.01" min="0">
+    <label for="inputBreadth1" class="input-label">Breadth 1 (inches):</label>
+    <input type="number" id="inputBreadth1" class="input-field" step="0.01" min="0">
+    <label for="quantity1" class="input-label">Quantity:</label>
+    <input type="number" id="quantity1" class="input-field" min="0" value="1">
+    <label for="squareFeet1" class="input-label">Square Feet:</label>
+    <span id="squareFeet1" class="result"></span>
+  </div>
 
-    <!-- Section 2 -->
-    <div class="section">
-      <label for="inputLength2" class="input-label">Length 2 (inches):</label>
-      <input type="number" id="inputLength2" class="input-field" step="0.01" min="0">
-      <label for="inputBreadth2" class="input-label">Breadth 2 (inches):</label>
-      <input type="number" id="inputBreadth2" class="input-field" step="0.01" min="0">
-      <label for="quantity2" class="input-label">Quantity:</label>
-      <input type="number" id="quantity2" class="input-field" min="0" value="1">
-      <label for="squareFeet2" class="input-label">Square Feet:</label>
-      <span id="squareFeet2" class="result"></span>
-    </div>
+  <!-- Section 2 -->
+  <div class="section" id="section2">
+    <label for="inputLength2" class="input-label">Length 2 (inches):</label>
+    <input type="number" id="inputLength2" class="input-field" step="0.01" min="0">
+    <label for="inputBreadth2" class="input-label">Breadth 2 (inches):</label>
+    <input type="number" id="inputBreadth2" class="input-field" step="0.01" min="0">
+    <label for="quantity2" class="input-label">Quantity:</label>
+    <input type="number" id="quantity2" class="input-field" min="0" value="1">
+    <label for="squareFeet2" class="input-label">Square Feet:</label>
+    <span id="squareFeet2" class="result"></span>
+  </div>
 
-    <!-- Add more sections (3-6) for Length and Breadth -->
-    <!-- Section 3 -->
-    <div class="section">
-      <label for="inputLength3" class="input-label">Length 3 (inches):</label>
-      <input type="number" id="inputLength3" class="input-field" step="0.01" min="0">
-      <label for="inputBreadth3" class="input-label">Breadth 3 (inches):</label>
-      <input type="number" id="inputBreadth3" class="input-field" step="0.01" min="0">
-      <label for="quantity3" class="input-label">Quantity:</label>
-      <input type="number" id="quantity3" class="input-field" min="0" value="1">
-      <label for="squareFeet3" class="input-label">Square Feet:</label>
-      <span id="squareFeet3" class="result"></span>
-    </div>
+  <!-- Add more sections (3-6) for Length and Breadth -->
+  <!-- Section 3 -->
+  <div class="section" id="section3">
+    <label for="inputLength3" class="input-label">Length 3 (inches):</label>
+    <input type="number" id="inputLength3" class="input-field" step="0.01" min="0">
+    <label for="inputBreadth3" class="input-label">Breadth 3 (inches):</label>
+    <input type="number" id="inputBreadth3" class="input-field" step="0.01" min="0">
+    <label for="quantity3" class="input-label">Quantity:</label>
+    <input type="number" id="quantity3" class="input-field" min="0" value="1">
+    <label for="squareFeet3" class="input-label">Square Feet:</label>
+    <span id="squareFeet3" class="result"></span>
+  </div>
 
-    <!-- Section 4 -->
-    <div class="section">
-      <label for="inputLength4" class="input-label">Length 4 (inches):</label>
-      <input type="number" id="inputLength4" class="input-field" step="0.01" min="0">
-      <label for="inputBreadth4" class="input-label">Breadth 4 (inches):</label>
-      <input type="number" id="inputBreadth4" class="input-field" step="0.01" min="0">
-      <label for="quantity4" class="input-label">Quantity:</label>
-      <input type="number" id="quantity4" class="input-field" min="0" value="1">
-      <label for="squareFeet4" class="input-label">Square Feet:</label>
-      <span id="squareFeet4" class="result"></span>
-    </div>
+  <!-- Section 4 -->
+  <div class="section" id="section4">
+    <label for="inputLength4" class="input-label">Length 4 (inches):</label>
+    <input type="number" id="inputLength4" class="input-field" step="0.01" min="0">
+    <label for="inputBreadth4" class="input-label">Breadth 4 (inches):</label>
+    <input type="number" id="inputBreadth4" class="input-field" step="0.01" min="0">
+    <label for="quantity4" class="input-label">Quantity:</label>
+    <input type="number" id="quantity4" class="input-field" min="0" value="1">
+    <label for="squareFeet4" class="input-label">Square Feet:</label>
+    <span id="squareFeet4" class="result"></span>
+  </div>
 
-    <!-- Section 5 -->
-    <div class="section">
-      <label for="inputLength5" class="input-label">Length 5 (inches):</label>
-      <input type="number" id="inputLength5" class="input-field" step="0.01" min="0">
-      <label for="inputBreadth5" class="input-label">Breadth 5 (inches):</label>
-      <input type="number" id="inputBreadth5" class="input-field" step="0.01" min="0">
-      <label for="quantity5" class="input-label">Quantity:</label>
-      <input type="number" id="quantity5" class="input-field" min="0" value="1">
-      <label for="squareFeet5" class="input-label">Square Feet:</label>
-      <span id="squareFeet5" class="result"></span>
-    </div>
+  <!-- Section 5 -->
+  <div class="section" id="section5">
+    <label for="inputLength5" class="input-label">Length 5 (inches):</label>
+    <input type="number" id="inputLength5" class="input-field" step="0.01" min="0">
+    <label for="inputBreadth5" class="input-label">Breadth 5 (inches):</label>
+    <input type="number" id="inputBreadth5" class="input-field" step="0.01" min="0">
+    <label for="quantity5" class="input-label">Quantity:</label>
+    <input type="number" id="quantity5" class="input-field" min="0" value="1">
+    <label for="squareFeet5" class="input-label">Square Feet:</label>
+    <span id="squareFeet5" class="result"></span>
+  </div>
 
-    <!-- Section 6 -->
-    <div class="section">
-      <label for="inputLength6" class="input-label">Length 6 (inches):</label>
-      <input type="number" id="inputLength6" class="input-field" step="0.01" min="0">
-      <label for="inputBreadth6" class="input-label">Breadth 6 (inches):</label>
-      <input type="number" id="inputBreadth6" class="input-field" step="0.01" min="0">
-      <label for="quantity6" class="input-label">Quantity:</label>
-      <input type="number" id="quantity6" class="input-field" min="0" value="1">
-      <label for="squareFeet6" class="input-label">Square Feet:</label>
-      <span id="squareFeet6" class="result"></span>
-    </div>
+  <!-- Section 6 -->
+  <div class="section" id="section6">
+    <label for="inputLength6" class="input-label">Length 6 (inches):</label>
+    <input type="number" id="inputLength6" class="input-field" step="0.01" min="0">
+    <label for="inputBreadth6" class="input-label">Breadth 6 (inches):</label>
+    <input type="number" id="inputBreadth6" class="input-field" step="0.01" min="0">
+    <label for="quantity6" class="input-label">Quantity:</label>
+    <input type="number" id="quantity6" class="input-field" min="0" value="1">
+    <label for="squareFeet6" class="input-label">Square Feet:</label>
+    <span id="squareFeet6" class="result"></span>
+  </div>
 
-    <!-- Section 7 -->
-<div class="section">
-  <label for="inputLength7" class="input-label">Length 7 (inches):</label>
-  <input type="number" id="inputLength7" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth7" class="input-label">Breadth 7 (inches):</label>
-  <input type="number" id="inputBreadth7" class="input-field" step="0.01" min="0">
-  <label for="quantity7" class="input-label">Quantity:</label>
-  <input type="number" id="quantity7" class="input-field" min="0" value="1">
-  <label for="squareFeet7" class="input-label">Square Feet:</label>
-  <span id="squareFeet7" class="result"></span>
+  <!-- Section 7 -->
+<div class="section" id="section7">
+<label for="inputLength7" class="input-label">Length 7 (inches):</label>
+<input type="number" id="inputLength7" class="input-field" step="0.01" min="0">
+<label for="inputBreadth7" class="input-label">Breadth 7 (inches):</label>
+<input type="number" id="inputBreadth7" class="input-field" step="0.01" min="0">
+<label for="quantity7" class="input-label">Quantity:</label>
+<input type="number" id="quantity7" class="input-field" min="0" value="1">
+<label for="squareFeet7" class="input-label">Square Feet:</label>
+<span id="squareFeet7" class="result"></span>
 </div>
 
-<div class="section">
-  <label for="inputLength8" class="input-label">Length 8 (inches):</label>
-  <input type="number" id="inputLength8" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth8" class="input-label">Breadth 8 (inches):</label>
-  <input type="number" id="inputBreadth8" class="input-field" step="0.01" min="0">
-  <label for="quantity8" class="input-label">Quantity:</label>
-  <input type="number" id="quantity8" class="input-field" min="0" value="1">
-  <label for="squareFeet8" class="input-label">Square Feet:</label>
-  <span id="squareFeet8" class="result"></span>
+<div class="section" id="section8">
+<label for="inputLength8" class="input-label">Length 8 (inches):</label>
+<input type="number" id="inputLength8" class="input-field" step="0.01" min="0">
+<label for="inputBreadth8" class="input-label">Breadth 8 (inches):</label>
+<input type="number" id="inputBreadth8" class="input-field" step="0.01" min="0">
+<label for="quantity8" class="input-label">Quantity:</label>
+<input type="number" id="quantity8" class="input-field" min="0" value="1">
+<label for="squareFeet8" class="input-label">Square Feet:</label>
+<span id="squareFeet8" class="result"></span>
 </div>
 
-<div class="section">
-  <label for="inputLength9" class="input-label">Length 9 (inches):</label>
-  <input type="number" id="inputLength9" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth9" class="input-label">Breadth 9 (inches):</label>
-  <input type="number" id="inputBreadth9" class="input-field" step="0.01" min="0">
-  <label for="quantity9" class="input-label">Quantity:</label>
-  <input type="number" id="quantity9" class="input-field" min="0" value="1">
-  <label for="squareFeet9" class="input-label">Square Feet:</label>
-  <span id="squareFeet9" class="result"></span>
+<div class="section" id="section9">
+<label for="inputLength9" class="input-label">Length 9 (inches):</label>
+<input type="number" id="inputLength9" class="input-field" step="0.01" min="0">
+<label for="inputBreadth9" class="input-label">Breadth 9 (inches):</label>
+<input type="number" id="inputBreadth9" class="input-field" step="0.01" min="0">
+<label for="quantity9" class="input-label">Quantity:</label>
+<input type="number" id="quantity9" class="input-field" min="0" value="1">
+<label for="squareFeet9" class="input-label">Square Feet:</label>
+<span id="squareFeet9" class="result"></span>
 </div>
 
 <!-- Section 10 -->
-<div class="section">
-  <label for="inputLength10" class="input-label">Length 10 (inches):</label>
-  <input type="number" id="inputLength10" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth10" class="input-label">Breadth 10 (inches):</label>
-  <input type="number" id="inputBreadth10" class="input-field" step="0.01" min="0">
-  <label for="quantity10" class="input-label">Quantity:</label>
-  <input type="number" id="quantity10" class="input-field" min="0" value="1">
-  <label for="squareFeet10" class="input-label">Square Feet:</label>
-  <span id="squareFeet10" class="result"></span>
+<div class="section" id="section10">
+<label for="inputLength10" class="input-label">Length 10 (inches):</label>
+<input type="number" id="inputLength10" class="input-field" step="0.01" min="0">
+<label for="inputBreadth10" class="input-label">Breadth 10 (inches):</label>
+<input type="number" id="inputBreadth10" class="input-field" step="0.01" min="0">
+<label for="quantity10" class="input-label">Quantity:</label>
+<input type="number" id="quantity10" class="input-field" min="0" value="1">
+<label for="squareFeet10" class="input-label">Square Feet:</label>
+<span id="squareFeet10" class="result"></span>
 </div>
 
-<div class="section">
-  <label for="inputLength11" class="input-label">Length 11 (inches):</label>
-  <input type="number" id="inputLength11" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth11" class="input-label">Breadth 11 (inches):</label>
-  <input type="number" id="inputBreadth11" class="input-field" step="0.01" min="0">
-  <label for="quantity11" class="input-label">Quantity:</label>
-  <input type="number" id="quantity11" class="input-field" min="0" value="1">
-  <label for="squareFeet11" class="input-label">Square Feet:</label>
-  <span id="squareFeet11" class="result"></span>
+<div class="section" id="section11">
+<label for="inputLength11" class="input-label">Length 11 (inches):</label>
+<input type="number" id="inputLength11" class="input-field" step="0.01" min="0">
+<label for="inputBreadth11" class="input-label">Breadth 11 (inches):</label>
+<input type="number" id="inputBreadth11" class="input-field" step="0.01" min="0">
+<label for="quantity11" class="input-label">Quantity:</label>
+<input type="number" id="quantity11" class="input-field" min="0" value="1">
+<label for="squareFeet11" class="input-label">Square Feet:</label>
+<span id="squareFeet11" class="result"></span>
 </div>
 
 <!-- Section 12 -->
-<div class="section">
-  <label for="inputLength12" class="input-label">Length 12 (inches):</label>
-  <input type="number" id="inputLength12" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth12" class="input-label">Breadth 12 (inches):</label>
-  <input type="number" id="inputBreadth12" class="input-field" step="0.01" min="0">
-  <label for="quantity12" class="input-label">Quantity:</label>
-  <input type="number" id="quantity12" class="input-field" min="0" value="1">
-  <label for="squareFeet12" class="input-label">Square Feet:</label>
-  <span id="squareFeet12" class="result"></span>
+<div class="section" id="section12">
+<label for="inputLength12" class="input-label">Length 12 (inches):</label>
+<input type="number" id="inputLength12" class="input-field" step="0.01" min="0">
+<label for="inputBreadth12" class="input-label">Breadth 12 (inches):</label>
+<input type="number" id="inputBreadth12" class="input-field" step="0.01" min="0">
+<label for="quantity12" class="input-label">Quantity:</label>
+<input type="number" id="quantity12" class="input-field" min="0" value="1">
+<label for="squareFeet12" class="input-label">Square Feet:</label>
+<span id="squareFeet12" class="result"></span>
 </div>
 
 <!-- Section 13 -->
-<div class="section">
-  <label for="inputLength13" class="input-label">Length 13 (inches):</label>
-  <input type="number" id="inputLength13" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth13" class="input-label">Breadth 13 (inches):</label>
-  <input type="number" id="inputBreadth13" class="input-field" step="0.01" min="0">
-  <label for="quantity13" class="input-label">Quantity:</label>
-  <input type="number" id="quantity13" class="input-field" min="0" value="1">
-  <label for="squareFeet13" class="input-label">Square Feet:</label>
-  <span id="squareFeet13" class="result"></span>
+<div class="section" id="section13">
+<label for="inputLength13" class="input-label">Length 13 (inches):</label>
+<input type="number" id="inputLength13" class="input-field" step="0.01" min="0">
+<label for="inputBreadth13" class="input-label">Breadth 13 (inches):</label>
+<input type="number" id="inputBreadth13" class="input-field" step="0.01" min="0">
+<label for="quantity13" class="input-label">Quantity:</label>
+<input type="number" id="quantity13" class="input-field" min="0" value="1">
+<label for="squareFeet13" class="input-label">Square Feet:</label>
+<span id="squareFeet13" class="result"></span>
 </div>
 
 <!-- Section 14 -->
-<div class="section">
-  <label for="inputLength14" class="input-label">Length 14 (inches):</label>
-  <input type="number" id="inputLength14" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth14" class="input-label">Breadth 14 (inches):</label>
-  <input type="number" id="inputBreadth14" class="input-field" step="0.01" min="0">
-  <label for="quantity14" class="input-label">Quantity:</label>
-  <input type="number" id="quantity14" class="input-field" min="0" value="1">
-  <label for="squareFeet14" class="input-label">Square Feet:</label>
-  <span id="squareFeet14" class="result"></span>
+<div class="section" id="section14">
+<label for="inputLength14" class="input-label">Length 14 (inches):</label>
+<input type="number" id="inputLength14" class="input-field" step="0.01" min="0">
+<label for="inputBreadth14" class="input-label">Breadth 14 (inches):</label>
+<input type="number" id="inputBreadth14" class="input-field" step="0.01" min="0">
+<label for="quantity14" class="input-label">Quantity:</label>
+<input type="number" id="quantity14" class="input-field" min="0" value="1">
+<label for="squareFeet14" class="input-label">Square Feet:</label>
+<span id="squareFeet14" class="result"></span>
 </div>
 
 <!-- Section 15 -->
-<div class="section">
-  <label for="inputLength15" class="input-label">Length 15 (inches):</label>
-  <input type="number" id="inputLength15" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth15" class="input-label">Breadth 15 (inches):</label>
-  <input type="number" id="inputBreadth15" class="input-field" step="0.01" min="0">
-  <label for="quantity15" class="input-label">Quantity:</label>
-  <input type="number" id="quantity15" class="input-field" min="0" value="1">
-  <label for="squareFeet15" class="input-label">Square Feet:</label>
-  <span id="squareFeet15" class="result"></span>
+<div class="section" id="section15">
+<label for="inputLength15" class="input-label">Length 15 (inches):</label>
+<input type="number" id="inputLength15" class="input-field" step="0.01" min="0">
+<label for="inputBreadth15" class="input-label">Breadth 15 (inches):</label>
+<input type="number" id="inputBreadth15" class="input-field" step="0.01" min="0">
+<label for="quantity15" class="input-label">Quantity:</label>
+<input type="number" id="quantity15" class="input-field" min="0" value="1">
+<label for="squareFeet15" class="input-label">Square Feet:</label>
+<span id="squareFeet15" class="result"></span>
 </div>
 
 <!-- Section 16 -->
-<div class="section">
-  <label for="inputLength16" class="input-label">Length 16 (inches):</label>
-  <input type="number" id="inputLength16" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth16" class="input-label">Breadth 16 (inches):</label>
-  <input type="number" id="inputBreadth16" class="input-field" step="0.01" min="0">
-  <label for="quantity16" class="input-label">Quantity:</label>
-  <input type="number" id="quantity16" class="input-field" min="0" value="1">
-  <label for="squareFeet16" class="input-label">Square Feet:</label>
-  <span id="squareFeet16" class="result"></span>
+<div class="section" id="section16">
+<label for="inputLength16" class="input-label">Length 16 (inches):</label>
+<input type="number" id="inputLength16" class="input-field" step="0.01" min="0">
+<label for="inputBreadth16" class="input-label">Breadth 16 (inches):</label>
+<input type="number" id="inputBreadth16" class="input-field" step="0.01" min="0">
+<label for="quantity16" class="input-label">Quantity:</label>
+<input type="number" id="quantity16" class="input-field" min="0" value="1">
+<label for="squareFeet16" class="input-label">Square Feet:</label>
+<span id="squareFeet16" class="result"></span>
 </div>
 
 <!-- Section 17 -->
-<div class="section">
-  <label for="inputLength17" class="input-label">Length 17 (inches):</label>
-  <input type="number" id="inputLength17" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth17" class="input-label">Breadth 17 (inches):</label>
-  <input type="number" id="inputBreadth17" class="input-field" step="0.01" min="0">
-  <label for="quantity17" class="input-label">Quantity:</label>
-  <input type="number" id="quantity17" class="input-field" min="0" value="1">
-  <label for="squareFeet17" class="input-label">Square Feet:</label>
-  <span id="squareFeet17" class="result"></span>
+<div class="section" id="section17">
+<label for="inputLength17" class="input-label">Length 17 (inches):</label>
+<input type="number" id="inputLength17" class="input-field" step="0.01" min="0">
+<label for="inputBreadth17" class="input-label">Breadth 17 (inches):</label>
+<input type="number" id="inputBreadth17" class="input-field" step="0.01" min="0">
+<label for="quantity17" class="input-label">Quantity:</label>
+<input type="number" id="quantity17" class="input-field" min="0" value="1">
+<label for="squareFeet17" class="input-label">Square Feet:</label>
+<span id="squareFeet17" class="result"></span>
 </div>
 
 <!-- Section 18 -->
-<div class="section">
-  <label for="inputLength18" class="input-label">Length 18 (inches):</label>
-  <input type="number" id="inputLength18" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth18" class="input-label">Breadth 18 (inches):</label>
-  <input type="number" id="inputBreadth18" class="input-field" step="0.01" min="0">
-  <label for="quantity18" class="input-label">Quantity:</label>
-  <input type="number" id="quantity18" class="input-field" min="0" value="1">
-  <label for="squareFeet18" class="input-label">Square Feet:</label>
-  <span id="squareFeet18" class="result"></span>
+<div class="section" id="section18">
+<label for="inputLength18" class="input-label">Length 18 (inches):</label>
+<input type="number" id="inputLength18" class="input-field" step="0.01" min="0">
+<label for="inputBreadth18" class="input-label">Breadth 18 (inches):</label>
+<input type="number" id="inputBreadth18" class="input-field" step="0.01" min="0">
+<label for="quantity18" class="input-label">Quantity:</label>
+<input type="number" id="quantity18" class="input-field" min="0" value="1">
+<label for="squareFeet18" class="input-label">Square Feet:</label>
+<span id="squareFeet18" class="result"></span>
 </div>
 
 <!-- Section 19 -->
-<div class="section">
-  <label for="inputLength19" class="input-label">Length 19 (inches):</label>
-  <input type="number" id="inputLength19" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth19" class="input-label">Breadth 19 (inches):</label>
-  <input type="number" id="inputBreadth19" class="input-field" step="0.01" min="0">
-  <label for="quantity19" class="input-label">Quantity:</label>
-  <input type="number" id="quantity19" class="input-field" min="0" value="1">
-  <label for="squareFeet19" class="input-label">Square Feet:</label>
-  <span id="squareFeet19" class="result"></span>
+<div class="section" id="section19">
+<label for="inputLength19" class="input-label">Length 19 (inches):</label>
+<input type="number" id="inputLength19" class="input-field" step="0.01" min="0">
+<label for="inputBreadth19" class="input-label">Breadth 19 (inches):</label>
+<input type="number" id="inputBreadth19" class="input-field" step="0.01" min="0">
+<label for="quantity19" class="input-label">Quantity:</label>
+<input type="number" id="quantity19" class="input-field" min="0" value="1">
+<label for="squareFeet19" class="input-label">Square Feet:</label>
+<span id="squareFeet19" class="result"></span>
 </div>
 
 <!-- Section 20 -->
-<div class="section">
-  <label for="inputLength20" class="input-label">Length 20 (inches):</label>
-  <input type="number" id="inputLength20" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth20" class="input-label">Breadth 20 (inches):</label>
-  <input type="number" id="inputBreadth20" class="input-field" step="0.01" min="0">
-  <label for="quantity20" class="input-label">Quantity:</label>
-  <input type="number" id="quantity20" class="input-field" min="0" value="1">
-  <label for="squareFeet20" class="input-label">Square Feet:</label>
-  <span id="squareFeet20" class="result"></span>
+<div class="section" id="section20">
+<label for="inputLength20" class="input-label">Length 20 (inches):</label>
+<input type="number" id="inputLength20" class="input-field" step="0.01" min="0">
+<label for="inputBreadth20" class="input-label">Breadth 20 (inches):</label>
+<input type="number" id="inputBreadth20" class="input-field" step="0.01" min="0">
+<label for="quantity20" class="input-label">Quantity:</label>
+<input type="number" id="quantity20" class="input-field" min="0" value="1">
+<label for="squareFeet20" class="input-label">Square Feet:</label>
+<span id="squareFeet20" class="result"></span>
 </div>
 
- <!-- Section 21 -->
- <div class="section">
-  <label for="inputLength21" class="input-label">Length 21 (inches):</label>
-  <input type="number" id="inputLength21" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth21" class="input-label">Breadth 21 (inches):</label>
-  <input type="number" id="inputBreadth21" class="input-field" step="0.01" min="0">
-  <label for="quantity21" class="input-label">Quantity:</label>
-  <input type="number" id="quantity21" class="input-field" min="0" value="1">
-  <label for="squareFeet21" class="input-label">Square Feet:</label>
-  <span id="squareFeet21" class="result"></span>
+<!-- Section 21 -->
+<div class="section" id="section21">
+<label for="inputLength21" class="input-label">Length 21 (inches):</label>
+<input type="number" id="inputLength21" class="input-field" step="0.01" min="0">
+<label for="inputBreadth21" class="input-label">Breadth 21 (inches):</label>
+<input type="number" id="inputBreadth21" class="input-field" step="0.01" min="0">
+<label for="quantity21" class="input-label">Quantity:</label>
+<input type="number" id="quantity21" class="input-field" min="0" value="1">
+<label for="squareFeet21" class="input-label">Square Feet:</label>
+<span id="squareFeet21" class="result"></span>
 </div>
 
 <!-- Section 22 -->
-<div class="section">
-  <label for="inputLength22" class="input-label">Length 22 (inches):</label>
-  <input type="number" id="inputLength22" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth22" class="input-label">Breadth 22 (inches):</label>
-  <input type="number" id="inputBreadth22" class="input-field" step="0.01" min="0">
-  <label for="quantity22" class="input-label">Quantity:</label>
-  <input type="number" id="quantity22" class="input-field" min="0" value="1">
-  <label for="squareFeet22" class="input-label">Square Feet:</label>
-  <span id="squareFeet22" class="result"></span>
+<div class="section" id="section22">
+<label for="inputLength22" class="input-label">Length 22 (inches):</label>
+<input type="number" id="inputLength22" class="input-field" step="0.01" min="0">
+<label for="inputBreadth22" class="input-label">Breadth 22 (inches):</label>
+<input type="number" id="inputBreadth22" class="input-field" step="0.01" min="0">
+<label for="quantity22" class="input-label">Quantity:</label>
+<input type="number" id="quantity22" class="input-field" min="0" value="1">
+<label for="squareFeet22" class="input-label">Square Feet:</label>
+<span id="squareFeet22" class="result"></span>
 </div>
 
 <!-- Section 23 -->
-<div class="section">
-  <label for="inputLength23" class="input-label">Length 23 (inches):</label>
-  <input type="number" id="inputLength23" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth23" class="input-label">Breadth 23 (inches):</label>
-  <input type="number" id="inputBreadth23" class="input-field" step="0.01" min="0">
-  <label for="quantity23" class="input-label">Quantity:</label>
-  <input type="number" id="quantity23" class="input-field" min="0" value="1">
-  <label for="squareFeet23" class="input-label">Square Feet:</label>
-  <span id="squareFeet23" class="result"></span>
+<div class="section" id="section23">
+<label for="inputLength23" class="input-label">Length 23 (inches):</label>
+<input type="number" id="inputLength23" class="input-field" step="0.01" min="0">
+<label for="inputBreadth23" class="input-label">Breadth 23 (inches):</label>
+<input type="number" id="inputBreadth23" class="input-field" step="0.01" min="0">
+<label for="quantity23" class="input-label">Quantity:</label>
+<input type="number" id="quantity23" class="input-field" min="0" value="1">
+<label for="squareFeet23" class="input-label">Square Feet:</label>
+<span id="squareFeet23" class="result"></span>
 </div>
 
 <!-- Section 24 -->
-<div class="section">
-  <label for="inputLength24" class="input-label">Length 24 (inches):</label>
-  <input type="number" id="inputLength24" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth24" class="input-label">Breadth 24 (inches):</label>
-  <input type="number" id="inputBreadth24" class="input-field" step="0.01" min="0">
-  <label for="quantity24" class="input-label">Quantity:</label>
-  <input type="number" id="quantity24" class="input-field" min="0" value="1">
-  <label for="squareFeet24" class="input-label">Square Feet:</label>
-  <span id="squareFeet24" class="result"></span>
+<div class="section" id="section24">
+<label for="inputLength24" class="input-label">Length 24 (inches):</label>
+<input type="number" id="inputLength24" class="input-field" step="0.01" min="0">
+<label for="inputBreadth24" class="input-label">Breadth 24 (inches):</label>
+<input type="number" id="inputBreadth24" class="input-field" step="0.01" min="0">
+<label for="quantity24" class="input-label">Quantity:</label>
+<input type="number" id="quantity24" class="input-field" min="0" value="1">
+<label for="squareFeet24" class="input-label">Square Feet:</label>
+<span id="squareFeet24" class="result"></span>
 </div>
 
 <!-- Section 25 -->
-<div class="section">
-  <label for="inputLength25" class="input-label">Length 25 (inches):</label>
-  <input type="number" id="inputLength25" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth25" class="input-label">Breadth 25 (inches):</label>
-  <input type="number" id="inputBreadth25" class="input-field" step="0.01" min="0">
-  <label for="quantity25" class="input-label">Quantity:</label>
-  <input type="number" id="quantity25" class="input-field" min="0" value="1">
-  <label for="squareFeet25" class="input-label">Square Feet:</label>
-  <span id="squareFeet25" class="result"></span>
+<div class="section" id="section25">
+<label for="inputLength25" class="input-label">Length 25 (inches):</label>
+<input type="number" id="inputLength25" class="input-field" step="0.01" min="0">
+<label for="inputBreadth25" class="input-label">Breadth 25 (inches):</label>
+<input type="number" id="inputBreadth25" class="input-field" step="0.01" min="0">
+<label for="quantity25" class="input-label">Quantity:</label>
+<input type="number" id="quantity25" class="input-field" min="0" value="1">
+<label for="squareFeet25" class="input-label">Square Feet:</label>
+<span id="squareFeet25" class="result"></span>
 </div>
 
 <!-- Section 26 -->
-<div class="section">
-  <label for="inputLength26" class="input-label">Length 26 (inches):</label>
-  <input type="number" id="inputLength26" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth26" class="input-label">Breadth 26 (inches):</label>
-  <input type="number" id="inputBreadth26" class="input-field" step="0.01" min="0">
-  <label for="quantity26" class="input-label">Quantity:</label>
-  <input type="number" id="quantity26" class="input-field" min="0" value="1">
-  <label for="squareFeet26" class="input-label">Square Feet:</label>
-  <span id="squareFeet26" class="result"></span>
+<div class="section" id="section26">
+<label for="inputLength26" class="input-label">Length 26 (inches):</label>
+<input type="number" id="inputLength26" class="input-field" step="0.01" min="0">
+<label for="inputBreadth26" class="input-label">Breadth 26 (inches):</label>
+<input type="number" id="inputBreadth26" class="input-field" step="0.01" min="0">
+<label for="quantity26" class="input-label">Quantity:</label>
+<input type="number" id="quantity26" class="input-field" min="0" value="1">
+<label for="squareFeet26" class="input-label">Square Feet:</label>
+<span id="squareFeet26" class="result"></span>
 </div>
 
 <!-- Section 27 -->
-<div class="section">
-  <label for="inputLength27" class="input-label">Length 27 (inches):</label>
-  <input type="number" id="inputLength27" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth27" class="input-label">Breadth 27 (inches):</label>
-  <input type="number" id="inputBreadth27" class="input-field" step="0.01" min="0">
-  <label for="quantity27" class="input-label">Quantity:</label>
-  <input type="number" id="quantity27" class="input-field" min="0" value="1">
-  <label for="squareFeet27" class="input-label">Square Feet:</label>
-  <span id="squareFeet27" class="result"></span>
+<div class="section" id="section27">
+<label for="inputLength27" class="input-label">Length 27 (inches):</label>
+<input type="number" id="inputLength27" class="input-field" step="0.01" min="0">
+<label for="inputBreadth27" class="input-label">Breadth 27 (inches):</label>
+<input type="number" id="inputBreadth27" class="input-field" step="0.01" min="0">
+<label for="quantity27" class="input-label">Quantity:</label>
+<input type="number" id="quantity27" class="input-field" min="0" value="1">
+<label for="squareFeet27" class="input-label">Square Feet:</label>
+<span id="squareFeet27" class="result"></span>
 </div>
 
 <!-- Section 28 -->
-<div class="section">
-  <label for="inputLength28" class="input-label">Length 28 (inches):</label>
-  <input type="number" id="inputLength28" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth28" class="input-label">Breadth 28 (inches):</label>
-  <input type="number" id="inputBreadth28" class="input-field" step="0.01" min="0">
-  <label for="quantity28" class="input-label">Quantity:</label>
-  <input type="number" id="quantity28" class="input-field" min="0" value="1">
-  <label for="squareFeet28" class="input-label">Square Feet:</label>
-  <span id="squareFeet28" class="result"></span>
+<div class="section" id="section28">
+<label for="inputLength28" class="input-label">Length 28 (inches):</label>
+<input type="number" id="inputLength28" class="input-field" step="0.01" min="0">
+<label for="inputBreadth28" class="input-label">Breadth 28 (inches):</label>
+<input type="number" id="inputBreadth28" class="input-field" step="0.01" min="0">
+<label for="quantity28" class="input-label">Quantity:</label>
+<input type="number" id="quantity28" class="input-field" min="0" value="1">
+<label for="squareFeet28" class="input-label">Square Feet:</label>
+<span id="squareFeet28" class="result"></span>
 </div>
 
 <!-- Section 29 -->
-<div class="section">
-  <label for="inputLength29" class="input-label">Length 29 (inches):</label>
-  <input type="number" id="inputLength29" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth29" class="input-label">Breadth 29 (inches):</label>
-  <input type="number" id="inputBreadth29" class="input-field" step="0.01" min="0">
-  <label for="quantity29" class="input-label">Quantity:</label>
-  <input type="number" id="quantity29" class="input-field" min="0" value="1">
-  <label for="squareFeet29" class="input-label">Square Feet:</label>
-  <span id="squareFeet29" class="result"></span>
+<div class="section" id="section29">
+<label for="inputLength29" class="input-label">Length 29 (inches):</label>
+<input type="number" id="inputLength29" class="input-field" step="0.01" min="0">
+<label for="inputBreadth29" class="input-label">Breadth 29 (inches):</label>
+<input type="number" id="inputBreadth29" class="input-field" step="0.01" min="0">
+<label for="quantity29" class="input-label">Quantity:</label>
+<input type="number" id="quantity29" class="input-field" min="0" value="1">
+<label for="squareFeet29" class="input-label">Square Feet:</label>
+<span id="squareFeet29" class="result"></span>
 </div>
 
 <!-- Section 30 -->
-<div class="section">
-  <label for="inputLength30" class="input-label">Length 30 (inches):</label>
-  <input type="number" id="inputLength30" class="input-field" step="0.01" min="0">
-  <label for="inputBreadth30" class="input-label">Breadth 30 (inches):</label>
-  <input type="number" id="inputBreadth30" class="input-field" step="0.01" min="0">
-  <label for="quantity30" class="input-label">Quantity:</label>
-  <input type="number" id="quantity30" class="input-field" min="0" value="1">
-  <label for="squareFeet30" class="input-label">Square Feet:</label>
-  <span id="squareFeet30" class="result"></span>
+<div class="section" id="section30">
+<label for="inputLength30" class="input-label">Length 30 (inches):</label>
+<input type="number" id="inputLength30" class="input-field" step="0.01" min="0">
+<label for="inputBreadth30" class="input-label">Breadth 30 (inches):</label>
+<input type="number" id="inputBreadth30" class="input-field" step="0.01" min="0">
+<label for="quantity30" class="input-label">Quantity:</label>
+<input type="number" id="quantity30" class="input-field" min="0" value="1">
+<label for="squareFeet30" class="input-label">Square Feet:</label>
+<span id="squareFeet30" class="result"></span>
 </div>
+
+
+
+<!-- Toggle button for all sections -->
+<button class="toggle-button" onclick="toggleSections()">Toggle Sections</button>
+<select id="sectionCount" onchange="updateSectionCount()">
+ <option value="1">1 Section</option>
+ <option value="2">2 Sections</option>
+ <option value="3">3 Sections</option>
+ <option value="4">4 Sections</option>
+    <option value="5">5 Sections</option>
+    <!-- Add more options as needed -->
+    <option value="6">6 Sections</option>
+    <option value="7">7 Sections</option>
+    <option value="8">8 Sections</option>
+    <option value="9">9 Sections</option>
+    <option value="10">10 Sections</option>
+    <option value="11">11 Sections</option>
+    <option value="12">12 Sections</option>
+    <option value="13">13 Sections</option>
+    <option value="14">14 Sections</option>
+    <option value="15">15 Sections</option>
+    <option value="16">16 Sections</option>
+    <option value="17">17 Sections</option>
+    <option value="18">18 Sections</option>
+    <option value="19">19 Sections</option>
+    <option value="20">20 Sections</option>
+    <option value="21">21 Sections</option>
+    <option value="22">22 Sections</option>
+    <option value="23">23 Sections</option>
+    <option value="24">24 Sections</option>
+    <option value="25">25 Sections</option>
+    <option value="26">26 Sections</option>
+    <option value="27">27 Sections</option>
+    <option value="28">28 Sections</option>
+    <option value="29">29 Sections</option>
+ <option value="30">30 Sections</option>
+</select>
+
+
+
 
 <button onclick="calculateSections()">Calculate Sections</button>
 <button onclick="calculateTotal()">Calculate Total</button>
@@ -551,20 +538,22 @@ button:hover {
 <p id="sectionResult"></p>
 <p id="totalResult"></p>
 
- <!-- Payment Section -->
- <div class="section">
-  <label for="rate" class="input-label">Rate (per square foot):</label>
-  <input type="number" id="rate" class="input-field" step="0.01" min="0">
-  <label for="totalPayment" id="totalPayment1" class="input-label">Total Payment:</label>
-  <span id="totalPayment" class="resultfinal"></span>
+<!-- Payment Section -->
+<div class="sections">
+<label for="rate" class="input-label">Rate (per square foot):</label>
+<input type="number" id="rate" class="input-field" step="0.01" min="0">
+<label for="totalPayment" id="totalPayment1" class="input-label">Total Payment:</label>
+<span id="totalPayment" class="resultfinal"></span>
 </div>
 </div>
 
+
+<!-- container2 -->
 
 <!-- Molding Calculator Sections 7 to 12 -->
 <div id="moldingSectionsContainer">
   <!-- Section 7 for Molding -->
-  <div class="section">
+  <div class="sections">
     <h2>Molding Calculator</h2>
     <label for="moldingLength7" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength7" class="input-field2" step="0.01" min="0">
@@ -579,7 +568,7 @@ button:hover {
   </div>
 
   <!-- Section 8 for Molding -->
-  <div class="section">
+  <div class="sections">
     <label for="moldingLength8" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength8" class="input-field2" step="0.01" min="0">
     <label for="moldingRate8" class="input-label3">Rate (per running foot):</label>
@@ -593,7 +582,7 @@ button:hover {
   </div>
 
   <!-- Section 9 for Molding -->
-  <div class="section">
+  <div class="sections">
     <label for="moldingLength9" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength9" class="input-field2" step="0.01" min="0">
     <label for="moldingRate9" class="input-label3">Rate (per running foot):</label>
@@ -607,7 +596,7 @@ button:hover {
   </div>
 
   <!-- Section 10 for Molding -->
-  <div class="section">
+  <div class="sections">
     <label for="moldingLength10" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength10" class="input-field2" step="0.01" min="0">
     <label for "moldingRate10" class="input-label3">Rate (per running foot):</label>
@@ -621,7 +610,7 @@ button:hover {
   </div>
 
   <!-- Section 11 for Molding -->
-  <div class="section">
+  <div class="sections">
     <label for="moldingLength11" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength11" class="input-field2" step="0.01" min="0">
     <label for="moldingRate11" class="input-label3">Rate (per running foot):</label>
@@ -635,7 +624,7 @@ button:hover {
   </div>
 
   <!-- Section 12 for Molding -->
-  <div class="section">
+  <div class="sections">
     <label for="moldingLength12" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength12" class="input-field2" step="0.01" min="0">
     <label for="moldingRate12" class="input-label3">Rate (per running foot):</label>
@@ -662,8 +651,10 @@ button:hover {
 </div>
 
 
+<!-- container3 -->
+
  <!-- DP Calculator Section -->
-<div class="section">
+<div class="sections">
   <h2>DP Calculator</h2>
   <label for="dpLength" class="input-label">Length (inches):</label>
   <input type="number" id="dpLength" class="input-field" step="0.01" min="0">
@@ -684,110 +675,96 @@ button:hover {
 <button onclick="removeDpResults()">Remove DP Results</button>
 
 
+<!-- container4 -->
 
-    
-      
-      <!-- <div class="calculator-container">
-        <h2>Kaddapa Calculator</h2> -->
-      <!-- Input Elements -->
-<!-- <input type="text" id="lengthInput" placeholder="Length">
-<input type="text" id="breadthInput" placeholder="Breadth">
-<input type="text" id="quantityInput" placeholder="Quantity">
-<input type="text" id="rateInput" placeholder="Rate"> -->
+ <div class="calculator-container">
+  <h2>Kadappa Calculator</h2>
+  <!-- Add 10 Calculation Sections  -->
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+   <!-- Repeat the above section 9 more times  -->
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+  <div class="calculation-section">
+      <input type="text" class="length" placeholder="Length">
+      <input type="text" class="breadth" placeholder="Breadth">
+      <input type="text" class="quantity" placeholder="Quantity">
+      <input type="text" class="rate" placeholder="Rate">
+  </div>
+   <!-- Button to Trigger Calculation  -->
+  <button onclick="calculateAllSections()">Calculate All Sections</button>
+  <button onclick="calculateSection(0)">Calculate Section 1</button>
 
 
-        <!-- Button to Trigger Calculation -->
-<!-- <button onclick="calculateSquareFeet()">Calculate</button> -->
+   <!-- Result Display  -->
+  <div id="resultAllSections"></div>
+</div>
 
-<!-- Result Display -->
-<!-- <div id="resultSquareFeet"></div> -->
-
-        <!-- Repeat the above section 9 more times -->
-       <h2>Kaddapa Calculator</h2>
-        <div class="calculator-container">
-          <!-- Add 10 Calculation Sections -->
-          <div class="calculation-section">
-              <input type="text" class="length" placeholder="Length">
-              <input type="text" class="breadth" placeholder="Breadth">
-              <input type="text" class="quantity" placeholder="Quantity">
-              <input type="text" class="rate" placeholder="Rate">
-          </div>
-          <!-- Repeat the above section 9 more times -->
-          <div class="calculation-section">
-              <input type="text" class="length" placeholder="Length">
-              <input type="text" class="breadth" placeholder="Breadth">
-              <input type="text" class="quantity" placeholder="Quantity">
-              <input type="text" class="rate" placeholder="Rate">
-          </div>
-          <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-        <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-        <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-        <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-        <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-        <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-        <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-        <div class="calculation-section">
-            <input type="text" class="length" placeholder="Length">
-            <input type="text" class="breadth" placeholder="Breadth">
-            <input type="text" class="quantity" placeholder="Quantity">
-            <input type="text" class="rate" placeholder="Rate">
-        </div>
-          <!-- Button to Trigger Calculation -->
-        <button onclick="calculateAllSections()">Calculate All Sections</button>
-
-        <!-- Result Display -->
-        <div id="resultAllSections"></div>
-    </div>
-
+ <!-- container5 -->
 
  <!-- Final Report Container -->
  <div class="report-container" id="divone">
   <h1 class="report-header"><b>ESTIMATE</b></h1>
   <!-- Address Section -->
-  <div class="address-section">
-   <!-- <p>Address: opp. 'D' Prabhag, Rahatani,
+   <div class="address-section">
+    <!-- <p>Address: opp. 'D' Prabhag, Rahatani,
                      Kalewadi Phata, Pune - 411017.
         <br> Email: marvelgroup@yahoo.com <br> Mobile No: 8888961999             
-    </p>
-  -->
+    </p> -->
+  
   </div>
 
-  <hr /> <!-- Horizontal Line -->
+ <!-- Horizontal Line -->
   <table>
   <thead>
     <tr>
@@ -827,26 +804,6 @@ button:hover {
 </div> 
 
 
-<!-- Real-Time Payment Section -->
-<!-- <div class="payment-section">
-  <h2>Real-Time Payment Method</h2>
-  <form id="paymentForm">
-    <label for="paymentMethod">Payment Method:</label>
-    <select id="paymentMethod" name="paymentMethod">
-      <option value="creditCard">Credit Card</option>
-      <option value="debitCard">Debit Card</option>
-      <option value="cash">Cash</option>
-      <option value="phonePay">PhonePay</option>
-      <option value="scanner">Scanner</option>
-    </select>
-    <label for="paymentAmount">Payment Amount:</label>
-    <input type="number" id="paymentAmount" name="paymentAmount" step="0.01" min="0">
-    <button type="button" onclick="makePayment()">Make Payment</button>
-  </form>
-  <div id="paymentNotification"></div>
-</div>
-
- -->
 
 
 
@@ -927,6 +884,6 @@ button:hover {
 
 
 </script>
-<script src="script2.js"></script>    
+  <script src="script2.js"></script>  
 </body>
 </html>
