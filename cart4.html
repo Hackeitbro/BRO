@@ -67,12 +67,12 @@
 }
 
 .calculator-container {
-  max-width: 676px;
+  max-width: 1266px;
     margin: 36px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color:#567677 ;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 647px;
+    height: 881px;
 }
 
 .calculation-section {
@@ -104,7 +104,7 @@ button {
 } */
 
 #resultAllSections {
-    margin-top: 20px;
+    margin-top: 6px;
     font-weight: bold;
     display: flex;
     flex-wrap: wrap;
@@ -126,7 +126,23 @@ button {
 }
 
 
+#kadappaCalculatorSelector {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+#kadappaCalculatorSelector:hover {
+  background-color: #567677;
+}
+
+#kadappaCalculatorSelector option {
+  background-color: #edea36;
+  font-size: 14px;
+}
   </style>
 </head>
 
@@ -550,11 +566,95 @@ button {
 
 <!-- container2 -->
 
-<!-- Molding Calculator Sections 7 to 12 -->
-<div id="moldingSectionsContainer">
-  <!-- Section 7 for Molding -->
-  <div class="sections">
-    <h2>Molding Calculator</h2>
+<!-- Molding Calculator Sections 1 to 30 -->
+<div id="moldingSectionsContainer" class="sections-container" style="display: block;">
+    <!-- Section 1 for Molding -->
+  <div  class="sections">
+    <h3>Molding Calculator</h3>
+    <label for="moldingLength1" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength1" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate1" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate1" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity1" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity1" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet1" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet1" class="result2"></span>
+    <label for="moldingTotalPayment1" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment1" class="result2"></span>
+  </div>
+
+  <!-- Section 2 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength2" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength2" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate2" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate2" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity2" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity2" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet2" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet2" class="result2"></span>
+    <label for="moldingTotalPayment2" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment2" class="result2"></span>
+  </div>
+
+  <!-- Section 3 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength3" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength3" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate3" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate3" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity3" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity3" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet3" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet3" class="result2"></span>
+    <label for="moldingTotalPayment3" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment3" class="result2"></span>
+  </div>
+
+  <!-- Section 4 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength4" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength4" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate4" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate4" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity4" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity4" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet4" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet4" class="result2"></span>
+    <label for="moldingTotalPayment4" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment4" class="result2"></span>
+  </div>
+
+  <!-- Section 5 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength5" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength5" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate5" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate5" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity5" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity5" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet5" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet5" class="result2"></span>
+    <label for="moldingTotalPayment5" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment5" class="result2"></span>
+  </div>
+
+  <!-- Section 6 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength6" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength6" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate6" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate6" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity6" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity6" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet6" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet6" class="result2"></span>
+    <label for="moldingTotalPayment6" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment6" class="result2"></span>
+  </div>
+
+
+   <div  class="sections">
     <label for="moldingLength7" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength7" class="input-field2" step="0.01" min="0">
     <label for="moldingRate7" class="input-label3">Rate (per running foot):</label>
@@ -568,7 +668,7 @@ button {
   </div>
 
   <!-- Section 8 for Molding -->
-  <div class="sections">
+  <div  class="sections">
     <label for="moldingLength8" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength8" class="input-field2" step="0.01" min="0">
     <label for="moldingRate8" class="input-label3">Rate (per running foot):</label>
@@ -582,7 +682,7 @@ button {
   </div>
 
   <!-- Section 9 for Molding -->
-  <div class="sections">
+  <div  class="sections">
     <label for="moldingLength9" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength9" class="input-field2" step="0.01" min="0">
     <label for="moldingRate9" class="input-label3">Rate (per running foot):</label>
@@ -596,7 +696,7 @@ button {
   </div>
 
   <!-- Section 10 for Molding -->
-  <div class="sections">
+  <div  class="sections">
     <label for="moldingLength10" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength10" class="input-field2" step="0.01" min="0">
     <label for "moldingRate10" class="input-label3">Rate (per running foot):</label>
@@ -610,7 +710,7 @@ button {
   </div>
 
   <!-- Section 11 for Molding -->
-  <div class="sections">
+  <div  class="sections">
     <label for="moldingLength11" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength11" class="input-field2" step="0.01" min="0">
     <label for="moldingRate11" class="input-label3">Rate (per running foot):</label>
@@ -624,7 +724,7 @@ button {
   </div>
 
   <!-- Section 12 for Molding -->
-  <div class="sections">
+  <div  class="sections">
     <label for="moldingLength12" class="input-label2">Length (inches):</label>
     <input type="number" id="moldingLength12" class="input-field2" step="0.01" min="0">
     <label for="moldingRate12" class="input-label3">Rate (per running foot):</label>
@@ -637,56 +737,450 @@ button {
     <span id="moldingTotalPayment12" class="result2"></span>
   </div>
 
+   <!-- Section 13 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength13" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength13" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate13" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate13" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity13" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity13" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet13" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet13" class="result2"></span>
+    <label for="moldingTotalPayment13" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment13" class="result2"></span>
+  </div>
+
+     <!-- Section 14 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength14" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength14" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate14" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate14" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity14" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity14" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet14" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet14" class="result2"></span>
+    <label for="moldingTotalPayment14" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment14" class="result2"></span>
+  </div>
+
+    <!-- Section 15 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength15" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength15" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate15" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate15" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity15" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity15" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet15" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet15" class="result2"></span>
+    <label for="moldingTotalPayment15" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment15" class="result2"></span>
+  </div>
+
+   <!-- Section 16 for Molding -->
+   <div  class="sections">
+    <label for="moldingLength16" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength16" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate16" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate16" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity16" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity16" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet16" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet16" class="result2"></span>
+    <label for="moldingTotalPayment16" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment16" class="result2"></span>
+  </div>
+
+    <!-- Section 17 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength17" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength17" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate17" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate17" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity17" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity17" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet17" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet17" class="result2"></span>
+    <label for="moldingTotalPayment17" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment17" class="result2"></span>
+  </div>
+
+
+  <!-- Section 18 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength18" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength18" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate18" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate18" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity18" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity18" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet18" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet18" class="result2"></span>
+    <label for="moldingTotalPayment18" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment18" class="result2"></span>
+  </div>
+     
+    <!-- Section 19 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength19" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength19" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate19" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate19" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity19" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity19" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet19" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet19" class="result2"></span>
+    <label for="moldingTotalPayment19" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment19" class="result2"></span>
+  </div>
+
+  <!-- Continue this pattern for sections 20 to 30 -->
+
+  <!-- Section 20 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength20" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength20" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate20" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate20" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity20" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity20" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet20" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet20" class="result2"></span>
+    <label for="moldingTotalPayment20" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment20" class="result2"></span>
+  </div>
+   
+    <!-- Section 21 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength21" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength21" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate21" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate21" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity21" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity21" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet21" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet21" class="result2"></span>
+    <label for="moldingTotalPayment21" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment21" class="result2"></span>
+  </div>
+
+  <!-- Section 22 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength22" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength22" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate22" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate22" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity22" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity22" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet22" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet22" class="result2"></span>
+    <label for="moldingTotalPayment22" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment22" class="result2"></span>
+  </div>
+
+     <!-- Section 23 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength23" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength23" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate23" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate23" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity23" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity23" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet23" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet23" class="result2"></span>
+    <label for="moldingTotalPayment23" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment23" class="result2"></span>
+  </div>
+
+  <!-- Section 24 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength24" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength24" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate24" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate24" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity24" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity24" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet24" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet24" class="result2"></span>
+    <label for="moldingTotalPayment24" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment24" class="result2"></span>
+  </div>
+
+   <!-- Section 25 for Molding -->
+   <div  class="sections">
+    <label for="moldingLength25" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength25" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate25" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate25" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity25" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity25" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet25" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet25" class="result2"></span>
+    <label for="moldingTotalPayment25" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment25" class="result2"></span>
+  </div>
+
+  <!-- Section 26 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength26" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength26" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate26" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate26" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity26" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity26" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet26" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet26" class="result2"></span>
+    <label for="moldingTotalPayment26" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment26" class="result2"></span>
+  </div>
+
+  <!-- Section 27 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength27" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength27" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate27" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate27" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity27" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity27" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet27" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet27" class="result2"></span>
+    <label for="moldingTotalPayment27" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment27" class="result2"></span>
+  </div>
+
+  <!-- Section 28 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength28" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength28" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate28" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate28" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity28" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity28" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet28" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet28" class="result2"></span>
+    <label for="moldingTotalPayment28" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment28" class="result2"></span>
+  </div>
+
+  <!-- Section 29 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength29" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength29" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate29" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate29" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity29" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity29" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet29" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet29" class="result2"></span>
+    <label for="moldingTotalPayment29" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment29" class="result2"></span>
+  </div>
+
+     <!-- Section 30 for Molding -->
+  <div  class="sections">
+    <label for="moldingLength30" class="input-label2">Length (inches):</label>
+    <input type="number" id="moldingLength30" class="input-field2" step="0.01" min="0">
+    <label for="moldingRate30" class="input-label3">Rate (per running foot):</label>
+    <input type="number" id="moldingRate30" class="input-field3" step="0.01" min="0">
+    <label for="moldingQuantity30" class="input-label2">Quantity:</label>
+    <input type="number" id="moldingQuantity30" class="input-field2" min="0" value="1">
+    <label for="moldingRunningFeet30" class="input-label2">Running Feet:</label>
+    <span id="moldingRunningFeet30" class="result2"></span>
+    <label for="moldingTotalPayment30" class="input-label2">Total Payment:</label>
+    <span id="moldingTotalPayment30" class="result2"></span>
+  </div>
+
+ 
+
   <!-- Common button for calculating results -->
-  <button onclick="calculateMoldingResults()">Calculate Molding Results</button>
+  <button onclick="calculateMoldingResults()">Calculate</button>
 
    <!-- Button to calculate total payment for sections 7 to 12 -->
-   <button onclick="calculateTotalPaymentForMolding()">Calculate Total Payment for Sections 7-12</button>
+   <button onclick="calculateTotalPaymentForMolding()">Total Payment</button>
+
 
    <!-- Result for total payment of sections 7 to 12 -->
    <div>
-     <h3>Total Payment for Sections 7-12:</h3>
-     <span id="totalPaymentMolding7to12" class="result2"></span>
+     <h3>Total Payment:</h3>
+     <span id="totalPaymentMolding1to30" class="result2"></span>
    </div>
 </div>
 
 
+   
 <!-- container3 -->
+<!-- Your dropdown to select the section -->
+<select id="sectionSelector" onchange="toggleDpSection()">
+  <option value="none">DP Calculator</option>
+  <option value="dpSection">DP Calculator Section</option>
+</select>
 
- <!-- DP Calculator Section -->
-<div class="sections">
+<!-- DP Calculator Section -->
+<div id="dpSection" class="sectioning" style="display: none; overflow-y: scroll; max-height: 400px;">
   <h2>DP Calculator</h2>
-  <label for="dpLength" class="input-label">Length (inches):</label>
-  <input type="number" id="dpLength" class="input-field" step="0.01" min="0">
-  <label for="dpBreadth" class="input-label">Breadth (inches):</label>
-  <input type="number" id="dpBreadth" class="input-field" step="0.01" min="0">
-  <label for="dpQuantity" class="input-label">Quantity:</label>
-  <input type="number" id="dpQuantity" class="input-field" min="0" value="1">
-  <label for="dpRate" class="input-label">Rate (per square foot):</label>
-  <input type="number" id="dpRate" class="input-field" step="0.01" min="0">
-  <label for="dpSquareFeet" class="input-label">Square Feet:</label>
-  <span id="dpSquareFeet" class="result"></span>
-  <label for="dpFinalPayment" class="input-label">Final Payment:</label>
-  <span id="dpFinalPayment" class="result"></span>
-</div>
+  <label for="dpLength1" class="input-label">Length (inches):</label>
+  <input type="number" id="dpLength1" class="input-field" step="0.01" min="0">
+  <label for="dpBreadth1" class="input-label">Breadth (inches):</label>
+  <input type="number" id="dpBreadth1" class="input-field" step="0.01" min="0">
+  <label for="dpQuantity1" class="input-label">Quantity:</label>
+  <input type="number" id="dpQuantity1" class="input-field" min="0" value="1">
+  <label for="dpRate1" class="input-label">Rate (per square foot):</label>
+  <input type="number" id="dpRate1" class="input-field" step="0.01" min="0">
+  <label for="dpSquareFeet1" class="input-label">Square Feet:</label>
+  <span id="dpSquareFeet1" class="result"></span>
+  <label for="dpFinalPayment1" class="input-label">Final Payment:</label>
+  <span id="dpFinalPayment1" class="result"></span>
 
+   <!-- Input Set 2 -->
+   <label for="dpLength2" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength2" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth2" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth2" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity2" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity2" class="input-field" min="0" value="1">
+   <label for="dpRate2" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate2" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet2" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet2" class="result"></span>
+   <label for="dpFinalPayment2" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment2" class="result"></span>
+ 
+   <!-- Input Set 3 -->
+   <label for="dpLength3" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength3" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth3" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth3" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity3" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity3" class="input-field" min="0" value="1">
+   <label for="dpRate3" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate3" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet3" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet3" class="result"></span>
+   <label for="dpFinalPayment3" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment3" class="result"></span>
+ 
+   <!-- Input Set 4 -->
+   <label for="dpLength4" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength4" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth4" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth4" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity4" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity4" class="input-field" min="0" value="1">
+   <label for="dpRate4" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate4" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet4" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet4" class="result"></span>
+   <label for="dpFinalPayment4" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment4" class="result"></span>
+ 
+   <!-- Input Set 5 -->
+   <label for="dpLength5" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength5" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth5" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth5" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity5" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity5" class="input-field" min="0" value="1">
+   <label for="dpRate5" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate5" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet5" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet5" class="result"></span>
+   <label for="dpFinalPayment5" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment5" class="result"></span>
+ 
+   <!-- Input Set 6 -->
+   <label for="dpLength6" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength6" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth6" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth6" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity6" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity6" class="input-field" min="0" value="1">
+   <label for="dpRate6" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate6" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet6" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet6" class="result"></span>
+   <label for="dpFinalPayment6" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment6" class="result"></span>
+ 
+   <!-- Input Set 7 -->
+   <label for="dpLength7" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength7" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth7" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth7" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity7" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity7" class="input-field" min="0" value="1">
+   <label for="dpRate7" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate7" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet7" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet7" class="result"></span>
+   <label for="dpFinalPayment7" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment7" class="result"></span>
+ 
+   <!-- Input Set 8 -->
+   <label for="dpLength8" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength8" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth8" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth8" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity8" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity8" class="input-field" min="0" value="1">
+   <label for="dpRate8" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate8" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet8" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet8" class="result"></span>
+   <label for="dpFinalPayment8" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment8" class="result"></span>
+ 
+   <!-- Input Set 9 -->
+   <label for="dpLength9" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength9" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth9" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth9" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity9" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity9" class="input-field" min="0" value="1">
+   <label for="dpRate9" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate9" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet9" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet9" class="result"></span>
+   <label for="dpFinalPayment9" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment9" class="result"></span>
+ 
+   <!-- Input Set 10 -->
+   <label for="dpLength10" class="input-label">Length (inches):</label>
+   <input type="number" id="dpLength10" class="input-field" step="0.01" min="0">
+   <label for="dpBreadth10" class="input-label">Breadth (inches):</label>
+   <input type="number" id="dpBreadth10" class="input-field" step="0.01" min="0">
+   <label for="dpQuantity10" class="input-label">Quantity:</label>
+   <input type="number" id="dpQuantity10" class="input-field" min="0" value="1">
+   <label for="dpRate10" class="input-label">Rate (per square foot):</label>
+   <input type="number" id="dpRate10" class="input-field" step="0.01" min="0">
+   <label for="dpSquareFeet10" class="input-label">Square Feet:</label>
+   <span id="dpSquareFeet10" class="result"></span>
+   <label for="dpFinalPayment10" class="input-label">Final Payment:</label>
+   <span id="dpFinalPayment10" class="result"></span>
+ 
 <!-- Common button for calculating results -->
-<button onclick="calculateDpResults()">Calculate DP Results</button>
-<button onclick="removeDpResults()">Remove DP Results</button>
+<button onclick="calculateAllDpResults()">Calculate DP Results</button>
+<button onclick="removeAllDpResults()">Remove DP Results</button>
+</div>
 
 
 <!-- container4 -->
-
- <div class="calculator-container">
+<!-- Kadappa Calculator Dropdown -->
+<select id="kadappaCalculatorSelector" onchange="toggleKadappaSection()">
+  <option value="none">Kadappa Calculator</option>
+  <option value="kadappaSection">Kadappa Calculator</option>
+</select>
+  <div id="kadappaSection" class="calculator-container" style="display: none;">
   <h2>Kadappa Calculator</h2>
-  <!-- Add 10 Calculation Sections  -->
+
   <div class="calculation-section">
       <input type="text" class="length" placeholder="Length">
       <input type="text" class="breadth" placeholder="Breadth">
       <input type="text" class="quantity" placeholder="Quantity">
       <input type="text" class="rate" placeholder="Rate">
   </div>
-   <!-- Repeat the above section 9 more times  -->
+   
   <div class="calculation-section">
       <input type="text" class="length" placeholder="Length">
       <input type="text" class="breadth" placeholder="Breadth">
@@ -742,15 +1236,14 @@ button {
       <input type="text" class="rate" placeholder="Rate">
   </div>
    <!-- Button to Trigger Calculation  -->
-  <button onclick="calculateAllSections()">Calculate All Sections</button>
-  <button onclick="calculateSection(0)">Calculate Section 1</button>
-
-
-   <!-- Result Display  -->
-  <div id="resultAllSections"></div>
+   <button onclick="calculateAllSections()">Calculate All Sections</button>
+  
+  
+  <!-- Result Display  -->
+   <div id="resultAllSections"></div>
 </div>
 
- <!-- container5 -->
+ <!-- container3 -->
 
  <!-- Final Report Container -->
  <div class="report-container" id="divone">
@@ -826,8 +1319,8 @@ button {
 <!-- <a id="invoiceButton2" href="retailbill.html">Retail Bill</a> -->
 
 
-
-<script src="script.js">
+<script src="script.js"></script>
+<script>
   function sendDataToServer(data) {
     fetch('http://localhost:3000/store-data', {
       method: 'POST',
