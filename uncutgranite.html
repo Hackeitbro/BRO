@@ -117,6 +117,16 @@
       top: 0;
     }
   }
+
+  .additional-cell-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
   </style>
   <script>
      document.addEventListener('DOMContentLoaded', function() {
@@ -165,7 +175,7 @@
         }
 
         const sectionResultContainer = document.getElementById(`result${i}`);
-        sectionResultContainer.textContent = `Section ${i}: Square Feet: ${squareFeet.toFixed(2)} | Total Money: ₹${money.toFixed(2)}`;
+        sectionResultContainer.textContent = `Section ${i}: Square Feet: ${squareFeet.toFixed(2)} | Total Money: $${money.toFixed(2)}`;
 
         // Add a row to the final report table for each section
         const row = finalReportTableBody.insertRow();
@@ -233,6 +243,29 @@
       window.print();
     });
 
+    
+
+    // additional coulmn
+    const addCellButton = document.getElementById('add-cell');
+    const billTableBody = document.getElementById('finalReportTable').getElementsByTagName('tbody')[0];
+
+    addCellButton.addEventListener('click', function() {
+      addCell();
+    });
+
+    function addCell() {
+      const columnName = prompt('Enter Column Name:');
+      if (columnName !== null && columnName.trim() !== '') {
+        // Add a new row with a cell for each column
+        const newRow = billTableBody.insertRow();
+        newRow.insertCell().innerHTML = `<input type="text" class="additional-cell-input" placeholder="Enter ${columnName}">`;
+        // Add additional cells as needed based on the existing columns
+        for (let i = 1; i < billTableBody.rows[0].cells.length; i++) {
+          newRow.insertCell().innerHTML = '<input type="text" class="additional-cell-input">';
+        }
+      }
+    }
+
   });
   </script>
 </head>
@@ -290,6 +323,8 @@
   </div>
 
   <button id="print-bill">Print Bill</button>
+<!-- Add Cell Button -->
+<button id="add-cell">Add Cell</button>
 </div>
 
 </body>
