@@ -83,7 +83,7 @@ function add() {
 
   // Function to calculate results for all sections
   function calculateMoldingResults() {
-    for (let i = 7; i <= 12; i++) {
+    for (let i = 1; i <= 30; i++) {
       calculateMoldingRunningFeet(i);
       calculateMoldingTotalPayment(i);
     }
@@ -91,12 +91,12 @@ function add() {
 
   function calculateTotalPaymentForMolding() {
     let totalPayment = 0;
-    for (let sectionNumber = 7; sectionNumber <= 12; sectionNumber++) {
+    for (let sectionNumber = 1; sectionNumber <= 30; sectionNumber++) {
         const paymentElement = document.getElementById(`moldingTotalPayment${sectionNumber}`);
         const payment = parseFloat(paymentElement.textContent) || 0;
         totalPayment += payment;
     }
-    document.getElementById('totalPaymentMolding7to12').textContent = totalPayment.toFixed(2);
+    document.getElementById('totalPaymentMolding1to30').textContent = totalPayment.toFixed(2);
 }
 
 
@@ -113,28 +113,61 @@ function updateCustomerInfo() {
 updateCustomerInfo();
 
   // dp result js
-  function calculateDpResults() {
-    const length = parseFloat(document.getElementById('dpLength').value) || 0;
-    const breadth = parseFloat(document.getElementById('dpBreadth').value) || 0;
-    const quantity = parseInt(document.getElementById('dpQuantity').value) || 0;
-    const rate = parseFloat(document.getElementById('dpRate').value) || 0;
+function calculateDpResults(setNumber) {
+  const lengthInput = document.getElementById(`dpLength${setNumber}`);
+  const breadthInput = document.getElementById(`dpBreadth${setNumber}`);
+  const quantityInput = document.getElementById(`dpQuantity${setNumber}`);
+  const rateInput = document.getElementById(`dpRate${setNumber}`);
+  const squareFeetSpan = document.getElementById(`dpSquareFeet${setNumber}`);
+  const finalPaymentSpan = document.getElementById(`dpFinalPayment${setNumber}`);
 
-    if (!isNaN(length) && !isNaN(breadth) && !isNaN(quantity) && !isNaN(rate)) {
-      const nearestMultipleLength = Math.ceil(length / 3) * 3;
-      const nearestMultipleBreadth = Math.ceil(breadth / 3) * 3;
-      const squareFeet = (nearestMultipleLength / 12) * (nearestMultipleBreadth / 12) * quantity;
-      const finalPayment = rate * squareFeet;
-
-      document.getElementById('dpSquareFeet').textContent = squareFeet.toFixed(2);
-      document.getElementById('dpFinalPayment').textContent = `${finalPayment.toFixed(2)}`;
-    }
+  if (!lengthInput || !breadthInput || !quantityInput || !rateInput || !squareFeetSpan || !finalPaymentSpan) {
+    console.error(`One or more elements not found for set ${setNumber}`);
+    return;
   }
 
-  function removeDpResults() {
-    document.getElementById('dpSquareFeet').textContent = '';
-    document.getElementById('dpFinalPayment').textContent = '';
+  const length = parseFloat(lengthInput.value) || 0;
+  const breadth = parseFloat(breadthInput.value) || 0;
+  const quantity = parseInt(quantityInput.value) || 0;
+  const rate = parseFloat(rateInput.value) || 0;
+
+  if (!isNaN(length) && !isNaN(breadth) && !isNaN(quantity) && !isNaN(rate)) {
+    const nearestMultipleLength = Math.ceil(length / 3) * 3;
+    const nearestMultipleBreadth = Math.ceil(breadth / 3) * 3;
+    const squareFeet = (nearestMultipleLength / 12) * (nearestMultipleBreadth / 12) * quantity;
+    const finalPayment = rate * squareFeet;
+
+    squareFeetSpan.textContent = squareFeet.toFixed(2);
+    finalPaymentSpan.textContent = finalPayment.toFixed(2);
+  } else {
+    // If any of the inputs are not valid, clear the results
+    squareFeetSpan.textContent = '';
+    finalPaymentSpan.textContent = '';
   }
-  
+}
+
+function calculateAllDpResults() {
+  for (let i = 1; i <= 10; i++) {
+    calculateDpResults(i);
+  }
+}
+
+function removeDpResults(setNumber) {
+  const squareFeetSpan = document.getElementById(`dpSquareFeet${setNumber}`);
+  const finalPaymentSpan = document.getElementById(`dpFinalPayment${setNumber}`);
+
+  if (squareFeetSpan && finalPaymentSpan) {
+    squareFeetSpan.textContent = '';
+    finalPaymentSpan.textContent = '';
+  }
+}
+
+function removeAllDpResults() {
+  for (let i = 1; i <= 10; i++) {
+    removeDpResults(i);
+  }
+}
+
 
 
 // calculator code
@@ -210,67 +243,159 @@ function getSquareFeetTotal() {
 
 
 function calculateTotalPayment() {
-const rate = parseFloat(document.getElementById('rate').value);
-const tableBody = document.getElementById('finalReportTable').getElementsByTagName('tbody')[0];
-tableBody.innerHTML = ''; // Clear existing rows
+  const rate = parseFloat(document.getElementById('rate').value);
 
-let totalSquareFeet = 0;
+  const tableBody = document.getElementById('finalReportTable').getElementsByTagName('tbody')[0];
+  tableBody.innerHTML = ''; // Clear existing rows
 
-// Add rows for each section with a value
-for (let sectionNumber = 1; sectionNumber <= 30; sectionNumber++) {
-const length = parseFloat(document.getElementById(`inputLength${sectionNumber}`).value) || 0;
-const breadth = parseFloat(document.getElementById(`inputBreadth${sectionNumber}`).value) || 0;
-const quantity = parseInt(document.getElementById(`quantity${sectionNumber}`).value) || 0;
-const squareFeet = parseInt(document.getElementById(`squareFeet${sectionNumber}`).value) || 0;
+  let totalSquareFeetGranite = 0;
+  let totalmoldingRunningFeet = 0;
+  let totalSquareFeetKadappa = 0;
 
-if (length > 0 && breadth > 0 && quantity > 0) {
-  const nearestMultipleLength = Math.ceil(length / 3) * 3;
-  const nearestMultipleBreadth = Math.ceil(breadth / 3) * 3;
-  const squareFeet = (nearestMultipleLength / 12) * (nearestMultipleBreadth / 12) * quantity;
-  const sectionTotal = squareFeet * rate;
+  // Add rows for Granite sections (section numbers 1 to 6)
+  for (let sectionNumber = 1; sectionNumber <= 6; sectionNumber++) {
+    const length = parseFloat(document.getElementById(`inputLength${sectionNumber}`).value) || 0;
+    const breadth = parseFloat(document.getElementById(`inputBreadth${sectionNumber}`).value) || 0;
+    const quantity = parseInt(document.getElementById(`quantity${sectionNumber}`).value) || 0;
 
-  const row = tableBody.insertRow();
-  const cell1 = row.insertCell(0);
-  const cell2 = row.insertCell(1);
-  const cell3 = row.insertCell(2);
-  const cell4 = row.insertCell(3);
-  const cell5 = row.insertCell(4);
-  const cell6 = row.insertCell(5);
- 
-  
+    if (length > 0 && breadth > 0 && quantity > 0) {
+      const nearestMultipleLength = Math.ceil(length / 3) * 3;
+      const nearestMultipleBreadth = Math.ceil(breadth / 3) * 3;
+      const squareFeet = (nearestMultipleLength / 12) * (nearestMultipleBreadth / 12) * quantity;
+      const sectionTotal = squareFeet * rate;
 
+      const row = tableBody.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const cell4 = row.insertCell(3);
+      const cell5 = row.insertCell(4);
+      const cell6 = row.insertCell(5);
 
-  cell1.textContent = `Granite:${sectionNumber}`;
-  cell2.textContent =  `${length} x ${breadth}`;
-  cell3.textContent = quantity;
-  cell4.textContent = squareFeet;
-  cell5.textContent = rate.toFixed(2);
-  cell6.textContent = sectionTotal.toFixed(2);
+      cell1.textContent = `Granite:${sectionNumber}`;
+      cell2.textContent = `${length} x ${breadth}`;
+      cell3.textContent = quantity;
+      cell4.textContent = squareFeet;
+      cell5.textContent = rate.toFixed(2);
+      cell6.textContent = sectionTotal.toFixed(2);
 
-  totalSquareFeet += squareFeet;
+      totalSquareFeetGranite += squareFeet;
+    }
+  }
+
+  // Add row for the total of Granite sections
+  if (totalSquareFeetGranite > 0) {
+    const totalGraniteRow = tableBody.insertRow();
+    const cell1 = totalGraniteRow.insertCell(0);
+    const cell2 = totalGraniteRow.insertCell(1);
+    const cell3 = totalGraniteRow.insertCell(2);
+    const cell4 = totalGraniteRow.insertCell(3);
+    const cell5 = totalGraniteRow.insertCell(4);
+    const cell6 = totalGraniteRow.insertCell(5);
+
+    cell1.textContent = 'Total Granite';
+    cell2.textContent = '';
+    cell3.textContent = '';
+    cell4.textContent = totalSquareFeetGranite;
+    cell5.textContent = '';
+    cell6.textContent = (totalSquareFeetGranite * rate).toFixed(2);
+  }
+
+  // Add rows for Molding sections (section numbers 1 to 30) with length greater than 0
+  for (let moldingSectionNumber = 1; moldingSectionNumber <= 30; moldingSectionNumber++) {
+    const moldingLength = parseFloat(document.getElementById(`moldingLength${moldingSectionNumber}`).value) || 0;
+    const moldingRunningFeet = parseFloat(document.getElementById(`moldingRunningFeet${moldingSectionNumber}`).textContent) || 0;
+    const moldingRate = parseFloat(document.getElementById(`moldingRate${moldingSectionNumber}`).value) || 0;
+
+    if (moldingLength > 0 && !isNaN(moldingRunningFeet) && !isNaN(moldingRate)) {
+      const moldingTotalPayment = moldingRunningFeet * moldingRate;
+
+      const row = tableBody.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const cell4 = row.insertCell(3);
+      const cell5 = row.insertCell(4);
+      const cell6 = row.insertCell(5);
+
+      cell1.textContent = `Molding:${moldingSectionNumber}`;
+      cell2.textContent = ''; // You may customize this based on your requirements
+      cell3.textContent = ''; // You may customize this based on your requirements
+      cell4.textContent = moldingRunningFeet.toFixed(2);
+      cell5.textContent = moldingRate.toFixed(2);
+      cell6.textContent = moldingTotalPayment.toFixed(2);
+
+      totalmoldingRunningFeet += moldingRunningFeet;
+    }
+  }
+
+// Add row for the total of Molding sections
+if (totalmoldingRunningFeet > 0) {
+  const totalMoldingRow = tableBody.insertRow();
+  const cell1 = totalMoldingRow.insertCell(0);
+  const cell2 = totalMoldingRow.insertCell(1);
+  const cell3 = totalMoldingRow.insertCell(2);
+  const cell4 = totalMoldingRow.insertCell(3);
+  const cell5 = totalMoldingRow.insertCell(4);
+  const cell6 = totalMoldingRow.insertCell(5);
+
+  cell1.textContent = 'Total Molding';
+  cell2.textContent = '';
+  cell3.textContent = '';
+  cell4.textContent = totalmoldingRunningFeet;
+  cell5.textContent = '';
+  cell6.textContent = (totalmoldingRunningFeet * moldingRate).toFixed(2);
 }
+
+  // Add rows for Kadappa sections (section numbers 13 to 30)
+  for (let kadappaSectionNumber = 13; kadappaSectionNumber <= 30; kadappaSectionNumber++) {
+    const kadappaLength = parseFloat(document.getElementById(`inputLength${kadappaSectionNumber}`).value) || 0;
+    const kadappaBreadth = parseFloat(document.getElementById(`inputBreadth${kadappaSectionNumber}`).value) || 0;
+    const kadappaQuantity = parseInt(document.getElementById(`quantity${kadappaSectionNumber}`).value) || 0;
+
+    if (kadappaLength > 0 && kadappaBreadth > 0 && kadappaQuantity > 0) {
+      const nearestMultipleLength = Math.ceil(kadappaLength / 3) * 3;
+      const nearestMultipleBreadth = Math.ceil(kadappaBreadth / 3) * 3;
+      const squareFeet = (nearestMultipleLength / 12) * (nearestMultipleBreadth / 12) * kadappaQuantity;
+      const sectionTotal = squareFeet * rate;
+
+      const row = tableBody.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const cell4 = row.insertCell(3);
+      const cell5 = row.insertCell(4);
+      const cell6 = row.insertCell(5);
+
+      cell1.textContent = `Kadappa:${kadappaSectionNumber}`;
+      cell2.textContent = `${kadappaLength} x ${kadappaBreadth}`;
+      cell3.textContent = kadappaQuantity;
+      cell4.textContent = squareFeet;
+      cell5.textContent = rate.toFixed(2);
+      cell6.textContent = sectionTotal.toFixed(2);
+
+      totalSquareFeetKadappa += squareFeet;
+    }
+  }
+
+  // Add row for the total of Kadappa sections
+  if (totalSquareFeetKadappa > 0) {
+    const totalKadappaRow = tableBody.insertRow();
+    const cell1 = totalKadappaRow.insertCell(0);
+    const cell2 = totalKadappaRow.insertCell(1);
+    const cell3 = totalKadappaRow.insertCell(2);
+    const cell4 = totalKadappaRow.insertCell(3);
+    const cell5 = totalKadappaRow.insertCell(4);
+    const cell6 = totalKadappaRow.insertCell(5);
+
+    cell1.textContent = 'Total Kadappa';
+    cell2.textContent = '';
+    cell3.textContent = '';
+    cell4.textContent = totalSquareFeetKadappa;
+    cell5.textContent = '';
+    cell6.textContent = (totalSquareFeetKadappa * rate).toFixed(2);
+  }
 }
-
-// Add a row for the total if there is at least one section with a value
-if (totalSquareFeet > 0) {
-const totalRow = tableBody.insertRow();
-const cell1 = totalRow.insertCell(0);
-const cell2 = totalRow.insertCell(1);
-const cell3 = totalRow.insertCell(2);
-const cell4 = totalRow.insertCell(3);
-const cell5 = totalRow.insertCell(4);
-const cell6 = totalRow.insertCell(5);
-
-
-cell1.textContent = 'Total';
-cell2.textContent = '';
-cell3.textContent = '';
-cell4.textContent = totalSquareFeet;
-cell5.textContent = '';
-cell6.textContent = (totalSquareFeet * rate).toFixed(2);
-}
-}
-
 
 
 // new function to hide 
@@ -302,7 +427,7 @@ function calculateRunningFeet() {
 
 function calculateTotalRunningFeet() {
   let totalRunningFeet = 0;
-  for (let sectionNumber = 1; sectionNumber <= 6; sectionNumber++) {
+  for (let sectionNumber = 1; sectionNumber <= 30; sectionNumber++) {
     const lengthInches = parseFloat(document.getElementById(`inputLength${sectionNumber}`).value) || 0;
     const quantity = parseInt(document.getElementById(`quantity${sectionNumber}`).value) || 0;
     const runningFeet = Math.ceil(lengthInches / 12) * 12 * quantity; // Ensure running feet is a multiple of 12 and consider quantity
@@ -312,46 +437,37 @@ function calculateTotalRunningFeet() {
 }
 
 
+//drpdown for dp
+function toggleDpSection() {
+  var sectionSelector = document.getElementById("sectionSelector");
+  var dpSection = document.getElementById("dpSection");
 
-// //KADAPPA SECTION
-// function calculateAllSections() {
-//   var sections = document.querySelectorAll('.calculation-section');
-//   var totalResult = 0;
-//   var totalSquareFeet = 0;
+  if (sectionSelector.value === "dpSection") {
+    dpSection.style.display = "block";
+  } else {
+    dpSection.style.display = "none";
+  }
+}
 
-//   // Reset the result display
-//   var resultDiv = document.getElementById('resultAllSections');
-//   resultDiv.innerHTML = '';
+// dropdown for kadappa
+function toggleKadappaSection() {
+  var kadappaCalculatorSelector = document.getElementById("kadappaCalculatorSelector");
+  var selectedCalculator = kadappaCalculatorSelector.value;
 
-//    //Get the final report table body
-//  var tableBody = document.querySelector('#finalReportTable tbody');
+  // Hide all calculator sections
+  var calculatorSections = document.querySelectorAll(".calculator-container");
+  calculatorSections.forEach(function (section) {
+    section.style.display = "none";
+  });
 
-//    sections.forEach(function(section, index) {
-//     var lengthInput = parseFloat(section.querySelector('.length').value) || 0;
-//     var breadthInput = parseFloat(section.querySelector('.breadth').value) || 0;
-//     var quantityInput = parseFloat(section.querySelector('.quantity').value) || 0;
-//     var rateInput = parseFloat(section.querySelector('.rate').value) || 0;
+  // Show the selected calculator section
+  if (selectedCalculator !== "none") {
+    var selectedSection = document.getElementById(selectedCalculator);
+    if (selectedSection) {
+      selectedSection.style.display = "block";
+    }
+  }
+}
 
-//     //Check if any input is empty
-//     if (lengthInput === 0 || breadthInput === 0 || quantityInput === 0 || rateInput === 0) {
-//       return; // Skip this section if any input is empty
-//     }
 
-//     var roundedLength = Math.ceil(lengthInput / 6) * 6;
-//     var roundedBreadth = Math.ceil(breadthInput / 6) * 6;
-
-//     var squareFeet = (roundedLength * roundedBreadth) / 144;
-//     var result = squareFeet * quantityInput;
-//     var finalRate = result * rateInput;
-
-//      totalSquareFeet += squareFeet;
-//     totalResult += finalRate;
-
-//     // Display results for each section
-//     resultDiv.innerHTML += `<p> ${index + 1}:</p>` +
-//                            `<p>Sq/ft: ${squareFeet.toFixed(2)}</p>` +
-//                            `<p>Total: ${finalRate.toFixed(2)}</p>`;
-
-//    }
-//    )};
 
