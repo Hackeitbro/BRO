@@ -39,7 +39,7 @@
     }
 
     #invoiceInfo {
-      margin-top: -98px;
+      margin-top: -83px;
       text-align: left;
       width: 348px;
     }
@@ -85,38 +85,121 @@
       color: #3498db;
     }
 
+    #loadingSection{
+      margin-top: 20px;
+      margin-right: 178px;
+    }
+
+    #transportSection{
+      margin-top: 20px;
+      margin-right: 178px;
+    }
+
+    #totalAmountSection{
+      margin-top: 20px;
+      margin-right: 178px;
+    }
+
+    #cgstSection{
+      margin-top: 20px;
+      margin-right: 178px;
+    }
+    #sgstSection{
+      margin-top: 20px;
+      margin-right: 178px;
+    }
+
+    #igstSection{
+      margin-top: 20px;
+      margin-right: 178px;
+    }
+
+    #grandTotalSection{
+      margin-top: 20px;
+      margin-right: 178px;
+    }
+
     #title1 {
       padding-inline: 25px;
+      margin-left: -182px;
+    margin-bottom: -20px;
     }
 
     #title2 {
       padding-inline: 59px;
+      margin-left: -182px;
+    margin-bottom: -20px;
     }
 
     #title3 {
       padding-inline: 45px;
+      margin-left: -182px;
+    margin-bottom: -20px;
     }
 
     #title4 {
       padding-inline: 73px;
+      margin-left: -182px;
+    margin-bottom: -20px;
     }
 
     #title5 {
       padding-inline: 73px;
+      margin-left: -182px;
+    margin-bottom: -20px;
     }
 
     #title6 {
       padding-inline: 72px;
+      margin-left: -182px;
+    margin-bottom: -20px;
     }
 
     #title7 {
       padding-inline: 51px;
+      margin-left: -182px;
+    margin-bottom: -20px;
     }
 
     #title8 {
-      padding-inline: 53px;
+      margin-right: 33px;
+      margin-top: 37px;
     }
 
+   #loading{
+    margin-top: -17px;
+    margin-bottom: -12px;
+   }
+
+   #transport{
+    margin-top: -17px;
+    margin-bottom: -12px;
+   }
+
+   #totalAmount{
+    margin-top: -17px;
+    margin-bottom: -12px;
+   }
+
+   #cgst{
+    margin-top: -17px;
+    margin-bottom: -12px;
+   }
+
+   #sgst{
+    margin-top: -17px;
+    margin-bottom: -12px;
+   }
+
+   #igst{
+    margin-top: -17px;
+    margin-bottom: -12px;
+   }
+
+   #grandTotal{
+    margin-top: -17px;
+    margin-bottom: -12px;
+   }
 
     table {
       width: 100%;
@@ -249,8 +332,8 @@
 }
 
 #footerSection {
-      margin-top: -144px;
-      padding-top: 20px;
+      margin-top: -441px;
+      padding-top: 36px;
       border-top: 2px solid #3498db; /* Horizontal line color */
       background-color: #ecf0f1; /* Background color */
     }
@@ -280,6 +363,31 @@
     margin-left: -9px;
     }
 
+    #poSection {
+  margin-top: 20px;
+}
+
+#poSection .section-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #3498db;
+}
+
+#poSection div {
+  margin-bottom: 10px;
+}
+
+#poSection label {
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+}
+
+#poSection input {
+  padding: 8px;
+  width: 200px;
+}
+
   </style>
   <title>Marble Tiles Invoice</title>
 </head>
@@ -308,21 +416,48 @@
       <p style="color: #000000; text-align: center;">Specialist of all types of Stones, Marbles, Granite, Tandoor, Kota, Kadappa & Ceramics Tiles</p>
     </div>
  <hr>
+  
     <div class="section" id="fromSection">
-      <div class="section-title">From</div>
-      <p style="color: black;">Name: Marvel Granite & Marbles</p>
-      <p style="color: black;">Mobile: +91 8888961999</p>
-      <p style="color: black;">Address: "D" Prabhag,Shivaraj Nagar,Kalewadi Phata,Pune-411017</p>
+      <!-- <div class="section-title">From</div>
+      <p style="color: black;">Name: Marvel Granite & Marbles</p> -->
+      <p style="color: black;">Mobile: +91 8888961999/8888741999</p>
+      <p style="color: black;">Address: "D" Prabhag,Shivaraj Nagar,<br>Kalewadi Phata,Pune-411017</p>
     </div>
 
     <div class="section" id="invoiceInfo">
-      <div class="section-title">Invoice Info</div>
+      <div class="section-title"></div>
       <span>Invoice Number:</span>
       <input type="text" id="invoiceNumber" placeholder="invoice Number">
       <span>Date:</span>
       <input type="text" id="invoiceDate" placeholder="invoice Date">
       <p style="color: black;">Email: marvelgroup24@yahoo.com</p>
     </div>
+
+    <div class="section" id="poSection">
+      <div class="section-title"></div>
+      <div>
+        <label for="poNumber">PO No:</label>
+        <input type="text" id="poNumber" placeholder="PO Number">
+        <label for="poDate">PO Date:</label>
+        <input type="date" id="poDate">
+      </div>
+      <div>
+        <label for="chNumber">Ch No:</label>
+        <input type="text" id="chNumber" placeholder="Ch No">
+        <label for="chDate">Ch Date:</label>
+        <input type="date" id="chDate">
+      </div>
+      <div>
+        <label for="transportName">Transport Name:</label>
+        <input type="text" id="transportName" placeholder="Transport Name">
+        <label for="vehicleNumber">Vehicle No:</label>
+        <input type="text" id="vehicleNumber" placeholder="Vehicle No">
+      </div>
+    </div>
+    
+    
+
+
     <hr>
     <!-- <div class="section" id="toSection">
       <div class="section-title">To</div>
@@ -371,37 +506,37 @@
     <div id="additionalInfo">
 
       <div class="section" id="loadingSection">
-        <div class="section-title" id="title1">Loading/Unloading</div>
+        <div class="section-title" id="title1">Loading/Unloading:</div>
         <input type="text" id="loading" placeholder="Loading/Unloading charges">
       </div>
 
       <div class="section" id="transportSection">
-        <div class="section-title" id="title2">Transport</div>
+        <div class="section-title" id="title2">Transport:</div>
         <input type="text" id="transport" placeholder="Transport charges">
       </div>
 
       <div class="section" id="totalAmountSection">
-        <div class="section-title" id="title3">Total Amount</div>
+        <div class="section-title" id="title3">Total Amount:</div>
         <input type="text" id="totalAmount" placeholder="Total amount">
       </div>
 
       <div class="section" id="cgstSection">
-        <div class="section-title" id="title4">CGST</div>
+        <div class="section-title" id="title4">CGST:</div>
         <input type="text" id="cgst" placeholder="CGST amount">
       </div>
 
       <div class="section" id="sgstSection">
-        <div class="section-title" id="title5">SGST</div>
+        <div class="section-title" id="title5">SGST:</div>
         <input type="text" id="sgst" placeholder="SGST amount">
       </div>
 
       <div class="section" id="igstSection">
-        <div class="section-title" id="title6">IGST</div>
+        <div class="section-title" id="title6">IGST:</div>
         <input type="text" id="igst" placeholder="IGST amount">
       </div>
 
       <div class="section" id="grandTotalSection">
-        <div class="section-title" id="title7">Grand Total</div>
+        <div class="section-title" id="title7">Grand Total:</div>
         <input type="text" id="grandTotal" placeholder="Grand total">
       </div>
 
@@ -440,7 +575,7 @@
 <hr>
     <div class="section" id="notes">
       <div class="section-title" style="color: #d35400; text-align: left;">:Terms & Condition / Notes:</div>
-      <p style="color: #000000; text-align: left;">1.Interest will be charges @18% per annum if payment is not made within fifteen days.
+      <p style="color: #000000; text-align: left;">1.Interest will be charges @18% per annum <br> if payment is not made within fifteen days.
       <br>2.All goods are despateched at the risk of consignee or purchaser. <br>3.No claim will be entertained after delivery from our factory or godown.
     <br>4.Subject to Pune Jurisdiction.</p>
     </div>
@@ -500,7 +635,7 @@
       <td>${item.rate}</td>
       <td>${total.toFixed(2)}</td>
     `;
-
+   
           itemsContainer.appendChild(row);
         });
 
