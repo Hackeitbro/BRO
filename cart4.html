@@ -143,6 +143,27 @@ button {
   background-color: #edea36;
   font-size: 14px;
 }
+
+ /* Add this style to your existing CSS or in a separate CSS file */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  th p {
+    margin: 0; /* Remove default margin */
+  }
+
+  #date1,
+  #date2 {
+    display: inline-block;
+    margin-left: 10px; /* Adjust the margin as needed */
+  }   
+    
   </style>
 </head>
 
@@ -1262,8 +1283,8 @@ button {
   <thead>
     <tr>
       <th></th>
-      <th>No.<hr> Date:<p id=""></p></th>
-      <th>No.<hr> Date:<p id=""></p></th>
+      <th>No.<hr> Date:<p id="date1"></p></th>
+      <th>No.<hr> Date:<p id="date2"></p></th>
     </tr>
   </thead>
   </table>
@@ -1351,29 +1372,20 @@ button {
   // Call the function with your actual data
   sendDataToServer(exampleData);
 
-// realtime PAYMENT
-//   function makePayment() {
-//   const paymentMethod = document.getElementById("paymentMethod").value;
-//   const paymentAmount = parseFloat(document.getElementById("paymentAmount").value);
 
-//   if (isNaN(paymentAmount) || paymentAmount <= 0) {
-//     alert("Please enter a valid payment amount.");
-//     return;
-//   }
+// Function to get the current date in the format DD/MM/YYYY
+function getCurrentDate() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    const yyyy = today.getFullYear();
+    return dd + '/' + mm + '/' + yyyy;
+  }
 
-//   // Here you can send payment details to your server if needed.
-//   // Example: sendDataToServer({ paymentMethod, paymentAmount });
+  // Set the current date to the date sections in the table
+  document.getElementById('date1').innerText = getCurrentDate();
+  document.getElementById('date2').innerText = getCurrentDate();
 
-//   // Show payment notification
-//   const notification = document.getElementById("paymentNotification");
-//   notification.innerHTML = `Payment of ${paymentAmount} using ${paymentMethod} completed successfully.`;
-// }
-
-// // You can clear the payment notification if needed.
-// function clearPaymentNotification() {
-//   const notification = document.getElementById("paymentNotification");
-//   notification.innerHTML = "";
-// }
 
 
 </script>
