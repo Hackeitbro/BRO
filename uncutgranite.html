@@ -127,6 +127,12 @@
     border-radius: 4px;
   }
 
+    #date1,
+  #date2 {
+    display: inline-block;
+    margin-left: 10px; /* Adjust the margin as needed */
+  }
+
   </style>
   <script>
      document.addEventListener('DOMContentLoaded', function() {
@@ -266,6 +272,19 @@
       }
     }
 
+     
+// Function to get the current date in the format DD/MM/YYYY
+function getCurrentDate() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    const yyyy = today.getFullYear();
+    return dd + '/' + mm + '/' + yyyy;
+  }
+
+  // Set the current date to the date sections in the table
+  document.getElementById('date1').innerText = getCurrentDate();
+  document.getElementById('date2').innerText = getCurrentDate();
   });
   </script>
 </head>
@@ -294,8 +313,8 @@
       <thead>
         <tr>
           <th></th>
-          <th>No.<hr> Date:<p id=""></p></th>
-          <th>No.<hr> Date:<p id=""></p></th>
+          <th>No.<hr> Date:<p id="date1"></p></th>
+          <th>No.<hr> Date:<p id="date2"></p></th>
         </tr>
       </thead>
     </table>
