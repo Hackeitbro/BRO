@@ -139,6 +139,9 @@ function calculateDpResults(setNumber) {
 
     squareFeetSpan.textContent = squareFeet.toFixed(2);
     finalPaymentSpan.textContent = finalPayment.toFixed(2);
+
+    // Update the final report table dynamically
+    updateFinalReportTable(setNumber, squareFeet, finalPayment);
   } else {
     // If any of the inputs are not valid, clear the results
     squareFeetSpan.textContent = '';
@@ -147,26 +150,52 @@ function calculateDpResults(setNumber) {
 }
 
 function calculateAllDpResults() {
-  for (let i = 1; i <= 10; i++) {
-    calculateDpResults(i);
-  }
-}
+    for (let i = 1; i <= 10; i++) {
+      calculateDpResults(i);
+    }
+   }
 
-function removeDpResults(setNumber) {
-  const squareFeetSpan = document.getElementById(`dpSquareFeet${setNumber}`);
-  const finalPaymentSpan = document.getElementById(`dpFinalPayment${setNumber}`);
 
-  if (squareFeetSpan && finalPaymentSpan) {
-    squareFeetSpan.textContent = '';
-    finalPaymentSpan.textContent = '';
-  }
-}
+   function updateFinalReportTable(setNumber, squareFeet, finalPayment) {
+    const tableBody = document.querySelector("#finalReportTable tbody");
+  
+    // Check if valid inputs are provided in the DP calculator
+    const lengthInput = document.getElementById(`dpLength${setNumber}`);
+    const breadthInput = document.getElementById(`dpBreadth${setNumber}`);
+    const quantityInput = document.getElementById(`dpQuantity${setNumber}`);
+    const rateInput = document.getElementById(`dpRate${setNumber}`);
+  
+    const isValidInputs =
+      lengthInput && breadthInput && quantityInput && rateInput &&
+      lengthInput.value.trim() !== '' && breadthInput.value.trim() !== '' &&
+      quantityInput.value.trim() !== '' && rateInput.value.trim() !== '';
+  
+    if (isValidInputs) {
+      const quantity = parseInt(quantityInput.value) || 0;
+      const rate = parseFloat(rateInput.value) || 0;
+  
+ // Create a new row for the final report table
+ const newRow = document.createElement("tr");
+ newRow.innerHTML = `
+   <td>Dp${setNumber}</td>
+   <td></td>
+   <td>${quantity}</td>
+   <td>${squareFeet.toFixed(2)}</td>
+   <td>${rate.toFixed(2)}</td>
+   <td>${finalPayment.toFixed(2)}</td>
+ `;
 
-function removeAllDpResults() {
+ // Append the new row to the table body
+ tableBody.appendChild(newRow);
+
+ function removeAllDpResults() {
   for (let i = 1; i <= 10; i++) {
     removeDpResults(i);
   }
 }
+}
+}
+    
 
 
 
