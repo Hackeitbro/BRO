@@ -64,6 +64,24 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    .search-container {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    #search-input {
+      padding: 8px;
+    }
+
+    #search-btn {
+      padding: 8px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -72,6 +90,8 @@
       const exportBtn = document.getElementById('export-btn');
       const deleteRowBtn = document.getElementById('delete-row-btn');
       const clearDataBtn = document.getElementById('clear-data-btn');
+      const searchInput = document.getElementById('search-input');
+      const searchBtn = document.getElementById('search-btn');
 
        // Load saved data from localStorage
       loadSavedData();
@@ -98,6 +118,10 @@
       
       clearDataBtn.addEventListener('click', function () {
         clearData();
+      });
+
+      searchBtn.addEventListener('click', function () {
+        searchRows();
       });
 
       function addRow() {
@@ -163,17 +187,67 @@
 
 
       function loadSavedData() {
-        // Load data from localStorage and populate the table
-        const savedData = localStorage.getItem('excel_data');
-        if (savedData) {
-          table.innerHTML = savedData;
-        }
-      }
+  // Load data from localStorage and populate the table
+  const savedData = localStorage.getItem('excel_data');
+  if (savedData) {
+    table.innerHTML = savedData;
+    // Reapply event listeners and contentEditable attributes
+    applyEventListeners();
+  } else {
+    // If no saved data, add an initial row
+    addRow();
+  }
+}
+
+function applyEventListeners() {
+  const rows = table.rows;
+  for (let i = 1; i < rows.length; i++) {
+    const cells = rows[i].cells;
+    for (let j = 0; j < cells.length; j++) {
+      cells[j].contentEditable = true;
+      cells[j].addEventListener('input', function () {
+        calculateBalance();
+        saveData(); // Save data on every input
+      });
+    }
+  }
+}
+
+function saveData() {
+  // Save the current table HTML to localStorage
+  localStorage.setItem('excel_data', table.innerHTML);
+}
+
+// Load saved data on page load
+loadSavedData();
+
+
+
 
       function saveData() {
         // Save the current table HTML to localStorage
         localStorage.setItem('excel_data', table.innerHTML);
       }
+
+    
+      function searchRows() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const rows = table.rows;
+
+        for (let i = 1; i < rows.length; i++) {
+          const date = rows[i].cells[1].innerText.toLowerCase();
+          const billNo = rows[i].cells[2].innerText.toLowerCase();
+          const partyName = rows[i].cells[3].innerText.toLowerCase();
+
+          if (date.includes(searchTerm) || billNo.includes(searchTerm) || partyName.includes(searchTerm)) {
+            rows[i].style.display = '';
+          } else {
+            rows[i].style.display = 'none';
+          }
+        }
+      }
+
+
     });
   </script>
 </head>
@@ -197,6 +271,12 @@
           </p>
         </div>
   <hr>
+
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search by Date, Bill No, or Party Name">
+    <button id="search-btn">Search</button>
+  </div>
+
   <table id="excel-table">
     <thead>
       <tr>
