@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add your styles here */
+ /* Add your styles here */
+
+ #addItem {
+      margin-top: 20px;
+    }
+
+    #invoice {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border: 2px solid black;
+    }
+
+    th,
+    td {
+      border: 1px solid #000000;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #3498db;
+      color: #000000;
+      border: 1px solid black;
+    }
+
+    #total {
+      margin-top: -20px;
+      /* text-align: right; */
+      font-weight: bold;
+      color: #ff2323;
+      margin-left: 706px;
+    }
+
+    #addItem input,
+    #addItem button {
+      padding: 8px;
+      margin-right: 8px;
+      border: none;
+      text-align: center;
+    }
+
+    #addItem button {
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #addItem button:hover {
+      background-color: #27ae60;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #invoice,
+      #invoice * {
+        visibility: visible;
+      }
+
+      #invoice {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid white;
+      }
+
+      #printButton {
+        display: none;
+      }
+    }
+
+   #print-bill{
+    margin-left: 712px;
+    font-size: x-large;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 9px;
+   }
+
+   #print-bill:hover{
+    background-color: rgb(194, 81, 24);
+    color: rgb(255, 253, 253);
+   }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #invoice,
+    #invoice * {
+      visibility: visible;
+    }
+
+    #invoice {
+      position: relative;
+      border: 1px solid white;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    #addItem, #editModal, #modalOverlay {
+      display: none;
+    }
+
+    table {
+      border: 2px solid black;
+    }
+
+    th, td {
+      border: 1px solid #000000;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #3498db;
+      color: #000000;
+      border: 1px solid black;
+    }
+
+    #total {
+      margin-top: -40px;
+       text-align: right; 
+      font-weight: bold;
+      color: #ff2323;
+    }
+
+    #squareFeetTotal {
+      margin-right: 550px;
+      margin-top: -40px;
+    }                                              
+
+    #squareFeetTotal strong {
+        margin-right: 190px;
+      
+    }
+  }
+  </style>
+  <title>Marble Tiles Invoice</title>
+</head>
+
+<body>
+    <div id="addItem">
+        <select id="itemSelect">
+          <option value="granite">Granite</option>
+          <option value="marble">Marble</option>
+          <option value="kadappa">Kadappa</option>
+          <option value="molding">Molding</option>
+          <option value="dp">DP</option>
+          <option value="uncut granite">Uncut Granite</option>
+        </select>
+        <input type="text" id="description" placeholder="Description">
+        <input type="number" id="quantity" placeholder="Quantity">
+        <input type="number" id="rate" placeholder="Rate">
+        <button onclick="addItem()">Add Item</button>
+      </div>
+      
+  <div id="invoice">
+    <!-- Remaining HTML content is the same -->
+     <h1 style="text-align: center; color: rgb(0, 0, 0); background-color: red;">ESTIMATE</h1>
+<hr>
+    <!-- Bill No and Date section -->
+    <div id="billInfo" style="margin-left:12px;">
+        <label for="billNumber" style="color: black;
+        font-weight: bold;">Bill No:</label>
+        <input type="text" id="billNumber" placeholder="Enter Bill No" style="border: none;">
+        <label for="billNumber" style="margin-left: 291px; color: black;
+        font-weight: bold;">Bill No:</label>
+        <input type="text" id="billNumber" placeholder="Enter Bill No" style="border: none;">
+      </div>
+  
+      <div id="date" style="margin-right: 12px; margin-top: 19px;">
+        <label for="currentDate1" style="margin-left: 29px; color: black;
+        font-weight: bold;">Date:</label>
+        <span id="currentDate1"></span>
+        <label for="currentDate2" style="margin-left: 406px; color: black;
+        font-weight: bold;">Date:</label>
+        <span id="currentDate2"></span>
+      </div>
+ <hr>
+      <!-- Customer details section -->
+      <div id="customerInfo" style="margin-top: 23px;">
+        <label for="customerName" style="color: black;
+        font-weight: bold;">Customer Name:</label>
+        <input type="text" id="customerName" placeholder="Enter Customer Name" style="border: none;">
+        <label for="mobileNumber" style="margin-left: 193px; color: black;
+        font-weight: bold;">Mobile Number:</label>
+        <input type="text" id="mobileNumber" placeholder="Enter Mobile Number" style="border: none;">
+      </div>
+
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Sr.No.</th>
+          <th>Name of products / Services</th>
+          <th>Quantity</th>
+          <th>Rate</th>
+          <th>Square Feet</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody id="invoiceItems">
+        <!-- Invoice items will be added here dynamically -->
+      </tbody>
+    </table>
+
+
+    <!-- Add this div below the existing table -->
+<div id="squareFeetTotal" style=" margin-left: 570px; margin-top: 10px;">
+    <strong>Total: </strong><span id="invoiceSquareFeetTotal" style="margin-left: 12px;">0.00</span>
+  </div>
+    <div id="total">Total: ₹<span id="invoiceTotal">0.00</span></div>
+    <br>
+    <hr style="color: black;">
+  </div>
+  
+  <button id="print-bill">Print Bill</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+       // Dummy data for demonstration
+       const invoiceData = {
+        invoiceNumber: 'INV001',
+        invoiceDate: '2023-12-25',
+        items: [],
+      };
+
+      // Auto-generate the current date and display it for the first section
+  const currentDateElement1 = document.getElementById('currentDate1');
+  const currentDate1 = new Date().toLocaleDateString('en-US');
+  currentDateElement1.textContent = currentDate1;
+
+  // Auto-generate the current date and display it for the second section
+  const currentDateElement2 = document.getElementById('currentDate2');
+  const currentDate2 = new Date().toLocaleDateString('en-US');
+  currentDateElement2.textContent = currentDate2;
+
+
+      // print
+
+      //Add event listener for the print button
+    const printButton = document.getElementById('print-bill');
+    printButton.addEventListener('click', function() {
+      window.print();
+    });
+
+
+  
+
+      function renderInvoice() {
+        const invoiceItemsContainer = document.getElementById('invoiceItems');
+        const totalContainer = document.getElementById('invoiceTotal');
+        const squareFeetTotalContainer = document.getElementById('invoiceSquareFeetTotal'); // New line
+
+
+        // Clear existing items
+        invoiceItemsContainer.innerHTML = '';
+
+        // Recalculate total
+        let total = 0;
+        let squareFeetTotal = 0; // New line
+
+        // Add items to the invoice and calculate the total
+        invoiceData.items.forEach((item, index) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${index +1}</td>
+            <td>${item.item} (${item.description})</td>
+            <td>${item.quantity}</td>
+            <td>${item.rate}</td>
+            <td>${item.squareFeet}</td>
+            <td>${item.amount.toFixed(2)}</td>
+          `;
+          invoiceItemsContainer.appendChild(row);
+
+          total += item.amount;
+          squareFeetTotal += parseFloat(item.squareFeet); // New line
+        });
+
+        // Update the total amount in the invoice
+        totalContainer.textContent = total.toFixed(2);
+        squareFeetTotalContainer.textContent = squareFeetTotal.toFixed(2); // New line
+      }
+
+      // Function to add items
+      window.addItem = function () {
+  const itemSelect = document.getElementById('itemSelect');
+  const descriptionInput = document.getElementById('description');
+  const quantityInput = document.getElementById('quantity');
+  const rateInput = document.getElementById('rate');
+
+  const newItem = {
+    item: itemSelect.value,
+    description: descriptionInput.value,
+    quantity: parseFloat(quantityInput.value),
+    rate: parseFloat(rateInput.value),
+  };
+
+  // Customize calculation based on the selected item
+  switch (newItem.item.toLowerCase()) {
+    case 'granite':
+      // Ensure length and breadth are rounded up to the next multiple of 3 for Granite
+      const dimensionsGranite = newItem.description.split('x').map(Number);
+      const roundedDimensionsGranite = dimensionsGranite.map(dimension => Math.ceil(dimension / 3) * 3);
+      // Calculate square feet for granite by considering quantity
+      newItem.squareFeet = (roundedDimensionsGranite.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity;
+      break;
+    case 'kadappa':
+      // Ensure length and breadth are multiples of 6 for Kadappa
+      const dimensionsKadappa = newItem.description.split('x').map(Number);
+      const adjustedDimensionsKadappa = dimensionsKadappa.map(dimension => {
+        const multiple = 6;
+        const nextMultiple = Math.ceil(dimension / multiple) * multiple;
+        return nextMultiple === dimension ? nextMultiple + multiple : nextMultiple;
+      });
+      // Calculate square feet for Kadappa by considering quantity
+      newItem.squareFeet = (adjustedDimensionsKadappa.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity;
+      break;
+
+      case 'molding':
+  // Assuming the first value is the length for molding
+  const lengthMolding = parseFloat(newItem.description.split('x')[0]);
+  const runningFeet = Math.ceil(lengthMolding / 12) * newItem.quantity; // Calculate running feet
+  newItem.squareFeet = runningFeet; // Each running foot is considered as 1 in square feet
+  break;
+
+  case 'marble':
+  // Ensure length and breadth are rounded up to the next multiple of 3 for Marble
+  const dimensionsMarble = newItem.description.split('x').map(Number);
+  const roundedDimensionsMarble = dimensionsMarble.map(dimension => Math.ceil(dimension / 3) * 3);
+  // Calculate square feet for marble by considering quantity
+  newItem.squareFeet = (roundedDimensionsMarble.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity;
+  break;
+   
+  case 'dp':
+  // Ensure length and breadth are rounded up to the next multiple of 3 for DP
+  const dimensionsDP = newItem.description.split('x').map(Number);
+  const roundedDimensionsDP = dimensionsDP.map(dimension => Math.ceil(dimension / 3) * 3);
+  // Calculate square feet for DP by considering quantity
+  newItem.squareFeet = (roundedDimensionsDP.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity;
+  break;
+
+  case 'uncut granite':
+  // Simple calculation for Uncut Granite: lengthxbredth/144xquantity = squarefeet
+  const dimensionsUncutGranite = newItem.description.split('x').map(Number);
+  // Calculate square feet for Uncut Granite by considering quantity and round to two decimal places
+  newItem.squareFeet = ((dimensionsUncutGranite.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity).toFixed(2);
+  break;
+
+     default:
+      
+      // For other items, you can customize the calculation if needed
+    
+  }
+
+  // Set the product name including the description
+  newItem.productName = `${newItem.item} (${newItem.description})`;
+
+  // Calculate total for all items based on square feet and quantity
+  newItem.total = newItem.squareFeet;
+
+  // Calculate amount based on the square feet and rate
+  newItem.amount = newItem.squareFeet * newItem.rate;
+
+  // Add the new item to the invoice data
+  invoiceData.items.push(newItem);
+
+
+
+  // Render the updated invoice
+  renderInvoice();
+};
+
+
+});
+
+
+     
+  </script>
+
+</body>
+
+</html> 
