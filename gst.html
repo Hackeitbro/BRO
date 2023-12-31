@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style3.css">
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -39,9 +40,11 @@
     }
 
     #invoiceInfo {
-      margin-top: -83px;
+      margin-top: -65px;
       text-align: left;
-      width: 348px;
+      width: 229px;
+    font-size: x-small;
+    font-weight: bold;
     }
 
     /* #toSection{
@@ -51,7 +54,8 @@
 
 
     #toSection {
-      margin-top: 20px;
+      margin-top: -5px;
+      font-weight: bold;
     }
 
     #toSection label {
@@ -64,7 +68,8 @@
     #toSection input {
       width: 172px;
       /* Adjust the width based on your preference */
-      padding: 8px;
+      padding: 0px;
+      font-size: xx-small;
       margin-bottom: 10px;
       border: none;
       /* Remove the border */
@@ -123,96 +128,115 @@
       padding-inline: 25px;
       margin-left: -182px;
     margin-bottom: -20px;
+    font-size: small;
+    margin-top: -12px;
     }
 
     #title2 {
       padding-inline: 59px;
       margin-left: -182px;
     margin-bottom: -20px;
+    font-size: small;
     }
 
     #title3 {
       padding-inline: 45px;
       margin-left: -182px;
     margin-bottom: -20px;
+    font-size: small;
     }
 
     #title4 {
       padding-inline: 73px;
       margin-left: -182px;
-    margin-bottom: -20px;
+    margin-bottom: -20px;font-size: small;
     }
 
     #title5 {
       padding-inline: 73px;
       margin-left: -182px;
     margin-bottom: -20px;
+    font-size: small;
     }
 
     #title6 {
       padding-inline: 72px;
       margin-left: -182px;
     margin-bottom: -20px;
+    font-size: small;
     }
 
     #title7 {
       padding-inline: 51px;
       margin-left: -182px;
     margin-bottom: -20px;
+    font-size: small;
     }
 
     #title8 {
       margin-right: 33px;
       margin-top: 37px;
+      font-size: small;
     }
 
    #loading{
     margin-top: -17px;
     margin-bottom: -12px;
+    font-size: x-small;
+    
    }
 
    #transport{
     margin-top: -17px;
     margin-bottom: -12px;
+    font-size: x-small;
+    
    }
 
    #totalAmount{
     margin-top: -17px;
     margin-bottom: -12px;
+    font-size: x-small;
+    
    }
 
    #cgst{
     margin-top: -17px;
     margin-bottom: -12px;
+    font-size: x-small;
    }
 
    #sgst{
     margin-top: -17px;
     margin-bottom: -12px;
+    font-size: x-small;
    }
 
    #igst{
     margin-top: -17px;
     margin-bottom: -12px;
+    font-size: x-small;
    }
 
    #grandTotal{
     margin-top: -17px;
     margin-bottom: -12px;
+    font-size: x-small;
+    font-weight: bolder;
    }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin-top: 0px;
       border: 2px solid black;
     }
 
     th,
     td {
       border: 1px solid #000000;
-      padding: 12px;
-      text-align: left;
+    text-align: center;
+    font-size: small;
     }
 
     th {
@@ -248,7 +272,7 @@
 
     input,
     button {
-      padding: 8px;
+      padding: 0px;
       margin-right: 8px;
       border: none;
       text-align: center;
@@ -283,6 +307,14 @@
         border: 1px solid white;
         /* Set border color to white to hide the outer border */
       }
+
+      th,
+    td {
+      border: 1px solid #000000;
+      padding: 0px;
+    text-align: center;
+    font-size: small;
+    }
 
       #printButton {
         display: none;
@@ -332,7 +364,7 @@
 }
 
 #footerSection {
-      margin-top: -441px;
+      margin-top: -392px;
       padding-top: 36px;
       border-top: 2px solid #3498db; /* Horizontal line color */
       background-color: #ecf0f1; /* Background color */
@@ -351,11 +383,14 @@
 
     #footerSection label {
       margin-right: 10px;
+      font-size: x-small;
+    font-weight: bold;
     }
 
     #footerSection input {
-      padding: 5px;
-      width: 229px;
+      padding: 0px;
+      width: 389px;
+      font-size: x-small;
     }
 
     #receiverSign{
@@ -364,7 +399,7 @@
     }
 
     #poSection {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 #poSection .section-title {
@@ -374,18 +409,22 @@
 }
 
 #poSection div {
-  margin-bottom: 10px;
+  margin-bottom: -3px;
+    margin-right: 109px;
+    font-weight: bold;
 }
 
 #poSection label {
   display: inline-block;
   width: 120px;
   margin-right: 10px;
+  font-size: x-small;
 }
 
 #poSection input {
-  padding: 8px;
+  padding: 0px;
   width: 200px;
+  font-size: xx-small;
 }
 
   </style>
@@ -405,32 +444,38 @@
   </div>
 
   <div id="invoice">
-    <p style="color: #000000; text-align: center; font-size: xx-small;"><b>|| श्री गणेशाय नम :||</b></p>
+    <p style="color: #000000; text-align: center; font-size: xx-small; margin-top: -16px;"><b>|| श्री गणेशाय नम :||</b></p>
     <h5
-      style="color: white; background-color: #000000; border: 1px solid black; text-align: center; width: fit-content; margin-left: 356px;">
+      style="color: white; background-color: #000000; border: 1px solid black; text-align: center; width: fit-content; margin-left: 366px;
+      margin-top: 5px;
+      font-size: x-small;">
       GST INVOICE</h5>
-    <h1 style="color: #ff0000;">Marvel Granite & Marbles</h1>
+    <h1 style="color: #ff0000; margin-top: -15px;
+    font-size: x-large;">Marvel Granite & Marbles</h1>
 
     <div id="specialistSection">
       <div class="section-title"></div>
-      <p style="color: #000000; text-align: center;">Specialist of all types of Stones, Marbles, Granite, Tandoor, Kota, Kadappa & Ceramics Tiles</p>
+      <p style="color: #000000; text-align: center; font-size: x-small;
+      margin-top: -19px;">Specialist of all types of Stones, Marbles, Granite, Tandoor, Kota, Kadappa & Ceramics Tiles</p>
     </div>
  <hr>
   
     <div class="section" id="fromSection">
       <!-- <div class="section-title">From</div>
       <p style="color: black;">Name: Marvel Granite & Marbles</p> -->
-      <p style="color: black;">Mobile: +91 8888961999/8888741999</p>
-      <p style="color: black;">Address: "D" Prabhag,Shivaraj Nagar,<br>Kalewadi Phata,Pune-411017</p>
+      <p style="color: black; font-size: x-small;
+      font-weight: bold;">Mobile: +91 8888961999/8888741999</p>
+      <p style="color: black; font-size: x-small;
+      font-weight: bold;">Address: "D" Prabhag,Shivaraj Nagar,<br>Kalewadi Phata,Pune-411017</p>
     </div>
 
     <div class="section" id="invoiceInfo">
       <div class="section-title"></div>
       <span>Invoice Number:</span>
-      <input type="text" id="invoiceNumber" placeholder="invoice Number">
+      <input type="text" id="invoiceNumber" placeholder="invoice Number" style="font-size: x-small">
       <span>Date:</span>
-      <input type="text" id="invoiceDate" placeholder="invoice Date">
-      <p style="color: black;">Email: marvelgroup24@yahoo.com</p>
+      <input type="text" id="invoiceDate" placeholder="invoice Date" style="font-size: x-small">
+      <p style="color: black; font-size: x-small">Email: marvelgroup24@yahoo.com</p>
     </div>
 
     <div class="section" id="poSection">
@@ -465,21 +510,25 @@
       <input type="text" id="customerMobile" placeholder="Customer Mobile">
       <input type="text" id="customerAddress" placeholder="Customer Address">
     </div> -->
-    <div id="toSection">
-      <div class="section-title">To</div>
+    <div id="toSection" style="font-size: x-small;">
+      <!-- <div class="section-title"></div> -->
       <div>
-        <span>Name:</span>
+        <span >Name:</span>
         <input type="text" id="customerName" placeholder="Customer Name">
         <span>GST No.:</span>
         <input type="text" id="gstNumber" placeholder="GST No.">
       </div>
       <div>
-        <span>Address:</span>
-        <input type="text" id="customerAddress" placeholder="Customer Address">
+        <!-- <span>Address:</span>
+        <input type="text" id="customerAddress" placeholder="Customer Address" style="font-size: x-small;"> -->
         <span>State:</span>
         <input type="text" id="customerState" placeholder="State">
         <span>State Code:</span>
-        <input type="text" id="stateCode" placeholder="State Code">
+        <input type="text" id="stateCode" placeholder="State Code" style="width: 484px;
+        text-align: left;">
+        <span>Address:</span>
+        <input type="text" id="customerAddress" placeholder="Customer Address" style="font-size: x-small; width: 637px;
+        text-align: left;">
       </div>
     </div>
 
@@ -552,19 +601,25 @@
   
       <div>
         <label for="amountInWords">Rs in Words:</label>
-        <input type="text" id="amountInWords" placeholder="Enter amount in words">
+        <input type="text" id="amountInWords" placeholder="Enter amount in words" style="text-align: left;">
       </div>
   
       <div>
-        <p style="color: #000000;">GST No: 27AAUFM1357Q1ZD</p>
+        <p style="color: #000000; font-size: x-small;
+        font-weight: bold;">GST No: 27AAUFM1357Q1ZD</p>
       </div>
    
       <div>
-        <div class="section-title">Our Bank Details:</div>
-        <p style="color: #000000;">Bank: AXIS BANK</p>
-        <p style="color: #000000;">Branch: RAHATANI</p>
-        <p style="color: #000000;">Account No: 916020011018650</p>
-        <p style="color: #000000;">IFSC CODE: UTIB0001641</p>
+        <div class="section-title" style="font-size: small;
+        font-weight: bold;">Our Bank Details:</div>
+        <p style="color: #000000; font-size: x-small;
+        font-weight: bold;">Bank: AXIS BANK</p>
+        <p style="color: #000000; font-size: x-small;
+        font-weight: bold;">Branch: RAHATANI</p>
+        <p style="color: #000000; font-size: x-small;
+        font-weight: bold;">Account No: 916020011018650</p>
+        <p style="color: #000000; font-size: x-small;
+        font-weight: bold;">IFSC CODE: UTIB0001641</p>
       </div>
   
       <div>
@@ -574,8 +629,8 @@
     </div>
 <hr>
     <div class="section" id="notes">
-      <div class="section-title" style="color: #d35400; text-align: left;">:Terms & Condition / Notes:</div>
-      <p style="color: #000000; text-align: left;">1.Interest will be charges @18% per annum <br> if payment is not made within fifteen days.
+      <div class="section-title" style="color: #d35400; text-align: left; font-size: x-small; margin-top: -16px;">:Terms & Condition / Notes:</div>
+      <p style="color: #000000; text-align: left; font-size: xx-small;">1.Interest will be charges @18% per annum <br> if payment is not made within fifteen days.
       <br>2.All goods are despateched at the risk of consignee or purchaser. <br>3.No claim will be entertained after delivery from our factory or godown.
     <br>4.Subject to Pune Jurisdiction.</p>
     </div>
@@ -583,6 +638,7 @@
     <div id="printButton">
       <button onclick="printInvoice()">Print Invoice</button>
     </div>
+    
   </div>
 
   <!-- Modal for editing items -->
@@ -598,6 +654,7 @@
     <button onclick="closeEditModal()">Cancel</button>
   </div>
 
+ 
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -782,7 +839,10 @@
         editingIndex = -1;
       };
 
+    
     });
+
+    
   </script>
 
 </body>
