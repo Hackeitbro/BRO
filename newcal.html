@@ -179,6 +179,9 @@
           <option value="molding">Molding</option>
           <option value="dp">DP</option>
           <option value="uncut granite">Uncut Granite</option>
+          <option value="tiles">Tiles</option>
+          <option value="sanitary">sanitary</option>
+
         </select>
         <input type="text" id="description" placeholder="Description">
         <input type="number" id="quantity" placeholder="Quantity">
@@ -382,6 +385,19 @@
   newItem.squareFeet = ((dimensionsUncutGranite.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity).toFixed(2);
   break;
 
+  case 'tiles':
+  // Simple calculation for Uncut Granite: lengthxbredth/144xquantity = squarefeet
+  const dimensionstiles = newItem.description.split('x').map(Number);
+  // Calculate square feet for Uncut Granite by considering quantity and round to two decimal places
+  newItem.squareFeet = ((dimensionstiles.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity).toFixed(2);
+  break;
+
+  case 'sanitary':
+  // Simple calculation for Uncut Granite: lengthxbredth/144xquantity = squarefeet
+  const dimensionssanitary = newItem.description.split('x').map(Number);
+  // Calculate square feet for Uncut Granite by considering quantity and round to two decimal places
+  newItem.squareFeet = ((dimensionssanitary.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity).toFixed(2);
+  break;
      default:
       
       // For other items, you can customize the calculation if needed
