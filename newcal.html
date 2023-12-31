@@ -137,8 +137,9 @@
 
     th, td {
       border: 1px solid #000000;
-      padding: 12px;
+      padding: 0px;
       text-align: left;
+      font-size: smaller;
     }
 
     th {
@@ -152,6 +153,7 @@
        text-align: right; 
       font-weight: bold;
       color: #ff2323;
+      margin-right: 12px;
     }
 
     #squareFeetTotal {
@@ -182,9 +184,12 @@
         <input type="number" id="quantity" placeholder="Quantity">
         <input type="number" id="rate" placeholder="Rate">
         <button onclick="addItem()">Add Item</button>
+        <button onclick="addExtraRow(); updateTotal();">Add Extra Row</button>
       </div>
-      
+
+     
   <div id="invoice">
+    <div id="container1" style="border: 2px solid black;" > 
     <!-- Remaining HTML content is the same -->
      <h1 style="text-align: center; color: rgb(0, 0, 0); background-color: red;">ESTIMATE</h1>
 <hr>
@@ -244,7 +249,7 @@
     <br>
     <hr style="color: black;">
   </div>
-  
+   </div>
   <button id="print-bill">Print Bill</button>
 
   <script>
@@ -337,8 +342,8 @@
       newItem.squareFeet = (roundedDimensionsGranite.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity;
       break;
     case 'kadappa':
-      // Ensure length and breadth are multiples of 6 for Kadappa
-      const dimensionsKadappa = newItem.description.split('x').map(Number);
+     // Ensure length and breadth are multiples of 6 for Kadappa
+     const dimensionsKadappa = newItem.description.split('x').map(Number);
       const adjustedDimensionsKadappa = dimensionsKadappa.map(dimension => {
         const multiple = 6;
         const nextMultiple = Math.ceil(dimension / multiple) * multiple;
@@ -347,7 +352,6 @@
       // Calculate square feet for Kadappa by considering quantity
       newItem.squareFeet = (adjustedDimensionsKadappa.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity;
       break;
-
       case 'molding':
   // Assuming the first value is the length for molding
   const lengthMolding = parseFloat(newItem.description.split('x')[0]);
@@ -405,10 +409,75 @@
 
 });
 
+window.addExtraRow = function () {
+  const invoiceItemsContainer = document.getElementById('invoiceItems');
+
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td contenteditable="true">New</td>
+    <td contenteditable="true">Row</td>
+    <td contenteditable="true" oninput="updateAmount(this)">1</td>
+    <td contenteditable="true" oninput="updateAmount(this)">0</td>
+    <td contenteditable="true">0.00</td>
+    <td contenteditable="true">0.00</td>
+  `;
+
+  invoiceItemsContainer.appendChild(row);
+};
+
+function updateAmount(input) {
+  const quantityCell = input.parentElement.querySelector('td:nth-child(3)');
+  const rateCell = input.parentElement.querySelector('td:nth-child(4)');
+  const amountCell = input.parentElement.querySelector('td:nth-child(6)');
+
+  const quantity = parseFloat(quantityCell.textContent) || 0;
+  const rate = parseFloat(rateCell.textContent) || 0;
+  const amount = quantity * rate;
+
+  amountCell.textContent = amount.toFixed(2);
+
+  // Update the total amount in the invoice for this row only
+  updateRowTotal(input.parentElement);
+
+  // Update the total amount in the invoice
+  updateTotal();
+}
+
+function updateRowTotal(row) {
+  const amountCell = row.querySelector('td:nth-child(6)');
+
+  const amount = parseFloat(amountCell.textContent) || 0;
+
+  // Update the total amount in the invoice for this row only
+  const totalContainer = document.getElementById('invoiceTotal');
+  let total = parseFloat(totalContainer.textContent) || 0;
+
+  // Subtract the previous amount and add the new amount
+  total = total - amount + parseFloat(amountCell.textContent);
+
+  totalContainer.textContent = total.toFixed(2);
+}
+
+function updateTotal() {
+  const invoiceItemsContainer = document.getElementById('invoiceItems');
+  const totalContainer = document.getElementById('invoiceTotal');
+
+  let total = 0;
+
+  // Update the total amount for the entire invoice
+  invoiceItemsContainer.querySelectorAll('tr').forEach((itemRow) => {
+    const amount = parseFloat(itemRow.querySelector('td:nth-child(6)').textContent) || 0;
+    total += amount;
+  });
+
+  // Update the total amount in the invoice
+  totalContainer.textContent = total.toFixed(2);
+}
+
 
      
   </script>
 
 </body>
 
-</html> 
+</html>
