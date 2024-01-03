@@ -286,40 +286,48 @@
 
   
 
-      function renderInvoice() {
-        const invoiceItemsContainer = document.getElementById('invoiceItems');
-        const totalContainer = document.getElementById('invoiceTotal');
-        const squareFeetTotalContainer = document.getElementById('invoiceSquareFeetTotal'); // New line
+    function renderInvoice() {
+  const invoiceItemsContainer = document.getElementById('invoiceItems');
+  const totalContainer = document.getElementById('invoiceTotal');
+  const squareFeetTotalContainer = document.getElementById('invoiceSquareFeetTotal'); // New line
 
+  // Clear existing items
+  invoiceItemsContainer.innerHTML = '';
 
-        // Clear existing items
-        invoiceItemsContainer.innerHTML = '';
+  // Recalculate total
+  let total = 0;
+  let sanitarySquareFeetTotal = 0; // Separate variable for 'sanitary' items
+  let otherSquareFeetTotal = 0;    // Separate variable for other items
 
-        // Recalculate total
-        let total = 0;
-        let squareFeetTotal = 0; // New line
+  // Add items to the invoice and calculate the total
+  invoiceData.items.forEach((item, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${item.item} (${item.description})</td>
+      <td>${item.quantity}</td>
+      <td>${item.rate}</td>
+      <td>${item.squareFeet}</td>
+      <td>${item.amount.toFixed(2)}</td>
+    `;
+    invoiceItemsContainer.appendChild(row);
 
-        // Add items to the invoice and calculate the total
-        invoiceData.items.forEach((item, index) => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${index +1}</td>
-            <td>${item.item} (${item.description})</td>
-            <td>${item.quantity}</td>
-            <td>${item.rate}</td>
-            <td>${item.squareFeet}</td>
-            <td>${item.amount.toFixed(2)}</td>
-          `;
-          invoiceItemsContainer.appendChild(row);
+    total += item.amount;
 
-          total += item.amount;
-          squareFeetTotal += parseFloat(item.squareFeet); // New line
-        });
+    // Separate the calculation of total square footage for 'sanitary' and other items
+    if (item.item.toLowerCase() === 'sanitary') {
+      sanitarySquareFeetTotal += item.squareFeet;
+    } else {
+      otherSquareFeetTotal += item.squareFeet;
+    }
+  });
 
-        // Update the total amount in the invoice
-        totalContainer.textContent = total.toFixed(2);
-        squareFeetTotalContainer.textContent = squareFeetTotal.toFixed(2); // New line
-      }
+  // Update the total amount in the invoice
+  totalContainer.textContent = total.toFixed(2);
+
+  // Update the total square footage, considering only other items
+  squareFeetTotalContainer.textContent = otherSquareFeetTotal.toFixed(2);
+}
 
       // Function to add items
       window.addItem = function () {
@@ -393,15 +401,17 @@
   break;
 
   case 'sanitary':
-  // Simple calculation for Uncut Granite: lengthxbredth/144xquantity = squarefeet
-  const dimensionssanitary = newItem.description.split('x').map(Number);
-  // Calculate square feet for Uncut Granite by considering quantity and round to two decimal places
-  newItem.squareFeet = ((dimensionssanitary.reduce((acc, val) => acc * val, 1)) / 144 * newItem.quantity).toFixed(2);
-  break;
-     default:
-      
-      // For other items, you can customize the calculation if needed
-    
+      // For sanitary, set square feet to 1 and calculate the amount based on quantity and rate only
+      newItem.squareFeet = 1;
+      break;
+
+    default:
+      // For other items, calculate square feet based on size (if available)
+      const dimensions = newItem.description.split('x').map(Number);
+      newItem.squareFeet = dimensions.reduce((acc, val) => acc * val, 1) / 144 || 1;
+
+      // For other cases, quantity should not be considered twice for amount calculation
+      newItem.quantity = 1;
   }
 
   // Set the product name including the description
@@ -410,18 +420,15 @@
   // Calculate total for all items based on square feet and quantity
   newItem.total = newItem.squareFeet;
 
-  // Calculate amount based on the square feet and rate
-  newItem.amount = newItem.squareFeet * newItem.rate;
+  // Calculate amount based on the square feet and rate, but only for the 'sanitary' case
+  newItem.amount = newItem.item.toLowerCase() === 'sanitary' ? newItem.rate * newItem.quantity : newItem.rate * newItem.squareFeet;
 
   // Add the new item to the invoice data
   invoiceData.items.push(newItem);
 
-
-
   // Render the updated invoice
   renderInvoice();
 };
-
 
 });
 
@@ -496,4 +503,4 @@ function updateTotal() {
 
 </body>
 
-</html>
+</html> 
