@@ -17,12 +17,10 @@
       max-width: 800px;
       margin: 20px auto;
       padding: 20px;
-      background-color: #f7f7f7;
-      border: 1px solid #ccc;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
       position: relative;
     }
+
+    
 
     h1 {
       color: #333;
@@ -88,6 +86,7 @@
       font-weight: bold;
       margin-bottom: 10px;
       color: #3498db;
+      margin-bottom: 22px;
     }
 
     #loadingSection{
@@ -174,7 +173,7 @@
     }
 
     #title8 {
-      margin-right: 33px;
+      margin-right: 63px;
       margin-top: 37px;
       font-size: small;
     }
@@ -266,7 +265,7 @@
     }
 
     #additionalInfo {
-      margin-top: 20px;
+      margin-top: 32px;;
       margin-left: 605px;
     }
 
@@ -298,18 +297,22 @@
       #invoice,
       #invoice * {
         visibility: visible;
+       
       }
 
       #invoice {
         position: absolute;
         left: 0;
         top: 0;
-        border: 1px solid white;
+        /* border: 1px solid rgb(0, 0, 0); */
         /* Set border color to white to hide the outer border */
       }
 
-      th,
-    td {
+
+
+    th,
+    td
+    {
       border: 1px solid #000000;
       padding: 0px;
     text-align: center;
@@ -364,10 +367,11 @@
 }
 
 #footerSection {
-      margin-top: -392px;
-      padding-top: 36px;
-      border-top: 2px solid #3498db; /* Horizontal line color */
-      background-color: #ecf0f1; /* Background color */
+  margin-top: -425px;
+    padding-top: 64px;
+      border-top: 2px solid #3498db; 
+      background-color: #ecf0f1; 
+      border: 1px solid black;
     }
 
     #footerSection .section-title {
@@ -427,6 +431,8 @@
   font-size: xx-small;
 }
 
+
+
   </style>
   <title>Marble Tiles Invoice</title>
 </head>
@@ -460,6 +466,7 @@
     </div>
  <hr>
   
+
     <div class="section" id="fromSection">
       <!-- <div class="section-title">From</div>
       <p style="color: black;">Name: Marvel Granite & Marbles</p> -->
@@ -569,21 +576,30 @@
         <input type="text" id="totalAmount" placeholder="Total amount">
       </div>
 
-      <div class="section" id="cgstSection">
-        <div class="section-title" id="title4">CGST(9%):</div>
-        <input type="text" id="cgst" placeholder="CGST amount">
-      </div>
-      
       <div class="section" id="sgstSection">
-        <div class="section-title" id="title5">SGST(9%):</div>
-        <input type="text" id="sgst" placeholder="SGST amount">
-      </div>
+        <div class="section-title" id="title5">SGST(%):</div>
+        <input type="number" id="sgstPercentage" placeholder="SGST %" oninput="updateGSTAmounts()" style="margin-left: 0px;
+        width: 119px;
+        font-size: x-small;">
+        <input type="text" id="sgst" placeholder="SGST amount" readonly>
+    </div>
+    
+    <div class="section" id="cgstSection">
+        <div class="section-title" id="title4">CGST(%):</div>
+        <input type="number" id="cgstPercentage" placeholder="CGST %" oninput="updateGSTAmounts()" style="margin-left: 0px;
+        width: 119px;
+        font-size: x-small;">
+        <input type="text" id="cgst" placeholder="CGST amount" readonly>
+    </div>
+    
+    <div class="section" id="igstSection">
+        <div class="section-title" id="title6">IGST(%):</div>
+        <input type="number" id="igstPercentage" placeholder="IGST %" oninput="updateGSTAmounts()" style="margin-left: 0px;
+        width: 119px;
+        font-size: x-small;">
+        <input type="text" id="igst" placeholder="IGST amount" readonly>
+    </div>
       
-      
-      <div class="section" id="igstSection">
-        <div class="section-title" id="title6">IGST(18%):</div>
-        <input type="text" id="igst" placeholder="IGST amount">
-      </div>
       
       
 
@@ -602,17 +618,17 @@
     <div id="footerSection">
       <div class="section-title"></div>
   
-      <div>
+      <div style="margin-left: 6px;">
         <label for="amountInWords">Rs in Words:</label>
         <input type="text" id="amountInWords" placeholder="Enter amount in words" style="text-align: left;">
       </div>
   
-      <div>
+      <div style="margin-left: 6px;">
         <p style="color: #000000; font-size: x-small;
         font-weight: bold;">GST No: 27AAUFM1357Q1ZD</p>
       </div>
    
-      <div>
+      <div style="margin-left: 6px;">
         <div class="section-title" style="font-size: small;
         font-weight: bold;">Our Bank Details:</div>
         <p style="color: #000000; font-size: x-small;
@@ -626,11 +642,16 @@
       </div>
   
       <div>
-        <label for="receiverSign"></label>
-        <input type="text" id="receiverSign" placeholder="Receiver Sign">
+        <label for="receiverSign">
+        <input type="text" id="receiverSign" placeholder="Receiver Sign" style="width: 204px;
+        margin-left: 8px;
+        margin-top: 4px;
+        margin-bottom: 12px;">
+        </label>
       </div>
     </div>
-<hr>
+    
+
     <div class="section" id="notes">
       <div class="section-title" style="color: #d35400; text-align: left; font-size: x-small; margin-top: -16px;">:Terms & Condition / Notes:</div>
       <p style="color: #000000; text-align: left; font-size: xx-small;">1.Interest will be charges @18% per annum <br> if payment is not made within fifteen days.
@@ -642,7 +663,14 @@
       <button onclick="printInvoice()">Print Invoice</button>
     </div>
     
+    <p style="color: black;
+    font-size: x-small;
+    text-align: center;">This is computer generated invoice</p>
   </div>
+
+  
+
+
 
   <!-- Modal for editing items -->
   <div id="modalOverlay"></div>
@@ -763,52 +791,42 @@
 
 
 
-      //in this section gst is calculated on transport + total amount
-      // Function to update grand total based on additional charges and IGST percentage
-      function updateGrandTotal() {
-  // Get values from input fields
-  const totalAmount = parseFloat(document.getElementById('totalAmount').value) || 0;
-  const loadingCharge = parseFloat(document.getElementById('loading').value) || 0;
-  const transportCharge = parseFloat(document.getElementById('transport').value) || 0;
-  
-  // Calculate total amount including additional charges
-  const totalWithCharges = totalAmount + loadingCharge + transportCharge;
+      // Function to update CGST, SGST, and IGST amounts based on percentages
+      // Function to update CGST, SGST, and IGST amounts based on percentages
+    function updateGSTAmounts() {
+    const totalWithCharges = parseFloat(document.getElementById('totalAmount').value) || 0;
+    
+    // Get percentage values from input fields
+    const cgstPercentage = parseFloat(document.getElementById('cgstPercentage').value) || 0;
+    const sgstPercentage = parseFloat(document.getElementById('sgstPercentage').value) || 0;
+    const igstPercentage = parseFloat(document.getElementById('igstPercentage').value) || 0;
 
-  // Calculate CGST and SGST amount based on total amount (both at 9%)
-  const cgstAmount = (9 / 100) * totalWithCharges;
-  const sgstAmount = (9 / 100) * totalWithCharges;
+    // Calculate CGST, SGST, and IGST amounts based on percentages
+    const cgstAmount = (cgstPercentage / 100) * totalWithCharges;
+    const sgstAmount = (sgstPercentage / 100) * totalWithCharges;
+    const igstAmount = (igstPercentage / 100) * totalWithCharges;
 
-  // Populate CGST and SGST fields
-  document.getElementById('cgst').value = cgstAmount.toFixed(2);
-  document.getElementById('sgst').value = sgstAmount.toFixed(2);
+    // Populate CGST, SGST, and IGST fields
+    document.getElementById('cgst').value = cgstAmount.toFixed(2);
+    document.getElementById('sgst').value = sgstAmount.toFixed(2);
+    document.getElementById('igst').value = igstAmount.toFixed(2);
 
-  // Calculate IGST amount based on total amount (18%)
-  const igstAmount = (18 / 100) * totalWithCharges;
+    // Calculate grand total including additional charges, CGST, SGST, and IGST
+    const grandTotal = totalWithCharges + cgstAmount + sgstAmount + igstAmount;
 
-  // Populate IGST field (for info purpose)
-  document.getElementById('igst').value = igstAmount.toFixed(2);
-
-  // Calculate grand total including additional charges, CGST, and SGST
-  const grandTotal = totalWithCharges + cgstAmount + sgstAmount;
-
-  // Populate grand total field
-  document.getElementById('grandTotal').value = grandTotal.toFixed(2);
+    // Populate grand total field
+    document.getElementById('grandTotal').value = grandTotal.toFixed(2);
 }
 
-// Add event listeners to input fields
-document.getElementById('totalAmount').addEventListener('input', updateGrandTotal);
-document.getElementById('loading').addEventListener('input', updateGrandTotal);
-document.getElementById('transport').addEventListener('input', updateGrandTotal);
+// Add event listeners to percentage input fields
+document.getElementById('cgstPercentage').addEventListener('input', updateGSTAmounts);
+document.getElementById('sgstPercentage').addEventListener('input', updateGSTAmounts);
+document.getElementById('igstPercentage').addEventListener('input', updateGSTAmounts);
+     
+      
 
-     
-     
-     
-     
-     
-     
-     
-     
-      // coulmn of items if you want to change them
+
+// coulmn of items if you want to change them
       // Variable to keep track of the index being edited
       let editingIndex = -1;
 
