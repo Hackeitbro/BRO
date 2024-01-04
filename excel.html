@@ -82,6 +82,11 @@
       border: none;
       border-radius: 4px;
     }
+
+    #total-row {
+      font-weight: bold;
+    }
+    
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -96,11 +101,20 @@
        // Load saved data from localStorage
       loadSavedData();
 
+      const showFinalRowBtn = document.getElementById('show-final-row-btn');
+
       addRowBtn.addEventListener('click', function() {
         addRow();
         calculateBalance();
           // Save data to localStorage after adding a row
         saveData();
+      });
+
+
+      showFinalRowBtn.addEventListener('click', function() {
+        if (document.getElementById('total-row') === null) {
+          addTotalRow();
+        }
       });
 
       deleteRowBtn.addEventListener('click', function () {
@@ -247,6 +261,41 @@ loadSavedData();
         }
       }
 
+      
+      function calculateTotal(columnIndex) {
+        const rows = table.rows;
+        let total = 0;
+
+        for (let i = 1; i < rows.length; i++) {
+          const value = parseFloat(rows[i].cells[columnIndex].innerText) || 0;
+          total += value;
+        }
+
+        return total.toFixed(2);
+      }
+
+      function addTotalRow() {
+        const totalRow = table.insertRow(-1);
+        totalRow.id = 'total-row';
+
+        const headings = ["Sr. No", "Date", "Bill No", "Party Name", "Total Amount", "Advance", "R.Amount1", "R.Amount2", "Discount", "Delivery", "Balance"];
+
+        for (let i = 0; i < headings.length; i++) {
+          const cell = totalRow.insertCell(i);
+          cell.contentEditable = false;
+
+          if (i === 0) {
+            cell.innerHTML = "TOTAL";
+          } else if (i >= 4 && i <= 8) {
+            cell.innerHTML = calculateTotal(i);
+          } else {
+            cell.innerHTML = '';
+          }
+        }
+
+        calculateBalance(); // Update the balance after updating totals
+      }
+
 
     });
   </script>
@@ -315,6 +364,7 @@ loadSavedData();
     <button class="add-row-btn">Dropdown</button>
     <div class="dropdown-content">
       <button id="add-row-btn">Add Row</button>
+      <button id="show-final-row-btn">Show Final Row</button>
       <button id="delete-row-btn">Delete Row</button>
       <button id="export-btn">Export to Excel</button>
       <button id="clear-data-btn">Clear Data</button>
