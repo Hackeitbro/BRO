@@ -13,6 +13,36 @@
             flex-direction: column;
             align-items: center;
         }
+
+
+        .topnav {
+  overflow: hidden;
+  background-color: #333;
+  margin-top: 0px;
+    margin-left: 8px;
+    width: 1550px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #aa0404;
+  color: white;
+}
+
+
         #mainContainer {
             display: flex;
             flex-direction: column;
@@ -21,7 +51,9 @@
         }
         #dataTableContainer {
             margin-right: 20px;
+            margin-top: 57px;
         }
+
         #billContainer {
             width: 700px;
             overflow-y: auto;
@@ -110,10 +142,10 @@
             font-weight: bold; 
         }
 
-         #date2{
+        #date2{
             border: none;
         }
-        
+
         #contactNo{
             font-size: small;
             font-weight: bold; 
@@ -257,17 +289,35 @@
             #dataTableContainer{
              display: none;
             }
-            
-             #companyname{
-            width: 322px;
-            padding: 0px;
-            border: none;
+
+            .topnav{
+                display: none;
+            }
+
         }
-         
-        }
+
     </style>
 </head>
 <body>
+ 
+    <div class="topnav">
+		<a class="active" href="home.html">Home</a>
+		<a href="newcal.html">Daily Estimate Bill</a>
+		<a href="gst.html">Gst Bill</a>
+		<a href="excel.html">Daily Estimate Bill Records</a>
+		<a href="inventory.html">Inventory</a>
+		<a href="self.html">Self Daily Bill Records</a>
+		<a href="search.html">Search the product</a>
+    <a href="barcode.html">Generate Barcode</a>
+	  </div>
+
+
+
+
+
+
+
+
 
     <div id="mainContainer">
         <div id="dataTableContainer">
@@ -289,6 +339,7 @@
                             <select name="material[]" onchange="calculateSquareFeet(this)">
                                 <option value="Granite">Granite</option>
                                 <option value="Kadappa">Kadappa</option>
+                                <option value="uncut granite">Uncut Granite</option>
                                 <option value="Marble">Sanitary</option>
                                 <option value="Tiles">Tiles</option>
                             </select>
@@ -378,6 +429,8 @@
         </table>
     </div>
    
+    
+
 <script>
   function addRow() {
         var table = document.getElementById("dataTable");
@@ -426,9 +479,18 @@
             var squareFeetKadappa = (adjustedDimensionsKadappa.reduce((acc, val) => acc * val, 1)) / 144 * quantityKadappa;
             row.cells[6].getElementsByTagName("input")[0].value = squareFeetKadappa.toFixed(2);
             break;
-                case "Marble":
-                    // Handle Marble material calculations
+               
+            case "uncut granite":
+           // Handle Tiles material calculations
+           var lengthTiles = parseFloat(row.cells[3].getElementsByTagName("input")[0].value) || 0;
+            var breadthTiles = parseFloat(row.cells[4].getElementsByTagName("input")[0].value) || 0;
+            var quantityTiles = parseFloat(row.cells[5].getElementsByTagName("input")[0].value) || 0;
+
+            // Calculate square feet for Tiles by considering length, breadth, and quantity
+            var squareFeetTiles = (lengthTiles * breadthTiles * quantityTiles) / 144;
+            row.cells[6].getElementsByTagName("input")[0].value = squareFeetTiles.toFixed(2);
                     break;
+
                 case "Tiles":
                      // Handle Tiles material calculations
             var lengthTiles = parseFloat(row.cells[3].getElementsByTagName("input")[0].value) || 0;
@@ -443,9 +505,15 @@
                     break;
             }
 
-            // Update total quantity and total square feet
-            updateTotals();
+         // Update total quantity and total square feet
+           updateTotals();
         }
+
+       
+
+
+
+
 
     function updateTotals() {
     var billTable = document.getElementById("billTable").getElementsByTagName("tbody")[0];
@@ -462,6 +530,8 @@
 
     document.getElementById("totalQuantity").innerHTML = totalQuantity.toFixed(2);
     document.getElementById("totalSquareFeet").innerHTML = totalSquareFeet.toFixed(2);
+
+
 }
 
     function printBill() {
