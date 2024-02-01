@@ -283,6 +283,7 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      width: 81px;
     }
 
     button:hover {
@@ -292,6 +293,10 @@
     @media print {
       body * {
         visibility: hidden;
+      }
+
+      button{
+        display: none;
       }
 
       #invoice,
@@ -428,16 +433,62 @@
 #poSection input {
   padding: 0px;
   width: 200px;
-  font-size: xx-small;
+  font-size: x-small;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  margin-top: 0px;
+    margin-left: 0px;
+    width: 1550px;
+}
 
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #aa0404;
+  color: white;
+}
 
   </style>
   <title>Marble Tiles Invoice</title>
 </head>
 
 <body>
+
+  <div class="topnav">
+		<a class="active" href="home.html">Home</a>
+		<a href="newcal.html">Daily Estimate Bill</a>
+		<a href="challan.html">Challan</a>
+		<a href="excel.html">Daily Estimate Bill Records</a>
+		<a href="inventory.html">Inventory</a>
+		<a href="self.html">Self Daily Bill Records</a>
+		<a href="search.html">Search the product</a>
+    <a href="barcode.html">Generate Barcode</a>
+	  </div>
+
+
+
+
+
+
+
+
+
+
 
   <div id="addItem">
     <input type="text" id="item" placeholder="Item">
@@ -446,13 +497,13 @@
     <input type="number" id="quantity" placeholder="Quantity">
     <input type="number" id="rate" placeholder="Rate">
     <button onclick="addItem()">Add Item</button>
-    <button onclick="editItems()">Edit Items</button>
+    <!-- <button onclick="editItems()">Edit Items</button> -->
   </div>
 
   <div id="invoice">
     <p style="color: #000000; text-align: center; font-size: xx-small; margin-top: -16px;"><b>|| श्री गणेशाय नम :||</b></p>
     <h5
-      style="color: white; background-color: #000000; border: 1px solid black; text-align: center; width: fit-content; margin-left: 366px;
+      style="color: rgb(0, 0, 0); background-color: #ffffff; border: 1px solid black; text-align: center; width: fit-content; margin-left: 366px;
       margin-top: 5px;
       font-size: x-small;">
       GST INVOICE</h5>
@@ -671,7 +722,6 @@
   
 
 
-
   <!-- Modal for editing items -->
   <div id="modalOverlay"></div>
   <div id="editModal">
@@ -705,28 +755,30 @@
       const itemsContainer = document.getElementById('invoiceItems');
       let totalAmount = 0;
 
-      function renderInvoice() {
-        itemsContainer.innerHTML = '';
+       // Function to render invoice items with an "Edit" button for each item
+    function renderInvoice() {
+      itemsContainer.innerHTML = '';
 
-        // Reset totalAmount before calculating the new total
-        totalAmount = 0;
+      // Reset totalAmount before calculating the new total
+      totalAmount = 0;
 
-        invoiceData.items.forEach(item => {
-          const total = item.quantity * item.rate;
-          totalAmount += total;
+      invoiceData.items.forEach((item, index) => {
+        const total = item.quantity * item.rate;
+        totalAmount += total;
 
-          const row = document.createElement('tr');
-          row.innerHTML = `
-      <td>${item.item}</td>
-      <td>${item.description}</td>
-      <td>${item.hsnCode}</td>
-      <td>${item.quantity}</td>
-      <td>${item.rate}</td>
-      <td>${total.toFixed(2)}</td>
-    `;
-   
-          itemsContainer.appendChild(row);
-        });
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.item}</td>
+          <td>${item.description}</td>
+          <td>${item.hsnCode}</td>
+          <td>${item.quantity}</td>
+          <td>${item.rate}</td>
+          <td>${total.toFixed(2)}</td>
+          <td><button onclick="editItem(${index})">Edit</button></td>
+        `;
+
+        itemsContainer.appendChild(row);
+      });
 
         // Calculate and populate total amount
         const invoiceTotalElement = document.getElementById('invoiceTotal');
@@ -758,10 +810,11 @@
         renderInvoice();
       };
 
+
       // Function to print the invoice
       window.printInvoice = function () {
         window.print();
-      };
+      }
 
       // Initial rendering
       renderInvoice();
@@ -827,27 +880,26 @@ document.getElementById('igstPercentage').addEventListener('input', updateGSTAmo
 
 
 // coulmn of items if you want to change them
-      // Variable to keep track of the index being edited
-      let editingIndex = -1;
+     // Function to edit an individual item
+     window.editItem = function (index) {
+      const itemToEdit = invoiceData.items[index];
 
-      // Function to edit all items
-      window.editItems = function () {
-        invoiceData.items.forEach((item, index) => {
-          // Populate modal with existing data
-          document.getElementById('editItem').value = item.item;
-          document.getElementById('editDescription').value = item.description;
-          document.getElementById('editHsnCode').value = item.hsnCode;
-          document.getElementById('editQuantity').value = item.quantity;
-          document.getElementById('editRate').value = item.rate;
+      // Populate modal with existing data
+      document.getElementById('editItem').value = itemToEdit.item;
+      document.getElementById('editDescription').value = itemToEdit.description;
+      document.getElementById('editHsnCode').value = itemToEdit.hsnCode;
+      document.getElementById('editQuantity').value = itemToEdit.quantity;
+      document.getElementById('editRate').value = itemToEdit.rate;
 
-          // Set the editing index
-          editingIndex = index;
+      // Set the editing index
+      editingIndex = index;
 
-          // Show modal
-          document.getElementById('modalOverlay').style.display = 'block';
-          document.getElementById('editModal').style.display = 'block';
-        });
-      };
+      // Show modal
+      document.getElementById('modalOverlay').style.display = 'block';
+      document.getElementById('editModal').style.display = 'block';
+    };
+
+
 
       // Function to save edited item
       window.saveEditedItem = function () {
