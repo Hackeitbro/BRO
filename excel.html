@@ -87,6 +87,36 @@
       font-weight: bold;
     }
     
+    
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  margin-top: -9px;
+    margin-left: -9px;
+    width: 1550px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #aa0404;
+  color: white;
+}
+
+
+
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -301,6 +331,18 @@ loadSavedData();
   </script>
 </head>
 <body>
+
+
+  <div class="topnav">
+		<a class="active" href="home.html">Home</a>
+		<a href="newcal.html">Daily Estimate Bill</a>
+    <a href="gst.html">Gst Bill</a>
+		<a href="challan.html">Challan</a>
+		<a href="inventory.html">Inventory</a>
+		<a href="self.html">Self Daily Bill Records</a>
+		<a href="search.html">Search the product</a>
+    <a href="barcode.html">Generate Barcode</a>
+	  </div>
 
     <div id="divtwo">
         <h1 class="report-header" style="background-color: red;
