@@ -291,9 +291,16 @@
   </div>
     <div id="total">Total: ₹<span id="invoiceTotal">0.00</span></div>
     <br>
+    <div id="discountMessage" style="margin-left: 10px; margin-top: -45px; font-weight: bold; color: #e74c3c; display: none; margin-bottom: 15px;">
+      Discount Applied: ₹<span id="appliedDiscount">0.00</span>
+      <br>
+      <span id="invoiceDiscountedTotal" style="display: none;">0.00</span>
+    </div>
   </div>
-   </div>
+  </div>
   <button id="print-bill">Print Bill</button>
+
+
 <!-- Add this button below your existing content in the body -->
 <button id="sendToSummaryButton" style="margin-left: 54px;
 padding: 6px;
@@ -302,6 +309,10 @@ background-color: #2ecc71;
 color: white;
 border-radius: 6px;
 cursor: pointer;">Save Data</button>
+
+<!-- Add this button below your existing content in the body -->
+<button id="applyDiscountButton" style="margin-left: 10px; padding: 6px; border: 2px solid #e74c3c; background-color: #e74c3c; color: white; border-radius: 6px; cursor: pointer;">Apply Discount</button>
+<!-- Add this div for displaying the discount message and discounted total -->
 
 
   <script>
@@ -313,6 +324,32 @@ cursor: pointer;">Save Data</button>
         items: [],
       };
 
+   // Add event listener to the new discount button
+   const applyDiscountButton = document.getElementById('applyDiscountButton');
+    applyDiscountButton.addEventListener('click', function () {
+      applyDiscount();
+    });
+
+    // Function to apply discount
+    function applyDiscount() {
+      const discountValue = parseFloat(prompt('Enter discount value in Rs:'));
+      if (!isNaN(discountValue)) {
+        const appliedDiscountContainer = document.getElementById('appliedDiscount');
+        const discountedTotalContainer = document.getElementById('invoiceDiscountedTotal');
+        const totalContainer = document.getElementById('invoiceTotal');
+        const total = parseFloat(totalContainer.textContent) || 0;
+
+        // Display the discount message
+        appliedDiscountContainer.textContent = discountValue.toFixed(2);
+        discountedTotalContainer.textContent = (total - discountValue).toFixed(2);
+        document.getElementById('discountMessage').style.display = 'block';
+
+        // Update the totalContainer with the discounted total
+        totalContainer.textContent = discountedTotalContainer.textContent;
+      } else {
+        alert('Please enter a valid discount value.');
+      }
+    }
 
      // NEW JAVASCRIPT FOR SELF HTML
 
