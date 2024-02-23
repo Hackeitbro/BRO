@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice container</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+    <div id="divtwo">
+        <h1 class="report-header"><b>MARVEL</b> Granite & Marbles</h1>
+         <!-- Address Section  -->
+        <div class="address-section">
+          <p>Address: opp. 'D' Prabhag, Rahatani,
+                         Kalewadi Phata, Pune - 411017.
+            <br> Email: marvelgroup@yahoo.com <br> Mobile No: 8888961999             
+          </p>
+        </div>
+      
+        <table id="myTable">
+          <tr>
+            <th>Sr. No</th>
+            <th>Date</th>
+            <th>Bill No</th>
+            <th>Party Name</th>
+            <th>Total Amount</th>
+            <th>Advance</th>
+            <th>R.Amount1</th>
+            <th>R.Amount2</th>
+            <th>Discount</th>
+            <th>Delivery</th>
+            <th>Balance</th>
+
+          </tr>
+          <td><span id="sr.no" contenteditable="true"></span></td>
+          <td><span id="date" contenteditable="true"></span></td>
+          <td><span id="bill no" contenteditable="true"></span></td>
+          <td><span id="party name" contenteditable="true"></span></td>
+          <td><span id="amount" contenteditable="true"></span></td>
+          <td><span id="advance" contenteditable="true"></span></td>
+          <td><span id="re amount" contenteditable="true"></span></td>
+          <td><span id="re amount2" contenteditable="true"></span></td>
+          <td><span id="discount" contenteditable="true"></span></td>
+          <td><span id="Delivery" contenteditable="true"></span></td>
+          <td><span id="Balance" contenteditable="true"></span></td>
+          
+        </table>
+      
+      
+        <button id="addRowBtn" onclick="addRow()">Add Row</button>
+        <button id="saveBtn" onclick="saveInvoice()">Save</button>
+      <button id="printBtn" onclick="myfun('divtwo')">Print</button>
+      <button id="exportBtn" onclick="exportToExcel()">Export to Excel</button>
+      </div>
+
+    <script src="script.js">
+       // Define saveInvoice function
+       function saveInvoice() {
+            // Save data to local storage
+            var dataToSave = {};
+
+            // Update with the actual ids you use in your table
+            dataToSave.sr_no = document.getElementById("sr_no").innerText;
+            dataToSave.date = document.getElementById("date").innerText;
+            // Add more fields as needed
+
+            localStorage.setItem("invoiceData", JSON.stringify(dataToSave));
+        }
+
+        // Load saved data from local storage when the page loads
+        window.onload = function () {
+            loadSavedData();
+        };
+
+
+        // Define a variable to store the added rows
+    var addedRows = 0;
+
+
+        function addRow() {
+        // Implement your add row logic here
+        var table = document.getElementById("myTable");
+        var newRow = table.insertRow(-1);
+
+        // Increment addedRows for each new row
+        addedRows++;
+
+        // Use a class for all editable spans to simplify selection
+        var editableClass = "editable";
+
+        // Loop through the table headers to create cells in the new row
+        for (var i = 0; i < table.rows[0].cells.length; i++) {
+            var newCell = newRow.insertCell(i);
+            var cellContent = document.createElement("span");
+            cellContent.contentEditable = "true";
+            cellContent.classList.add(editableClass);
+            cellContent.id = "row" + addedRows + "_" + i;
+            newCell.appendChild(cellContent);
+        }
+    }
+
+    function calculateFinalAmount() {
+        var table = document.getElementById("myTable");
+        var numRows = table.rows.length;
+        var numCols = table.rows[0].cells.length;
+        var totals = Array(numCols).fill(0);
+
+        // Loop through each row and accumulate column totals
+        for (var i = 1; i < numRows; i++) {
+            for (var j = 0; j < numCols; j++) {
+                var cellValue = parseFloat(document.getElementById("row" + i + "_" + j).innerText) || 0;
+                totals[j] += cellValue;
+            }
+        }
+
+        // Add a new row for displaying the totals
+        var finalRow = table.insertRow(numRows);
+        finalRow.style.fontWeight = "bold";
+
+        // Insert cells with total values
+        for (var k = 0; k < numCols; k++) {
+            var totalCell = finalRow.insertCell(k);
+            totalCell.innerText = totals[k].toFixed(2); // Display totals with two decimal places
+        }
+    }
+    
+    </script>       
+</body>
+</html>

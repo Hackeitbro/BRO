@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Inventory Management</title>
+  <style>
+    /* Common styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    button {
+      padding: 10px;
+      margin: 5px;
+    color: green;
+    background-color: black;
+    border: 2px solid green;
+    cursor: pointer;
+    }
+
+    /* Container styles */
+    .container {
+      width: 50%;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow-y: auto; /* Add this line for the scrollbar */
+      max-height: 400px; /* Set a maximum height */
+    }
+
+    .purchase-container {
+      background-color: #e6f7ff;
+    }
+
+    .sell-container {
+      background-color: #ffcccc;
+    }
+
+    .history-container {
+      background-color: #f0f0f0;
+    }
+
+    /* Additional styles for history section */
+    #history {
+      margin-top: 30px;
+    }
+
+
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+  margin-top: -20px;
+    margin-left: -21px;
+    width: 1550px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #aa0404;
+  color: white;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="topnav">
+		<a class="active" href="home.html">Home</a>
+		<a href="newcal.html">Daily Estimate Bill</a>
+    <a href="gst.html">Gst Bill</a>
+		<a href="challan.html">Challan</a>
+		<a href="excel.html">Daily Estimate Bill Records</a>
+		<a href="self.html">Self Daily Bill Records</a>
+		<a href="search.html">Search the product</a>
+    <a href="barcode.html">Generate Barcode</a>
+	  </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <h1>Business Inventory Management System</h1>
+<!-- Link to Product Search Page -->
+<p>Go to <a href="search.html" target="_blank" style="text-decoration: none;
+  color: green;
+  background-color: black;
+  padding: 12px;
+  border: 2px solid green;">Product Search Page</a></p>
+
+  <!-- Purchase Container -->
+  <div class="container purchase-container">
+     <!-- Purchase Form -->
+  <h2>Purchase</h2>
+  <form id="purchaseForm">
+    <form id="purchaseForm">
+      <label for="product">Product:</label>
+      <input type="text" id="product" required>
+  
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" required>
+  
+      <label for="price">Price:</label>
+      <input type="number" id="price" required>
+  
+      <label for="owner">Owner Name:</label>
+      <input type="text" id="owner" required>
+  
+      <label for="date">Date:</label>
+      <input type="date" id="date" required>
+  
+      <label for="squareFeet">Square Feet:</label>
+      <input type="number" id="squareFeet" required>
+  
+      <label for="category">Category:</label>
+      <select id="category" required>
+        <option value="Category1">Granite / Marble</option>
+        <option value="Category2">Kadappa / kota</option>
+        <!-- Add more categories as needed  -->
+      </select>
+  
+    <button type="button" onclick="addPurchase()">Add Purchase</button>
+  </form>
+
+  </div>
+
+  <!-- Inventory Container -->
+  <div class="container">
+    <h2>Inventory</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Square Feet</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="inventoryTableBody">
+        <!-- Inventory data will be inserted here dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Sell Container -->
+  <div class="container sell-container">
+    <h2>Sell</h2>
+    <form id="sellForm">
+      <label for="sellProduct">Product:</label>
+      <input type="text" id="sellProduct" required>
+    
+      <label for="sellQuantity">Quantity:</label>
+      <input type="number" id="sellQuantity" style="width: 125px;" required>
+    
+      <label for="sellSquareFeet">Square Feet:</label>
+      <input type="number" id="sellSquareFeet" required>
+    
+      <label for="sellRate">Rate:</label>
+      <input type="number" id="sellRate" required>
+      <button type="button" onclick="addSell()">Add Sell</button>
+    </form>
+  </div>
+
+  <!-- History Container -->
+  <div class="container history-container">
+    <h2>History</h2>
+    <label for="historyType">Select History Type:</label>
+    <select id="historyType" onchange="displayHistory()">
+      <option value="purchase">Purchase History</option>
+      <option value="sell">Sell History</option>
+    </select>
+    <ul id="historyList"></ul>
+  </div>
+
+  <!-- Buttons for Deleting Row and Clearing Data -->
+  <button type="button" onclick="clearAllData()">Clear All Data</button>
+  <button type="button" onclick="showClearRowPrompt()">Delete Row (Enter ID):</button>
+  <input type="text" id="deleteRowInput">
+  <button type="button" onclick="deleteRow()">Delete</button>
+  <button type="button" onclick="exportToExcel()">Export to Excel</button>
+
+   
+
+  <script>
+    // Load data from localStorage or initialize if not present
+    let inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+    let purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+    let sellHistory = JSON.parse(localStorage.getItem('sellHistory')) || [];
+
+    // ... Your existing code ...
+
+    function displayInventory() {
+      // ... Your existing code ...
+      const tableBody = document.getElementById('inventoryTableBody');
+      tableBody.innerHTML = '';
+
+      inventory.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.id}</td>
+          <td>${item.product}</td>
+          <td>${item.quantity}</td>
+          <td>${item.price}</td>
+          <td>${item.squareFeet}</td>
+          <td><button onclick="deleteRowPrompt('${item.id}')">Delete</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+   
+
+    function deleteRowPrompt(productId) {
+      const inputField = document.getElementById('deleteRowInput');
+      inputField.value = productId;
+    }
+
+
+    function displayHistory() {
+      const historyType = document.getElementById('historyType').value;
+      const historyList = document.getElementById('historyList');
+
+      historyList.innerHTML = '';
+
+      if (historyType === 'purchase') {
+        purchaseHistory.forEach(purchase => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `Purchase: ${purchase.product}, Quantity: ${purchase.quantity}, Square Feet: ${purchase.squareFeet}, Category: ${purchase.category}, Owner: ${purchase.owner}, Date: ${purchase.date}`;
+          historyList.appendChild(listItem);
+        });
+      } else if (historyType === 'sell') {
+        sellHistory.forEach(sell => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `Sell: ${sell.product}, Quantity: ${sell.quantity}, Square Feet: ${sell.squareFeet}, Rate: ${sell.rate}, Date: ${sell.date}`;
+          historyList.appendChild(listItem);
+        });
+      }
+    }
+
+    function addPurchase() {
+      // ... Your existing addPurchase function ...
+      const product = document.getElementById('product').value;
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const price = parseInt(document.getElementById('price').value);
+      const owner = document.getElementById('owner').value;
+      const date = document.getElementById('date').value;
+      const squareFeet = parseInt(document.getElementById('squareFeet').value);
+      const category = document.getElementById('category').value;
+
+      // Generate a unique ID for the product
+      const productId = generateProductId();
+      // Add purchase to inventory
+      inventory.push({ id: productId, product, quantity, price, owner, date, squareFeet, category });
+
+      // Add purchase to history
+      purchaseHistory.push({ id: productId, product, quantity, squareFeet, category, owner, date });
+
+      // Save data to localStorage
+      saveDataToLocalStorage();
+
+      displayInventory();
+      displayHistory();
+    }
+
+    function addSell() {
+      const sellInput = document.getElementById('sellProduct').value.toLowerCase();
+      const sellQuantity = parseInt(document.getElementById('sellQuantity').value);
+      const sellSquareFeet = parseInt(document.getElementById('sellSquareFeet').value);
+      const sellRate = parseInt(document.getElementById('sellRate').value);
+      const date = new Date().toISOString().split('T')[0];
+
+      const productIndex = inventory.findIndex(item => item.product.toLowerCase() === sellInput || item.id === sellInput);
+
+      if (productIndex !== -1 && inventory[productIndex].quantity >= sellQuantity) {
+        // Update quantity and square feet in inventory
+        inventory[productIndex].quantity -= sellQuantity;
+        inventory[productIndex].squareFeet -= sellSquareFeet;
+
+        // Add sell to history
+        sellHistory.push({ id: inventory[productIndex].id, product: inventory[productIndex].product, quantity: sellQuantity, squareFeet: sellSquareFeet, rate: sellRate, date });
+
+        // Save data to localStorage after sell
+        saveDataToLocalStorage();
+
+        displayInventory();
+        displayHistory();
+      } else {
+        alert('Product not found or insufficient quantity available.');
+      }
+    }
+
+    function generateProductId() {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let productId = '';
+      for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        productId += characters.charAt(randomIndex);
+      }
+      return productId;
+    }
+
+    function saveDataToLocalStorage() {
+      localStorage.setItem('inventory', JSON.stringify(inventory));
+      localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
+      localStorage.setItem('sellHistory', JSON.stringify(sellHistory));
+    }
+
+    displayInventory();
+    displayHistory();
+
+    function deleteRowPrompt(productId) {
+      const inputField = document.getElementById('deleteRowInput');
+      inputField.value = productId;
+    }
+
+    function deleteRow() {
+      const productId = document.getElementById('deleteRowInput').value;
+      const index = inventory.findIndex(item => item.id === productId);
+
+      if (index !== -1) {
+        inventory.splice(index, 1);
+        purchaseHistory = purchaseHistory.filter(purchase => purchase.id !== productId);
+        sellHistory = sellHistory.filter(sell => sell.id !== productId);
+
+        // Save data to localStorage after deletion
+        saveDataToLocalStorage();
+
+        displayInventory();
+        displayHistory();
+      }
+    }
+
+    function clearAllData() {
+      // Clear all data from localStorage
+      localStorage.removeItem('inventory');
+      localStorage.removeItem('purchaseHistory');
+      localStorage.removeItem('sellHistory');
+
+      // Clear data arrays
+      inventory = [];
+      purchaseHistory = [];
+      sellHistory = [];
+
+      displayInventory();
+      displayHistory();
+    }
+
+    function saveDataToLocalStorage() {
+      localStorage.setItem('inventory', JSON.stringify(inventory));
+      localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
+      localStorage.setItem('sellHistory', JSON.stringify(sellHistory));
+    }
+
+    function showInventory() {
+    // Create a pop-up window
+    const inventoryWindow = window.open('', '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
+
+    }
+
+    function exportToExcel() {
+    // Prepare the data for export
+    const data = [['ID', 'Product', 'Quantity', 'Price', 'Owner', 'Date', 'Square Feet', 'Category']];
+    inventory.forEach(item => {
+      data.push([item.id, item.product, item.quantity, item.price, item.owner, item.date, item.squareFeet, item.category]);
+    });
+
+    // Create a CSV content
+    const csvContent = 'data:text/csv;charset=utf-8,' + data.map(row => row.join(',')).join('\n');
+
+    // Create a link element and trigger the download
+    const link = document.createElement('a');
+    link.href = encodeURI(csvContent);
+    link.target = '_blank';
+    link.download = 'inventory.csv';
+    link.click();
+  }
+
+
+
+  </script>
+
+</body>
+
+</html>
